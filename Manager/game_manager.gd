@@ -215,7 +215,6 @@ func _ready() -> void:
 	Globals.connect("improved_food_xp", update_reputation)
 	Globals.connect("improved_service_xp", update_reputation)
 	Globals.connect("extra_quest_board_xp", update_reputation)
-	update_reputation()
 
 
 func _process(_delta: float) -> void:
@@ -319,15 +318,16 @@ func move_quest_details_list() -> void:
 
 
 func update_xp() -> void:
+	print(Globals.guild_xp)
+	print(current_scenario)
 	if current_scenario != null:
 		guild_xp_bar.change_value(current_scenario["xp"])
 		await get_tree().create_timer(1.5).timeout
 		guild_xp_bar.max_value = Globals.guild_xp_bar_max_value
+		guild_xp_bar.value = Globals.guild_xp
 		if guild_xp_bar.value >= guild_xp_bar.max_value:
 			leveled_up = true
-			#guild_xp_bar.max_value *= 1.5
 			Globals.guild_xp_bar_max_value *= 1.5
-			guild_xp_bar.max_value = Globals.guild_xp_bar_max_value
 			guild_xp_bar.value = 0
 			Globals.guild_xp = 0
 			Globals.new_day_reputation_decrease += .01
@@ -338,7 +338,9 @@ func update_xp() -> void:
 func update_reputation() -> void:
 	if current_scenario != null:
 		town_reputation_bar.change_value(amount_of_rep)
-		await get_tree().create_timer(1.5).timeout 
+		await get_tree().create_timer(1.5).timeout
+		town_reputation_bar.value = Globals.town_reputation
+		print("town_reputation_bar.value: " + str(town_reputation_bar.value))
 		if Globals.town_reputation <= .1:
 			$"Audio/Present Scenario Timer".stop()
 			quest_details_list.visible = false
@@ -353,8 +355,8 @@ func update_reputation() -> void:
 
 func end_of_day() -> void:
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
+	town_reputation_bar.gained_rep = false
 	if Globals.quests_left <= 0:
-		await update_reputation()
 		quest_details_list.visible = false
 		game_over.visible = false
 		weekly_scenario_vbox.visible = false
@@ -400,7 +402,7 @@ func _on_continue_btn_pressed() -> void:
 	new_day()
 
 func new_day() -> void:
-	if Globals.day % 7 == 0:                                      ######Change
+	if Globals.day % 1 == 0:                                      ######Change
 		Globals.day += 1
 		give_weekly_scenario()
 	else:

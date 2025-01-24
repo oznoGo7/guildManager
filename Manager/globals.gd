@@ -47,6 +47,7 @@ signal extra_quest_board_xp
 func reset_values() -> void:
 	print("Values Reset")
 	guild_xp = 0
+	get_tree().get_first_node_in_group("Guild XP Bar").value = 0
 	guild_level = 1
 	guild_gold = 100
 	guild_members_left = 5

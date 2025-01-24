@@ -653,7 +653,7 @@ theme_override_constants/shadow_outline_size = 10
 text = "Guild XP Bar"
 horizontal_alignment = 1
 
-[node name="Guild_XP_BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer"]
+[node name="Guild_XP_BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer" groups=["Guild XP Bar"]]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme = SubResource("Theme_62xeb")

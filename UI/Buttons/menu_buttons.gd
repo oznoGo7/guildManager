@@ -12,6 +12,7 @@ func _on_pressed() -> void:
 	$"Button Press".play()
 	match name:
 		"Play":
+			Globals.load_data()
 			await $"../../Animation Controller".fade_out()
 			if Globals.quests_left > 0:
 				game_scene.get_child(1).get_child(0).start() # Present Secnario Timer
