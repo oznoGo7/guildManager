@@ -246,7 +246,7 @@ func present_scenario():
 	option_1_lbl.text = "Choice 1: Send Adventurers (" + str(Globals.guild_members_needed) + " needed)"
 	option_2_lbl.text = "Choice 2: Negotiate a higher price (50% Success Rate)"
 	option_3_lbl.text = "Choice 3: Ignore the request"
-	reward_lbl.text = "Reward: " + str(current_scenario["reward"]) + " gold and " + str(current_scenario["xp"]) + " XP."
+	reward_lbl.text = "Reward: " + str(round(current_scenario["reward"])) + " gold and " + str(current_scenario["xp"]) + " XP."
 	choice_control_box.visible = true
 
 
@@ -280,7 +280,7 @@ func _on_choice_2_pressed() -> void:
 	if random_chance > 10:
 		print("Negotiated terms. Reward increased by x2!")
 		current_scenario["reward"] *= 1.25
-		reward_lbl.text = "Reward: " + str(current_scenario["reward"]) + " gold and " + str(current_scenario["xp"]) + " XP."
+		reward_lbl.text = "Reward: " + str(round(current_scenario["reward"])) + " gold and " + str(current_scenario["xp"]) + " XP."
 	else:
 		print("Failed Negotiations. Client has fled")
 		Globals.quests_left -= 1
@@ -380,7 +380,7 @@ func level_up() -> void:
 
 func _on_skip_pressed() -> void:
 	level_up_ended()
-	
+
 
 func _on_main_menu_pressed() -> void:
 	get_tree().get_first_node_in_group("Play Button").text = "Play"
@@ -507,6 +507,7 @@ func _on_ws_continue_btn_pressed() -> void:
 		move_quest_details_list()
 		weekly_scenario_vbox.visible = false
 	else:
+		$Audio.present_scenario_timer.stop()
 		quest_details_list.visible = false
 		eod.visible = false
 		game_over.visible = true

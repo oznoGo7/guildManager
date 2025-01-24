@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://iyc288nhvx4t"]
+[gd_scene load_steps=49 format=3 uid="uid://iyc288nhvx4t"]
 
 [ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
 [ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://6hh016q1sx57" path="res://Artwork/UI/ValueBar_128x16.png" id="8_sgcg1"]
 [ext_resource type="Script" path="res://Game Scenes/guild_stats.gd" id="9_ij47d"]
 [ext_resource type="Texture2D" uid="uid://copiser3da2mr" path="res://Artwork/UI/ValueBlue_120x8.png" id="9_op4ep"]
-[ext_resource type="Texture2D" uid="uid://book7a248tnpj" path="res://Artwork/Sprites/IDLE.png" id="9_xm61m"]
+[ext_resource type="Texture2D" uid="uid://book7a248tnpj" path="res://Artwork/Sprites/Adventurer/IDLE.png" id="9_xm61m"]
 [ext_resource type="Texture2D" uid="uid://bmskdhi32s63o" path="res://Artwork/UI/ValueRed_120x8.png" id="10_ex2ks"]
+[ext_resource type="Texture2D" uid="uid://bw02n1a3u85bg" path="res://Artwork/Sprites/Church Book/book_06g.png" id="11_ui3nx"]
 [ext_resource type="Script" path="res://Game Scenes/guild_xp_bar.gd" id="14_2dm2u"]
 [ext_resource type="Script" path="res://Game Scenes/build_stats.gd" id="14_gkfxq"]
 [ext_resource type="PackedScene" uid="uid://js3538ytpx8l" path="res://UI/Labels/SettingsTitle.tscn" id="14_pgn0j"]
@@ -72,9 +73,14 @@ tracks/0/keys = {
 "values": [1]
 }
 
+[sub_resource type="Animation" id="Animation_tn2wb"]
+resource_name = "Book"
+step = 0.1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mwv3v"]
 _data = {
 "Adventurer": SubResource("Animation_2d6th"),
+"Book": SubResource("Animation_tn2wb"),
 "RESET": SubResource("Animation_1ee4s")
 }
 
@@ -167,6 +173,8 @@ animations = [{
 "name": &"Adventurers",
 "speed": 5.0
 }]
+
+[sub_resource type="Theme" id="Theme_ee5yl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmif4"]
 texture = ExtResource("7_twdi5")
@@ -434,12 +442,12 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -304.0
-offset_top = -263.0
+offset_top = -231.5
 offset_right = 304.0
-offset_bottom = 263.0
+offset_bottom = 294.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 15
 alignment = 1
 
 [node name="Label" type="Label" parent="Level Up Options/VBoxContainer"]
@@ -488,6 +496,7 @@ frame = 1
 [node name="Increase Rep BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 400)
 layout_mode = 2
+theme = SubResource("Theme_ee5yl")
 
 [node name="Increase Rep LBL" type="Label" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN"]
 layout_mode = 1
@@ -503,13 +512,20 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
-text = "Increase Reputation with the Town (40%)
+text = "Donate to the Church Reputation +40%
 Cost 1000"
 horizontal_alignment = 1
 autowrap_mode = 2
 
+[node name="Sprite2D" type="Sprite2D" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN"]
+position = Vector2(101, 175)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("11_ui3nx")
+
 [node name="Skip" type="Button" parent="Level Up Options/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
 text = "SKIP"
 
 [node name="Weekly Scenario Vbox" type="VBoxContainer" parent="."]

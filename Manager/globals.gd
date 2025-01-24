@@ -134,6 +134,8 @@ func load_data():
 	else:
 		print("No Data Saved")
 		guild_xp = 0
+		get_tree().get_first_node_in_group("Guild XP Bar").value = 0
+		get_tree().get_first_node_in_group("Town Reputation Bar").value = .75
 		guild_level = 1
 		guild_gold = 100
 		guild_members_left = 5
