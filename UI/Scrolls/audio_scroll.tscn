@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://gsuqr47nlrj7"]
+
+[ext_resource type="Script" path="res://UI/Scrolls/audio_scroll.gd" id="1_mq0r0"]
+
+[node name="AudioScroll" type="HSlider"]
+offset_right = 8.0
+offset_bottom = 16.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_mq0r0")

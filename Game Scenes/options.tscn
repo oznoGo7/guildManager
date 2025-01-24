@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://db2hyhvqcqud1"]
+
+[node name="Option 1" type="Label"]
+custom_minimum_size = Vector2(576, 0)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Choice 1: Ignore him and ask for the next customer"
+horizontal_alignment = 1
+autowrap_mode = 2

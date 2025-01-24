@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce1xku1igciid"]
+
+[ext_resource type="Script" path="res://UI/Labels/build_labels.gd" id="1_u5w3f"]
+
+[node name="Build Labels" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Cost: 500
+Town Reputation + 15%"
+script = ExtResource("1_u5w3f")

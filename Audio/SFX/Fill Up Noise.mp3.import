@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ukundhlfk8un"
+path="res://.godot/imported/Fill Up Noise.mp3-01013978af1028d2ac5a298ad9f81580.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Fill Up Noise.mp3"
+dest_files=["res://.godot/imported/Fill Up Noise.mp3-01013978af1028d2ac5a298ad9f81580.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

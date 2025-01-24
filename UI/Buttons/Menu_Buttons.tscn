@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://rso3gymj47gc"]
+
+[ext_resource type="Texture2D" uid="uid://cmsg74y68ymum" path="res://Artwork/UI/Button Hovered.png" id="1_c5qyr"]
+[ext_resource type="Script" path="res://UI/Buttons/menu_buttons.gd" id="1_v6nqu"]
+[ext_resource type="Texture2D" uid="uid://brr0r23h4sdrn" path="res://Artwork/UI/Button.png" id="2_rsbc5"]
+[ext_resource type="AudioStream" uid="uid://c165p5q24j4uw" path="res://Audio/SFX/Button Press.mp3" id="4_nyqg6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_31usm"]
+texture = ExtResource("1_c5qyr")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wiaj6"]
+texture = ExtResource("2_rsbc5")
+
+[sub_resource type="Theme" id="Theme_f8wh3"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_31usm")
+Button/styles/normal = SubResource("StyleBoxTexture_wiaj6")
+Button/styles/pressed = null
+
+[node name="Play" type="Button"]
+custom_minimum_size = Vector2(200, 0)
+theme = SubResource("Theme_f8wh3")
+text = "Play Game"
+script = ExtResource("1_v6nqu")
+
+[node name="Button Press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_nyqg6")
+bus = &"sfx"
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
