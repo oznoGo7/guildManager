@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c5tkbbispu5s5"]
+
+[node name="Music" type="Label"]
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "Music"
+horizontal_alignment = 1

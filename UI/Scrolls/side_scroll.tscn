@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://g2lunu8hiwt6"]
+
+[ext_resource type="Script" path="res://UI/Scrolls/side_scroll.gd" id="1_iew8h"]
+
+[node name="SideScroll" type="HScrollBar"]
+offset_right = 8.0
+offset_bottom = 8.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_iew8h")

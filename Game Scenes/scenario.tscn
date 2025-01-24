@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://djelmmjxnaeig"]
+
+[node name="Scenario" type="Label"]
+custom_minimum_size = Vector2(576, 0)
+text = "A struggling merchant comes up to you and asks for your assistance in escorting some goods to the next town over"
+horizontal_alignment = 1
+autowrap_mode = 2

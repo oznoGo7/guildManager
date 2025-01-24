@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc37y4dw05u16"]
+
+[ext_resource type="FontFile" uid="uid://bquvtja6buwsw" path="res://UI/Neoblock DEMO.otf" id="1_1l5b8"]
+[ext_resource type="Script" path="res://UI/Labels/Title/title_label.gd" id="2_0eh3g"]
+
+[node name="G" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0.589351, 0.400565, 0.0676036, 1)
+theme_override_constants/shadow_outline_size = 7
+theme_override_fonts/font = ExtResource("1_1l5b8")
+theme_override_font_sizes/font_size = 140
+text = "G"
+horizontal_alignment = 1
+script = ExtResource("2_0eh3g")

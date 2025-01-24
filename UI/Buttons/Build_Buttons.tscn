@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cov4tnc8lbmvu"]
+
+[ext_resource type="Script" path="res://UI/Buttons/build_buttons.gd" id="1_2xqpv"]
+[ext_resource type="Texture2D" uid="uid://cmsg74y68ymum" path="res://Artwork/UI/Button Hovered.png" id="1_xwhn6"]
+[ext_resource type="Texture2D" uid="uid://brr0r23h4sdrn" path="res://Artwork/UI/Button.png" id="2_6sgwv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_troc7"]
+texture = ExtResource("1_xwhn6")
+modulate_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gdnjr"]
+texture = ExtResource("2_6sgwv")
+modulate_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="Theme" id="Theme_hee6h"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_troc7")
+Button/styles/normal = SubResource("StyleBoxTexture_gdnjr")
+Button/styles/pressed = null
+
+[node name="Improved Menu" type="Button"]
+custom_minimum_size = Vector2(100, 25)
+theme = SubResource("Theme_hee6h")
+script = ExtResource("1_2xqpv")
+
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

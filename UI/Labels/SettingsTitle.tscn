@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://js3538ytpx8l"]
+
+[node name="Label" type="Label"]
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "Settings"
+horizontal_alignment = 1

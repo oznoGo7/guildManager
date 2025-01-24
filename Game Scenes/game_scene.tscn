@@ -1,0 +1,923 @@
+[gd_scene load_steps=46 format=3 uid="uid://iyc288nhvx4t"]
+
+[ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
+[ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
+[ext_resource type="Script" path="res://Manager/game_manager.gd" id="1_qq12l"]
+[ext_resource type="PackedScene" uid="uid://db2hyhvqcqud1" path="res://Game Scenes/options.tscn" id="2_4rdoe"]
+[ext_resource type="PackedScene" uid="uid://bw8ly3ljofgp1" path="res://Manager/Globals.tscn" id="2_bqvfk"]
+[ext_resource type="Texture2D" uid="uid://bbkymupg5u5dm" path="res://Artwork/UI/RectangleBox_96x96.png" id="3_0au3g"]
+[ext_resource type="PackedScene" uid="uid://c8v4rxffhvjvb" path="res://Audio/Music/audio.tscn" id="3_2tspa"]
+[ext_resource type="Script" path="res://Game Scenes/quest_details_list.gd" id="4_pum6d"]
+[ext_resource type="PackedScene" uid="uid://cov4tnc8lbmvu" path="res://UI/Buttons/Build_Buttons.tscn" id="5_7lhf8"]
+[ext_resource type="Texture2D" uid="uid://d0lh1nu5rnjw7" path="res://Artwork/UI/HotkeyBox_34x34.png" id="7_twdi5"]
+[ext_resource type="PackedScene" uid="uid://ce1xku1igciid" path="res://UI/Labels/Build Labels.tscn" id="7_vl3xu"]
+[ext_resource type="Texture2D" uid="uid://6hh016q1sx57" path="res://Artwork/UI/ValueBar_128x16.png" id="8_sgcg1"]
+[ext_resource type="Script" path="res://Game Scenes/guild_stats.gd" id="9_ij47d"]
+[ext_resource type="Texture2D" uid="uid://copiser3da2mr" path="res://Artwork/UI/ValueBlue_120x8.png" id="9_op4ep"]
+[ext_resource type="Texture2D" uid="uid://book7a248tnpj" path="res://Artwork/Sprites/IDLE.png" id="9_xm61m"]
+[ext_resource type="Texture2D" uid="uid://bmskdhi32s63o" path="res://Artwork/UI/ValueRed_120x8.png" id="10_ex2ks"]
+[ext_resource type="Script" path="res://Game Scenes/guild_xp_bar.gd" id="14_2dm2u"]
+[ext_resource type="Script" path="res://Game Scenes/build_stats.gd" id="14_gkfxq"]
+[ext_resource type="PackedScene" uid="uid://js3538ytpx8l" path="res://UI/Labels/SettingsTitle.tscn" id="14_pgn0j"]
+[ext_resource type="PackedScene" uid="uid://c5tkbbispu5s5" path="res://UI/Labels/Settings Label.tscn" id="15_q8alp"]
+[ext_resource type="PackedScene" uid="uid://gsuqr47nlrj7" path="res://UI/Scrolls/audio_scroll.tscn" id="16_0loxc"]
+[ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="17_8dfca"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c22rn"]
+texture = ExtResource("3_0au3g")
+modulate_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="Animation" id="Animation_2d6th"]
+resource_name = "Adventurer"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Adventurer Anim:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Adventurers"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Adventurer Anim:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_1ee4s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Adventurer Anim:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwv3v"]
+_data = {
+"Adventurer": SubResource("Animation_2d6th"),
+"RESET": SubResource("Animation_1ee4s")
+}
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kynsr"]
+texture = ExtResource("3_0au3g")
+modulate_color = Color(1, 1, 1, 0.67451)
+
+[sub_resource type="Theme" id="Theme_hg06k"]
+Panel/styles/panel = SubResource("StyleBoxTexture_kynsr")
+
+[sub_resource type="Theme" id="Theme_obsq8"]
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = null
+Button/styles/pressed = null
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x887g"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(0, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foq0p"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(96, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gsua"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(192, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1mld"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(288, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeuy6"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(384, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkkkd"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(480, 0, 96, 84)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avtc5"]
+atlas = ExtResource("9_xm61m")
+region = Rect2(576, 0, 96, 84)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aucsw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x887g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foq0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gsua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1mld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeuy6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkkkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avtc5")
+}],
+"loop": true,
+"name": &"Adventurers",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmif4"]
+texture = ExtResource("7_twdi5")
+modulate_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="Theme" id="Theme_k676d"]
+Panel/styles/panel = SubResource("StyleBoxTexture_mmif4")
+
+[sub_resource type="Theme" id="Theme_62xeb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_53bwj"]
+texture = ExtResource("8_sgcg1")
+expand_margin_left = 6.0
+expand_margin_top = 10.0
+expand_margin_right = 6.0
+expand_margin_bottom = 10.0
+modulate_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oe076"]
+texture = ExtResource("9_op4ep")
+modulate_color = Color(1, 1, 1, 0.823529)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tw5pp"]
+texture = ExtResource("8_sgcg1")
+expand_margin_left = 6.0
+expand_margin_top = 10.0
+expand_margin_right = 6.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3xmf"]
+texture = ExtResource("10_ex2ks")
+modulate_color = Color(1, 1, 1, 0.823529)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f24h3"]
+texture = ExtResource("3_0au3g")
+
+[node name="Game Scene" type="Control" groups=["Game Scene"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qq12l")
+
+[node name="Globals" parent="." instance=ExtResource("2_bqvfk")]
+
+[node name="Audio" parent="." instance=ExtResource("3_2tspa")]
+
+[node name="Quest Details List" type="Control" parent="." groups=["Quest Details List"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -768.0
+offset_right = 288.0
+offset_bottom = -432.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_pum6d")
+
+[node name="Panel" type="Panel" parent="Quest Details List"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -33.0
+offset_right = 87.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c22rn")
+
+[node name="Quest Details List" type="VBoxContainer" parent="Quest Details List" groups=["Quest Details List Vbox"]]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -168.0
+offset_right = 288.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Quests Left_LBL" type="Label" parent="Quest Details List/Quest Details List"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 12
+theme_override_font_sizes/font_size = 32
+text = "Quests Left:"
+horizontal_alignment = 1
+
+[node name="Scenario" parent="Quest Details List/Quest Details List" instance=ExtResource("1_gv6g1")]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+
+[node name="Option 1 LBL" parent="Quest Details List/Quest Details List" instance=ExtResource("2_4rdoe")]
+layout_mode = 2
+text = "Choice 1: Send an Adventurer"
+
+[node name="Option 2 LBL" parent="Quest Details List/Quest Details List" instance=ExtResource("2_4rdoe")]
+layout_mode = 2
+text = "Choice 2: Negotiate a higher price (50% Success Rate)"
+
+[node name="Option 3 LBL" parent="Quest Details List/Quest Details List" instance=ExtResource("2_4rdoe")]
+layout_mode = 2
+text = "Choice 3: Ask for the next customer"
+
+[node name="Reward LBL" parent="Quest Details List/Quest Details List" instance=ExtResource("2_4rdoe")]
+layout_mode = 2
+text = "Reward: "
+
+[node name="Choice Control Box" type="Control" parent="Quest Details List/Quest Details List"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Quest Details List/Quest Details List/Choice Control Box"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 20.0
+offset_right = 16.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Choice 1 BTN" parent="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+script = null
+
+[node name="Choice 2 BTN" parent="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Choice 2"
+script = null
+
+[node name="Choice 3 BTN" parent="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Choice 3"
+script = null
+
+[node name="EOD" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -109.0
+offset_right = 288.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="No More Quests!" type="Label" parent="EOD"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "No More Quests Left For Today!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EOD"]
+layout_mode = 2
+alignment = 1
+
+[node name="Continue BTN" parent="EOD/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Continue?"
+script = null
+
+[node name="Game Over" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -109.0
+offset_right = 288.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Game Over LBL" type="Label" parent="Game Over"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "The Mayor has shut down your guild for too many negative reviews"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game Over"]
+layout_mode = 2
+alignment = 1
+
+[node name="Main Menu" parent="Game Over/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Main Menu
+"
+script = null
+
+[node name="GO_Quit BTN" parent="Game Over/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Quit"
+script = null
+
+[node name="Level Up Options" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 270.0
+offset_top = 138.0
+offset_right = -270.0
+offset_bottom = -85.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="anim" type="AnimationPlayer" parent="Level Up Options"]
+root_node = NodePath("../VBoxContainer/HBoxContainer/Adventurers BTN")
+libraries = {
+"": SubResource("AnimationLibrary_mwv3v")
+}
+
+[node name="Panel" type="Panel" parent="Level Up Options"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -7.0
+offset_right = 59.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_hg06k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Level Up Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.0
+offset_top = -263.0
+offset_right = 304.0
+offset_bottom = 263.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Label" type="Label" parent="Level Up Options/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "LEVEL UP!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Level Up Options/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Adventurers BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+theme = SubResource("Theme_obsq8")
+
+[node name="Adventurers LBL" type="Label" parent="Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Recruit more Adventurers (1-4)
+Cost 1000"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Adventurer Anim" type="AnimatedSprite2D" parent="Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN"]
+position = Vector2(102, 164)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_aucsw")
+animation = &"Adventurers"
+frame = 1
+
+[node name="Increase Rep BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+
+[node name="Increase Rep LBL" type="Label" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Increase Reputation with the Town (40%)
+Cost 1000"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Increase Quest Count BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+
+[node name="Increase Quest Count LBL" type="Label" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Increase Amount of Daily Quests (1)
+Cost 1000"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Skip" type="Button" parent="Level Up Options/VBoxContainer"]
+layout_mode = 2
+text = "SKIP"
+
+[node name="Weekly Scenario Vbox" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -109.0
+offset_right = 288.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Weekly Scenario Title" type="Label" parent="Weekly Scenario Vbox"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Weekly Scenario LBL" type="Label" parent="Weekly Scenario Vbox"]
+custom_minimum_size = Vector2(576, 0)
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Weekly Scenario Vbox"]
+layout_mode = 2
+alignment = 1
+
+[node name="ws Continue btn" parent="Weekly Scenario Vbox/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Continue
+"
+script = null
+
+[node name="WS_Quit BTN" parent="Weekly Scenario Vbox/HBoxContainer" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Quit"
+script = null
+
+[node name="Guild Stats" type="Control" parent="." groups=["Guild Stats"]]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 2.0
+offset_top = -600.0
+offset_right = 200.0
+offset_bottom = 48.0
+script = ExtResource("9_ij47d")
+
+[node name="Panel" type="Panel" parent="Guild Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 171.0
+offset_right = 58.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k676d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Guild Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 38.0
+offset_top = 64.0
+offset_right = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Guild Stats" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Guild Stats"
+horizontal_alignment = 1
+
+[node name="Day Tracker" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Day: 1"
+horizontal_alignment = 1
+
+[node name="Guild Adventurers Left LBL" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Adventurers Left:"
+horizontal_alignment = 1
+
+[node name="Guild Money LBL" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Guild Gold:"
+horizontal_alignment = 1
+
+[node name="Guild XP_LBL" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Guild XP Bar"
+horizontal_alignment = 1
+
+[node name="Guild_XP_BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme = SubResource("Theme_62xeb")
+theme_override_styles/background = SubResource("StyleBoxTexture_53bwj")
+theme_override_styles/fill = SubResource("StyleBoxTexture_oe076")
+max_value = 1300.0
+show_percentage = false
+script = ExtResource("14_2dm2u")
+
+[node name="Reputation LBL" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Town Reputation"
+horizontal_alignment = 1
+
+[node name="Town Reputation BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxTexture_tw5pp")
+theme_override_styles/fill = SubResource("StyleBoxTexture_b3xmf")
+max_value = 1.0
+value = 0.75
+show_percentage = false
+script = ExtResource("14_2dm2u")
+
+[node name="Build Stats" type="Control" parent="." groups=["Build Stats"]]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -152.0
+offset_top = -600.0
+offset_bottom = 48.0
+grow_horizontal = 0
+script = ExtResource("14_gkfxq")
+
+[node name="Panel" type="Panel" parent="Build Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -115.0
+offset_top = 171.0
+offset_right = -2.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_k676d")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Build Stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -71.0
+offset_right = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Build LBL" type="Label" parent="Build Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Build"
+horizontal_alignment = 1
+
+[node name="Improved Menu" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
+layout_mode = 2
+text = "Improve Food Menu"
+
+[node name="Menu Description" parent="Build Stats/VBoxContainer/Improved Menu" instance=ExtResource("7_vl3xu")]
+visible = false
+layout_mode = 0
+offset_left = -3.0
+offset_top = 140.0
+offset_right = 179.0
+offset_bottom = 215.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Improve Food Menu
+Cost: 500
+Town Reputation + 15%"
+horizontal_alignment = 1
+
+[node name="Improved Food" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
+layout_mode = 2
+text = "Improve Food Quality"
+
+[node name="Food Description" parent="Build Stats/VBoxContainer/Improved Food" instance=ExtResource("7_vl3xu")]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 111.0
+offset_right = 180.0
+offset_bottom = 186.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Improve Food Menu
+Cost: 500
+Town Reputation + 15%"
+horizontal_alignment = 1
+
+[node name="Improved Service" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
+layout_mode = 2
+text = "Improve Service"
+
+[node name="Service Description" parent="Build Stats/VBoxContainer/Improved Service" instance=ExtResource("7_vl3xu")]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 83.0
+offset_right = 180.0
+offset_bottom = 158.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Improve Food Menu
+Cost: 500
+Town Reputation + 15%"
+horizontal_alignment = 1
+
+[node name="Extra Quest Board" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
+layout_mode = 2
+text = "Extra Quest Board"
+
+[node name="Quest Board Description" parent="Build Stats/VBoxContainer/Extra Quest Board" instance=ExtResource("7_vl3xu")]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 54.0
+offset_right = 180.0
+offset_bottom = 129.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Improve Food Menu
+Cost: 500
+Town Reputation + 15%"
+horizontal_alignment = 1
+
+[node name="Scout For Adventurers" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
+layout_mode = 2
+text = "Add Adventurers"
+
+[node name="Scout For Adventurers Description" parent="Build Stats/VBoxContainer/Scout For Adventurers" instance=ExtResource("7_vl3xu")]
+visible = false
+layout_mode = 0
+offset_left = -2.0
+offset_top = 25.0
+offset_right = 180.0
+offset_bottom = 100.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Improve Food Menu
+Cost: 500
+Town Reputation + 15%"
+horizontal_alignment = 1
+
+[node name="Settings Menu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -200.0
+offset_right = 324.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Settings Menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f24h3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 26.0
+offset_right = 93.0
+offset_bottom = 93.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Settings Title" parent="Settings Menu/VBoxContainer" instance=ExtResource("14_pgn0j")]
+layout_mode = 2
+
+[node name="Master" parent="Settings Menu/VBoxContainer" instance=ExtResource("15_q8alp")]
+layout_mode = 2
+text = "Master"
+
+[node name="Master Scroll" parent="Settings Menu/VBoxContainer" instance=ExtResource("16_0loxc")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Music" parent="Settings Menu/VBoxContainer" instance=ExtResource("15_q8alp")]
+layout_mode = 2
+
+[node name="Music Scroll" parent="Settings Menu/VBoxContainer" instance=ExtResource("16_0loxc")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFX" parent="Settings Menu/VBoxContainer" instance=ExtResource("15_q8alp")]
+layout_mode = 2
+text = "SFX
+"
+
+[node name="SFX Scroll" parent="Settings Menu/VBoxContainer" instance=ExtResource("16_0loxc")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="Back" parent="Settings Menu/VBoxContainer" instance=ExtResource("17_8dfca")]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Main Menu" parent="Settings Menu/VBoxContainer" instance=ExtResource("17_8dfca")]
+layout_mode = 2
+text = "Main Menu
+"
+
+[connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 1 BTN" to="." method="_on_choice_1_pressed"]
+[connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 1 BTN" to="Audio" method="_on_choice_1_btn_pressed"]
+[connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 2 BTN" to="." method="_on_choice_2_pressed"]
+[connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 2 BTN" to="Audio" method="_on_choice_2_btn_pressed"]
+[connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 3 BTN" to="." method="_on_choice_3_pressed"]
+[connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 3 BTN" to="Audio" method="_on_choice_3_btn_pressed"]
+[connection signal="pressed" from="EOD/HBoxContainer/Continue BTN" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="EOD/HBoxContainer/Continue BTN" to="Audio" method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="Game Over/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Game Over/HBoxContainer/Main Menu" to="Audio" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Game Over/HBoxContainer/GO_Quit BTN" to="." method="_on_go_quit_btn_pressed"]
+[connection signal="pressed" from="Game Over/HBoxContainer/GO_Quit BTN" to="Audio" method="_on_go_quit_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN" to="." method="_on_adventurers_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN" to="Audio" method="_on_adventurers_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN" to="." method="_on_increase_rep_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN" to="Audio" method="_on_increase_rep_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN" to="." method="_on_increase_quest_count_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN" to="Audio" method="_on_increase_quest_count_btn_pressed"]
+[connection signal="pressed" from="Level Up Options/VBoxContainer/Skip" to="." method="_on_skip_pressed"]
+[connection signal="pressed" from="Weekly Scenario Vbox/HBoxContainer/ws Continue btn" to="." method="_on_ws_continue_btn_pressed"]
+[connection signal="pressed" from="Weekly Scenario Vbox/HBoxContainer/ws Continue btn" to="Audio" method="_on_ws_continue_btn_pressed"]
+[connection signal="pressed" from="Weekly Scenario Vbox/HBoxContainer/WS_Quit BTN" to="." method="_on_ws_quit_btn_pressed"]
+[connection signal="pressed" from="Weekly Scenario Vbox/HBoxContainer/WS_Quit BTN" to="Audio" method="_on_ws_quit_btn_pressed"]
+[connection signal="mouse_entered" from="Build Stats/VBoxContainer/Improved Menu" to="Build Stats/VBoxContainer/Improved Menu" method="_on_mouse_entered"]
+[connection signal="pressed" from="Build Stats/VBoxContainer/Improved Menu" to="Audio" method="_on_improved_menu_pressed"]
+[connection signal="mouse_entered" from="Build Stats/VBoxContainer/Improved Food" to="Build Stats/VBoxContainer/Improved Food" method="_on_mouse_entered"]
+[connection signal="pressed" from="Build Stats/VBoxContainer/Improved Food" to="Audio" method="_on_improved_food_pressed"]
+[connection signal="mouse_entered" from="Build Stats/VBoxContainer/Improved Service" to="Build Stats/VBoxContainer/Improved Service" method="_on_mouse_entered"]
+[connection signal="pressed" from="Build Stats/VBoxContainer/Improved Service" to="Audio" method="_on_improved_service_pressed"]
+[connection signal="mouse_entered" from="Build Stats/VBoxContainer/Extra Quest Board" to="Build Stats/VBoxContainer/Extra Quest Board" method="_on_mouse_entered"]
+[connection signal="pressed" from="Build Stats/VBoxContainer/Extra Quest Board" to="Audio" method="_on_extra_quest_board_pressed"]
+[connection signal="mouse_entered" from="Build Stats/VBoxContainer/Scout For Adventurers" to="Build Stats/VBoxContainer/Scout For Adventurers" method="_on_mouse_entered"]
+[connection signal="pressed" from="Build Stats/VBoxContainer/Scout For Adventurers" to="Audio" method="_on_extra_quest_board_pressed"]
+[connection signal="pressed" from="Settings Menu/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Settings Menu/VBoxContainer/Back" to="Audio" method="_on_back_pressed"]
+[connection signal="pressed" from="Settings Menu/VBoxContainer/Main Menu" to="Audio" method="_on_main_menu_pressed"]

@@ -1,0 +1,141 @@
+[gd_scene load_steps=9 format=3 uid="uid://blwyokhup48vq"]
+
+[ext_resource type="PackedScene" uid="uid://iyc288nhvx4t" path="res://Game Scenes/game_scene.tscn" id="1_1mimh"]
+[ext_resource type="Script" path="res://UI/2D Scenes/menu_layout_ctrl.gd" id="1_goreh"]
+[ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="1_igv0p"]
+[ext_resource type="Texture2D" uid="uid://dak1vievjl2q8" path="res://Artwork/Background/temp background.jpg" id="2_kslc7"]
+[ext_resource type="PackedScene" uid="uid://cc37y4dw05u16" path="res://UI/Labels/Title/Title Label.tscn" id="3_seatt"]
+[ext_resource type="PackedScene" uid="uid://boicpk5r3jko7" path="res://Game Scenes/animation_controller.tscn" id="6_6qa1m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1vs4"]
+atlas = ExtResource("2_kslc7")
+region = Rect2(0, 0, 626, 372)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0r1u7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1vs4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Menu Layout_CTRL" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_goreh")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(576.5, 324)
+scale = Vector2(1.83866, 1.74194)
+sprite_frames = SubResource("SpriteFrames_0r1u7")
+
+[node name="Title Labels" type="Control" parent="." groups=["Title Labels"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="G" parent="Title Labels" instance=ExtResource("3_seatt")]
+layout_mode = 0
+offset_left = 446.0
+offset_top = -110.0
+offset_right = 494.0
+offset_bottom = -23.0
+
+[node name="U" parent="Title Labels" instance=ExtResource("3_seatt")]
+layout_mode = 0
+offset_left = 504.0
+offset_top = -110.0
+offset_right = 552.0
+offset_bottom = -23.0
+text = "U
+"
+
+[node name="I" parent="Title Labels" instance=ExtResource("3_seatt")]
+layout_mode = 0
+offset_left = 543.0
+offset_top = -110.0
+offset_right = 598.0
+offset_bottom = -23.0
+text = "I"
+
+[node name="L" parent="Title Labels" instance=ExtResource("3_seatt")]
+layout_mode = 0
+offset_left = 589.0
+offset_top = -110.0
+offset_right = 637.0
+offset_bottom = -23.0
+text = "L"
+
+[node name="D" parent="Title Labels" instance=ExtResource("3_seatt")]
+layout_mode = 0
+offset_left = 643.0
+offset_top = -110.0
+offset_right = 691.0
+offset_bottom = -23.0
+text = "D
+"
+
+[node name="Manager" parent="Title Labels" instance=ExtResource("3_seatt")]
+layout_mode = 0
+offset_left = -370.0
+offset_top = 241.0
+offset_right = -5.0
+offset_bottom = 328.0
+text = "MANAGER
+"
+
+[node name="Title Timer" type="Timer" parent="Title Labels"]
+wait_time = 0.1
+autostart = true
+
+[node name="Game Scene" parent="." instance=ExtResource("1_1mimh")]
+visible = false
+layout_mode = 1
+
+[node name="Main Menu" type="HBoxContainer" parent="." groups=["Main Menu"]]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -148.0
+offset_bottom = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Play" parent="Main Menu" groups=["Play Button"] instance=ExtResource("1_igv0p")]
+layout_mode = 2
+
+[node name="New Game" parent="Main Menu" instance=ExtResource("1_igv0p")]
+visible = false
+layout_mode = 2
+text = "New Game"
+
+[node name="Settings" parent="Main Menu" instance=ExtResource("1_igv0p")]
+layout_mode = 2
+text = "Settings
+"
+
+[node name="Quit" parent="Main Menu" instance=ExtResource("1_igv0p")]
+layout_mode = 2
+text = "Quit Game
+"
+
+[node name="Animation Controller" parent="." instance=ExtResource("6_6qa1m")]
+layout_mode = 2
+anchors_preset = 0
+
+[connection signal="timeout" from="Title Labels/Title Timer" to="." method="_on_title_timer_timeout"]
