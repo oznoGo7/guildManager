@@ -15,3 +15,5 @@ res://Game Scenes/guild_xp_bar.gd
 res://UI/2D Scenes/menu_layout_ctrl.gd
 res://UI/Buttons/menu_buttons.gd
 res://Manager/globals.gd
+res://Game Scenes/audio.gd
+res://UI/Buttons/build_buttons.gd

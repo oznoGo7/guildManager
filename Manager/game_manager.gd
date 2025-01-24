@@ -186,17 +186,17 @@ var weekly_scenario = {
 	1: {"title": "Recruitment", "description": "In your latest endevours the Mayor recruited some of your adventurers as his personal guard", "resource": "adventurers", "amount": -3},
 	2: {"title": "Heroic Deeds", "description": "Your adventurers saved a village from bandits, earning great respect.", "resource": "reputation", "amount": .1},
 	3: {"title": "Skilled Recruit", "description": "Some skilled adventurers have joined your ranks after hearing of your success.", "resource": "adventurers", "amount": 3},
-	4: {"title": "Generous Donation", "description": "A wealthy merchant was so impressed by your actions that he donated gold.", "resource": "gold", "amount": 300},
+	4: {"title": "Generous Donation", "description": "A wealthy merchant was so impressed by your actions that he donated gold.", "resource": "gold", "amount": 3000},
 	5: {"title": "Local Fame", "description": "Word of your group's heroics spreads, enhancing your reputation.", "resource": "reputation", "amount": .15},
-	6: {"title": "Lucky Find", "description": "While exploring, your team stumbled upon a cache of gold.", "resource": "gold", "amount": 200},
+	6: {"title": "Lucky Find", "description": "While exploring, your team stumbled upon a cache of gold.", "resource": "gold", "amount": 2000},
 	7: {"title": "Volunteer Adventurers", "description": "Inspired by your success, a group of volunteers joined your ranks.", "resource": "adventurers", "amount": 2},
 	8: {"title": "Heavy Losses", "description": "A dangerous mission resulted in the loss of some adventurers.", "resource": "adventurers", "amount": -2},
-	9: {"title": "Robbery", "description": "Your treasury was robbed while you were distracted.", "resource": "gold", "amount": -300},
+	9: {"title": "Robbery", "description": "Your treasury was robbed while you were distracted.", "resource": "gold", "amount": -3000},
 	10: {"title": "Scandal", "description": "A rumor spreads about misconduct, harming your reputation.", "resource": "reputation", "amount": -.1},
 	11: {"title": "Ambush", "description": "An ambush caught your adventurers off guard, reducing their numbers.", "resource": "adventurers", "amount": -3},
-	12: {"title": "Expensive Repairs", "description": "Damage to your base required costly repairs.", "resource": "gold", "amount": -250},
+	12: {"title": "Expensive Repairs", "description": "Damage to your base required costly repairs.", "resource": "gold", "amount": -2500},
 	13: {"title": "Dishonorable Deed", "description": "A member of your group was caught acting dishonorably, hurting your reputation.", "resource": "reputation", "amount": -.15},
-	14: {"title": "Recruitment Fail", "description": "Attempts to recruit new adventurers failed, leading to frustration.", "resource": "adventurers", "amount": -1}
+	14: {"title": "Recruitment Fail", "description": "Attempts to recruit new adventurers failed, making an older adventurer retire.", "resource": "adventurers", "amount": -1}
 }
 
 var current_scenario = null
@@ -215,6 +215,7 @@ func _ready() -> void:
 	Globals.connect("improved_food_xp", update_reputation)
 	Globals.connect("improved_service_xp", update_reputation)
 	Globals.connect("extra_quest_board_xp", update_reputation)
+	print(Globals.gained_rep)
 
 
 func _process(_delta: float) -> void:
@@ -261,7 +262,7 @@ func _on_choice_1_pressed() -> void:
 		Globals.quests_left -= 1
 		Globals.town_reputation += quest_accepted
 		amount_of_rep = quest_accepted
-		town_reputation_bar.gained_rep = true
+		Globals.gained_rep = true
 		choice_control_box.visible = false
 		await update_xp()
 		await update_reputation()
@@ -287,7 +288,7 @@ func _on_choice_2_pressed() -> void:
 		Globals.quests_left -= 1
 		Globals.town_reputation -= quest_gambled_away
 		amount_of_rep = quest_gambled_away
-		town_reputation_bar.gained_rep = false
+		Globals.gained_rep = false
 		choice_control_box.visible = false
 		await update_reputation()
 		if Globals.quests_left > 0:
@@ -300,7 +301,7 @@ func _on_choice_3_pressed() -> void:
 	Globals.quests_left -= 1
 	Globals.town_reputation -= quest_ignored
 	amount_of_rep = quest_ignored
-	town_reputation_bar.gained_rep = false
+	Globals.gained_rep = false
 	choice_control_box.visible = false
 	await update_reputation()
 	print("Request ignored.")
@@ -355,7 +356,7 @@ func update_reputation() -> void:
 
 func end_of_day() -> void:
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
-	town_reputation_bar.gained_rep = false
+	Globals.gained_rep = false
 	if Globals.quests_left <= 0:
 		quest_details_list.visible = false
 		game_over.visible = false
@@ -423,6 +424,7 @@ func new_day() -> void:
 			game_over.visible = true
 
 func give_weekly_scenario():
+	current_scenario = null
 	var keys = weekly_scenario.keys()
 	var random_key = keys[randi() % keys.size()]
 	current_weekly_scenario = weekly_scenario[random_key]
@@ -449,8 +451,6 @@ func give_weekly_scenario():
 	Globals.quests_total += 1
 	Globals.quests_left = Globals.quests_total #DO NOT REMOVE
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
-	update_reputation()
-	update_xp()
 
 
 func _on_adventurers_btn_pressed() -> void:
@@ -497,10 +497,18 @@ func level_up_ended() -> void:
 
 func _on_ws_continue_btn_pressed() -> void:
 	if Globals.town_reputation > .2:
+		match current_weekly_scenario["resource"]:
+			"reputation":
+				if current_weekly_scenario["amount"] > 0:
+					Globals.gained_rep = true
+				else:
+					Globals.gained_rep = false
+				await town_reputation_bar.change_value(current_weekly_scenario["amount"])
+			_:
+				pass
 		$Audio.present_scenario_timer.start()
 		move_quest_details_list()
 		weekly_scenario_vbox.visible = false
-		await update_reputation()
 	else:
 		quest_details_list.visible = false
 		eod.visible = false

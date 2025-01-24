@@ -1,17 +1,14 @@
 ea4bc82a6ad023ab7ee23ee620429895
-<<<<<<< Updated upstream
-::res://::1737715865
-=======
-::res://::1737719100
->>>>>>> Stashed changes
+::res://::1737723889
 default_bus_layout.tres::AudioBusLayout::6486305471084241954::1737407408::0::1::::<><>::
 export_presets.cfg::TextFile::-1::1737685664::0::1::::<><>::
-::res://Artwork/::1737660956
-::res://Artwork/Background/::1737481805
+README.md::TextFile::-1::1737716936::0::1::::<><>::
+::res://Artwork/::1737717351
+::res://Artwork/Background/::1737717351
 temp background.jpg::CompressedTexture2D::7181522399436485685::1737481805::1737481805::1::::<><>::
-::res://Artwork/Sprites/::1737660969
+::res://Artwork/Sprites/::1737717351
 IDLE.png::CompressedTexture2D::3398630141587220547::1737660969::1737660969::1::::<><>::
-::res://Artwork/UI/::1737312252
+::res://Artwork/UI/::1737717351
 AttributesBar_41x9.png::CompressedTexture2D::239874443500645038::1737311410::1737311411::1::::<><>::
 AttributesIcons_17x17.png::CompressedTexture2D::317890687096222390::1737311410::1737311411::1::::<><>::
 BlackBigCircleBoxWithBorder_27x27.png::CompressedTexture2D::67931334612776903::1737311410::1737311411::1::::<><>::
@@ -54,10 +51,10 @@ TopPatternPanel_02_33x15.png::CompressedTexture2D::8290523898586990966::17373114
 ValueBar_128x16.png::CompressedTexture2D::2190775875112897256::1737311411::1737311411::1::::<><>::
 ValueBlue_120x8.png::CompressedTexture2D::5786968962493280133::1737311411::1737311411::1::::<><>::
 ValueRed_120x8.png::CompressedTexture2D::3266458515562848514::1737311411::1737311411::1::::<><>::
-::res://Audio/::1737665490
-::res://Audio/Music/::1737685588
+::res://Audio/::1737717351
+::res://Audio/Music/::1737724161
 analog-dreams-lofi-vibes-216040.mp3::AudioStreamMP3::5072571107352961714::1737333101::1737400731::1::::<><>::
-audio.tscn::PackedScene::7134217507561580135::1737685588::0::1::::<><>::res://Game Scenes/audio.gd<>uid://c165p5q24j4uw::::res://Audio/SFX/Button Press.mp3<>uid://dc7aa201ijlbt::::res://Audio/SFX/Bell Ding 2.mp3<>uid://ukundhlfk8un::::res://Audio/SFX/Fill Up Noise.mp3<>uid://dsn7bguwdima4::::res://Audio/SFX/Fill Down Noise.mp3
+audio.tscn::PackedScene::7134217507561580135::1737724161::0::1::::<><>::res://Game Scenes/audio.gd<>uid://c165p5q24j4uw::::res://Audio/SFX/Button Press.mp3<>uid://dc7aa201ijlbt::::res://Audio/SFX/Bell Ding 2.mp3<>uid://ukundhlfk8un::::res://Audio/SFX/Fill Up Noise.mp3<>uid://dsn7bguwdima4::::res://Audio/SFX/Fill Down Noise.mp3
 autumn-mist-vibes-lofi-beats-281198.mp3::AudioStreamMP3::3427089534695525254::1737333101::1737400731::1::::<><>::
 cozy-lofi-beat-split-memmories-248205.mp3::AudioStreamMP3::5938688452537681616::1737333101::1737400731::1::::<><>::
 dreaming-through-dusk-lofi-beats-281206.mp3::AudioStreamMP3::1839655748191431510::1737333101::1737400731::1::::<><>::
@@ -65,52 +62,53 @@ fading-neon-lights-lofi-beats-281197.mp3::AudioStreamMP3::1361949491750182029::1
 melancholy-moon-vibes-lofi-beats-281210.mp3::AudioStreamMP3::1850891236077882174::1737333101::1737400731::1::::<><>::
 waves-of-solitude-lofi-beats-281203.mp3::AudioStreamMP3::4851159896988280618::1737333101::1737400731::1::::<><>::
 whispering-vinyl-loops-lofi-beats-281193.mp3::AudioStreamMP3::8374120744392898826::1737333101::1737400731::1::::<><>::
-::res://Audio/SFX/::1737665490
+::res://Audio/SFX/::1737724432
 Bell Ding 2.mp3::AudioStreamMP3::7365701284428223273::1737484532::1737484550::1::::<><>::
 Button Press.mp3::AudioStreamMP3::6663596910725737642::1737400918::1737400927::1::::<><>::
 Fill Down Noise.mp3::AudioStreamMP3::8451443223969200765::1737664989::1737664989::1::::<><>::
 Fill Up Noise.mp3::AudioStreamMP3::1425658374367922937::1737665481::1737665490::1::::<><>::
-::res://Game Scenes/::1737693755
+XP Gain.mp3::AudioStreamMP3::3217128441266942921::1737724432::1737724432::1::::<><>::
+::res://Game Scenes/::1737724161
 animation_controller.gd::GDScript::-1::1737678777::0::1::::<>Control<>::
-animation_controller.tscn::PackedScene::3385728309939958348::1737685588::0::1::::<><>::res://Game Scenes/animation_controller.gd
-audio.gd::GDScript::-1::1737665344::0::1::::<>Node<>::
+animation_controller.tscn::PackedScene::3385728309939958348::1737719552::0::1::::<><>::res://Game Scenes/animation_controller.gd
+audio.gd::GDScript::-1::1737724161::0::1::::<>Node<>::
 build_stats.gd::GDScript::-1::1737561877::0::1::::<>Control<>::
-game_scene.tscn::PackedScene::611227250472627137::1737693755::0::1::::<><>::uid://djelmmjxnaeig::::res://Game Scenes/scenario.tscn<>uid://rno2kf2wuab3::::res://UI/Buttons/choice_buttons.tscn<>res://Manager/game_manager.gd<>uid://db2hyhvqcqud1::::res://Game Scenes/options.tscn<>uid://bw8ly3ljofgp1::::res://Manager/Globals.tscn<>uid://bbkymupg5u5dm::::res://Artwork/UI/RectangleBox_96x96.png<>uid://c8v4rxffhvjvb::::res://Audio/Music/audio.tscn<>res://Game Scenes/quest_details_list.gd<>uid://cov4tnc8lbmvu::::res://UI/Buttons/Build_Buttons.tscn<>uid://d0lh1nu5rnjw7::::res://Artwork/UI/HotkeyBox_34x34.png<>uid://ce1xku1igciid::::res://UI/Labels/Build Labels.tscn<>uid://6hh016q1sx57::::res://Artwork/UI/ValueBar_128x16.png<>res://Game Scenes/guild_stats.gd<>uid://copiser3da2mr::::res://Artwork/UI/ValueBlue_120x8.png<>uid://book7a248tnpj::::res://Artwork/Sprites/IDLE.png<>uid://bmskdhi32s63o::::res://Artwork/UI/ValueRed_120x8.png<>res://Game Scenes/guild_xp_bar.gd<>res://Game Scenes/build_stats.gd<>uid://js3538ytpx8l::::res://UI/Labels/SettingsTitle.tscn<>uid://c5tkbbispu5s5::::res://UI/Labels/Settings Label.tscn<>uid://gsuqr47nlrj7::::res://UI/Scrolls/audio_scroll.tscn<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn
+game_scene.tscn::PackedScene::611227250472627137::1737723889::0::1::::<><>::uid://djelmmjxnaeig::::res://Game Scenes/scenario.tscn<>uid://rno2kf2wuab3::::res://UI/Buttons/choice_buttons.tscn<>res://Manager/game_manager.gd<>uid://db2hyhvqcqud1::::res://Game Scenes/options.tscn<>uid://bw8ly3ljofgp1::::res://Manager/Globals.tscn<>uid://bbkymupg5u5dm::::res://Artwork/UI/RectangleBox_96x96.png<>uid://c8v4rxffhvjvb::::res://Audio/Music/audio.tscn<>res://Game Scenes/quest_details_list.gd<>uid://cov4tnc8lbmvu::::res://UI/Buttons/Build_Buttons.tscn<>uid://d0lh1nu5rnjw7::::res://Artwork/UI/HotkeyBox_34x34.png<>uid://ce1xku1igciid::::res://UI/Labels/Build Labels.tscn<>uid://6hh016q1sx57::::res://Artwork/UI/ValueBar_128x16.png<>res://Game Scenes/guild_stats.gd<>uid://copiser3da2mr::::res://Artwork/UI/ValueBlue_120x8.png<>uid://book7a248tnpj::::res://Artwork/Sprites/IDLE.png<>uid://bmskdhi32s63o::::res://Artwork/UI/ValueRed_120x8.png<>res://Game Scenes/guild_xp_bar.gd<>res://Game Scenes/build_stats.gd<>uid://js3538ytpx8l::::res://UI/Labels/SettingsTitle.tscn<>uid://c5tkbbispu5s5::::res://UI/Labels/Settings Label.tscn<>uid://gsuqr47nlrj7::::res://UI/Scrolls/audio_scroll.tscn<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn
 guild_stats.gd::GDScript::-1::1737561863::0::1::::<>Control<>::
-guild_xp_bar.gd::GDScript::-1::1737665229::0::1::::<>ProgressBar<>::
+guild_xp_bar.gd::GDScript::-1::1737719825::0::1::::<>ProgressBar<>::
 options.tscn::PackedScene::7285657372914667568::1737334988::0::1::::<><>::
 quest_details_list.gd::GDScript::-1::1737561291::0::1::::<>Control<>::
 scenario.tscn::PackedScene::7799909116530957078::1737334988::0::1::::<><>::
-::res://Manager/::1737685588
-game_manager.gd::GDScript::-1::1737685560::0::1::::<>Node<>::
-game_manager.tscn::PackedScene::9033114687802445098::1737685588::0::1::::<><>::
-globals.gd::GDScript::-1::1737660190::0::1::::<>Node<>::
-Globals.tscn::PackedScene::3999411943662418840::1737685588::0::1::::<><>::res://Manager/globals.gd
-::res://UI/::1737493597
+::res://Manager/::1737723889
+game_manager.gd::GDScript::-1::1737722177::0::1::::<>Node<>::
+game_manager.tscn::PackedScene::9033114687802445098::1737723889::0::1::::<><>::
+globals.gd::GDScript::-1::1737723849::0::1::::<>Node<>::
+Globals.tscn::PackedScene::3999411943662418840::1737723889::0::1::::<><>::res://Manager/globals.gd
+::res://UI/::1737717351
 Neoblock DEMO.otf::FontFile::3552039198035901410::1737493597::1737493597::1::::<><>::
-::res://UI/2D Scenes/::1737685588
+::res://UI/2D Scenes/::1737723889
 menu.gd::GDScript::-1::1737406072::0::1::::<>Control<>::
-menu.tscn::PackedScene::1868239470291661500::1737685588::0::1::::<><>::res://UI/2D Scenes/menu.gd<>uid://blwyokhup48vq::::res://UI/2D Scenes/menu_layout_ctrl.tscn
-menu_layout_ctrl.gd::GDScript::-1::1737678269::0::1::::<>Control<>::
-menu_layout_ctrl.tscn::PackedScene::3205397020218900598::1737685588::0::1::::<><>::uid://iyc288nhvx4t::::res://Game Scenes/game_scene.tscn<>res://UI/2D Scenes/menu_layout_ctrl.gd<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn<>uid://dak1vievjl2q8::::res://Artwork/Background/temp background.jpg<>uid://cc37y4dw05u16::::res://UI/Labels/Title/Title Label.tscn<>uid://boicpk5r3jko7::::res://Game Scenes/animation_controller.tscn
-::res://UI/Buttons/::1737685588
+menu.tscn::PackedScene::1868239470291661500::1737723889::0::1::::<><>::res://UI/2D Scenes/menu.gd<>uid://blwyokhup48vq::::res://UI/2D Scenes/menu_layout_ctrl.tscn
+menu_layout_ctrl.gd::GDScript::-1::1737722077::0::1::::<>Control<>::
+menu_layout_ctrl.tscn::PackedScene::3205397020218900598::1737723889::0::1::::<><>::uid://iyc288nhvx4t::::res://Game Scenes/game_scene.tscn<>res://UI/2D Scenes/menu_layout_ctrl.gd<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn<>uid://dak1vievjl2q8::::res://Artwork/Background/temp background.jpg<>uid://cc37y4dw05u16::::res://UI/Labels/Title/Title Label.tscn<>uid://boicpk5r3jko7::::res://Game Scenes/animation_controller.tscn
+::res://UI/Buttons/::1737723890
 build_buttons.gd::GDScript::-1::1737588884::0::1::::<>Button<>::
-Build_Buttons.tscn::PackedScene::5800632521435614566::1737685588::0::1::::<><>::res://UI/Buttons/build_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
+Build_Buttons.tscn::PackedScene::5800632521435614566::1737723889::0::1::::<><>::res://UI/Buttons/build_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
 choice_buttons.gd::GDScript::-1::1737440095::0::1::::<>Button<>::
-choice_buttons.tscn::PackedScene::1220946041197955806::1737407297::0::1::::<><>::res://UI/Buttons/choice_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
-menu_buttons.gd::GDScript::-1::1737678573::0::1::::<>Button<>::
+choice_buttons.tscn::PackedScene::1220946041197955806::1737723890::0::1::::<><>::res://UI/Buttons/choice_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
+menu_buttons.gd::GDScript::-1::1737722054::0::1::::<>Button<>::
 Menu_Buttons.tscn::PackedScene::1231269534321530054::1737497526::0::1::::<><>::uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>res://UI/Buttons/menu_buttons.gd<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png<>uid://c165p5q24j4uw::::res://Audio/SFX/Button Press.mp3
 ::res://UI/Font/::1737493568
-::res://UI/Labels/::1737685588
-Build Labels.tscn::PackedScene::5108686003320070691::1737685588::0::1::::<><>::res://UI/Labels/build_labels.gd
+::res://UI/Labels/::1737723889
+Build Labels.tscn::PackedScene::5108686003320070691::1737723889::0::1::::<><>::res://UI/Labels/build_labels.gd
 build_labels.gd::GDScript::-1::1737589619::0::1::::<>Label<>::
 Settings Label.tscn::PackedScene::6918338875296368458::1737404772::0::1::::<><>::
 SettingsTitle.tscn::PackedScene::670613564678782897::1737334988::0::1::::<><>::
-::res://UI/Labels/Title/::1737685588
-Title Label.tscn::PackedScene::4973008963443943267::1737685588::0::1::::<><>::uid://bquvtja6buwsw::::res://UI/Neoblock DEMO.otf<>res://UI/Labels/Title/title_label.gd
+::res://UI/Labels/Title/::1737719551
+Title Label.tscn::PackedScene::4973008963443943267::1737719551::0::1::::<><>::uid://bquvtja6buwsw::::res://UI/Neoblock DEMO.otf<>res://UI/Labels/Title/title_label.gd
 title_label.gd::GDScript::-1::1737656989::0::1::::<>Label<>::
-::res://UI/Scrolls/::1737656899
-audio_scroll.gd::GDScript::-1::1737656899::0::1::::<>HSlider<>::
+::res://UI/Scrolls/::1737719109
+audio_scroll.gd::GDScript::-1::1737719109::0::1::::<>HSlider<>::
 audio_scroll.tscn::PackedScene::459535713127116670::1737439783::0::1::::<><>::res://UI/Scrolls/audio_scroll.gd
 side_scroll.gd::GDScript::-1::1737403210::0::1::::<>HScrollBar<>::
 side_scroll.tscn::PackedScene::477575579195041357::1737403308::0::1::::<><>::res://UI/Scrolls/side_scroll.gd

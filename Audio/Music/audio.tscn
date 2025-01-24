@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8v4rxffhvjvb"]
+[gd_scene load_steps=7 format=3 uid="uid://c8v4rxffhvjvb"]
 
 [ext_resource type="Script" path="res://Game Scenes/audio.gd" id="1_rubda"]
 [ext_resource type="AudioStream" uid="uid://c165p5q24j4uw" path="res://Audio/SFX/Button Press.mp3" id="2_q4nj1"]
 [ext_resource type="AudioStream" uid="uid://dc7aa201ijlbt" path="res://Audio/SFX/Bell Ding 2.mp3" id="3_jhlfb"]
 [ext_resource type="AudioStream" uid="uid://ukundhlfk8un" path="res://Audio/SFX/Fill Up Noise.mp3" id="4_o54l5"]
 [ext_resource type="AudioStream" uid="uid://dsn7bguwdima4" path="res://Audio/SFX/Fill Down Noise.mp3" id="5_b4jv4"]
+[ext_resource type="AudioStream" uid="uid://bl3nvury8pyqb" path="res://Audio/SFX/XP Gain.mp3" id="6_qht6q"]
 
 [node name="Audio" type="Node"]
 script = ExtResource("1_rubda")
@@ -31,6 +32,10 @@ bus = &"sfx"
 
 [node name="Fill Down Noise" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_b4jv4")
+bus = &"sfx"
+
+[node name="Guild XP Gain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qht6q")
 bus = &"sfx"
 
 [connection signal="timeout" from="Present Scenario Timer" to="." method="_on_present_scenario_timer_timeout"]

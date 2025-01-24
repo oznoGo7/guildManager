@@ -670,7 +670,7 @@ theme_override_constants/shadow_outline_size = 10
 text = "Town Reputation"
 horizontal_alignment = 1
 
-[node name="Town Reputation BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer"]
+[node name="Town Reputation BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer" groups=["Town Reputation Bar"]]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxTexture_tw5pp")

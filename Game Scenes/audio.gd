@@ -137,6 +137,9 @@ func _on_present_scenario_timer_timeout() -> void:
 	bell_dinging()
 	present_scenario_timer.wait_time = randi() % 5 + 3
 
+func guild_xp_gain():
+	$"Guild XP Gain".pitch_scale = randf_range(.9, 1.1)
+	$"Guild XP Gain".play()
 
 func fill_up_noise():
 	$"Fill Up Noise".pitch_scale = randf_range(.9, 1.1)

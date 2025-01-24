@@ -28,7 +28,7 @@ var improved_food_count = 1
 var improved_service_count = 1
 var extra_quest_board_count = 1
 var scout_for_adventurers_count = 1 
-
+var gained_rep: bool = true
 
 
 #GameSignals
@@ -48,6 +48,7 @@ func reset_values() -> void:
 	print("Values Reset")
 	guild_xp = 0
 	get_tree().get_first_node_in_group("Guild XP Bar").value = 0
+	get_tree().get_first_node_in_group("Town Reputation Bar").value = .75
 	guild_level = 1
 	guild_gold = 100
 	guild_members_left = 5
@@ -70,7 +71,7 @@ func reset_values() -> void:
 	improved_service_count = 1
 	extra_quest_board_count = 1
 	scout_for_adventurers_count = 1 
-	
+	gained_rep = true
 
 func save() -> void:
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
@@ -98,6 +99,7 @@ func save() -> void:
 	file.store_var(improved_service_count)
 	file.store_var(extra_quest_board_count)
 	file.store_var(scout_for_adventurers_count)
+	file.store_var(gained_rep)
 
 func load_data():
 	if FileAccess.file_exists(save_path):
@@ -128,6 +130,7 @@ func load_data():
 		improved_service_count = file.get_var(improved_service_count)
 		extra_quest_board_count = file.get_var(extra_quest_board_count)
 		scout_for_adventurers_count = file.get_var(scout_for_adventurers_count)
+		gained_rep = file.get_var(gained_rep)
 	else:
 		print("No Data Saved")
 		guild_xp = 0
@@ -154,3 +157,4 @@ func load_data():
 		improved_service_count = 1
 		extra_quest_board_count = 1
 		scout_for_adventurers_count = 1
+		gained_rep = true
