@@ -37,10 +37,8 @@ extends Node
 @onready var anim: AnimationPlayer = $"Level Up Options/anim"
 @onready var adventurers_btn: Button = $"Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN"
 @onready var increase_rep_btn: Button = $"Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN"
-@onready var increase_quest_count_btn: Button = $"Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN"
 @onready var adventurers_lbl: Label = $"Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN/Adventurers LBL"
 @onready var increase_rep_lbl: Label = $"Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN/Increase Rep LBL"
-@onready var increase_quest_count_lbl: Label = $"Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN/Increase Quest Count LBL"
 
 #Guild Stats
 @onready var guild_stats: Control = $"Guild Stats"
@@ -377,7 +375,6 @@ func level_up() -> void:
 		weekly_scenario_vbox.visible = false
 		adventurers_lbl.text = "Recruit more Adventurers (1-4) Cost: " + str(1000 * Globals.adventurer_upgrade)
 		increase_rep_lbl.text = "Increase Reputation with the Town (20%) Cost: " + str(1000 * Globals.reputation_upgrade)
-		increase_quest_count_lbl.text = "Increase Amount of Daily Quests (1) Cost: " + str(1000 * Globals.quest_count_upgrade)
 		anim.play("Adventurer")
 
 
@@ -403,7 +400,7 @@ func _on_continue_btn_pressed() -> void:
 	new_day()
 
 func new_day() -> void:
-	if Globals.day % 1 == 0:                                      ######Change
+	if Globals.day % 7 == 0:
 		Globals.day += 1
 		give_weekly_scenario()
 	else:

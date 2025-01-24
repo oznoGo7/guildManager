@@ -508,29 +508,6 @@ Cost 1000"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Increase Quest Count BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 400)
-layout_mode = 2
-
-[node name="Increase Quest Count LBL" type="Label" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -75.0
-offset_right = 100.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_outline_size = 10
-text = "Increase Amount of Daily Quests (1)
-Cost 1000"
-horizontal_alignment = 1
-autowrap_mode = 2
-
 [node name="Skip" type="Button" parent="Level Up Options/VBoxContainer"]
 layout_mode = 2
 text = "SKIP"
@@ -901,8 +878,6 @@ text = "Main Menu
 [connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN" to="Audio" method="_on_adventurers_btn_pressed"]
 [connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN" to="." method="_on_increase_rep_btn_pressed"]
 [connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN" to="Audio" method="_on_increase_rep_btn_pressed"]
-[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN" to="." method="_on_increase_quest_count_btn_pressed"]
-[connection signal="pressed" from="Level Up Options/VBoxContainer/HBoxContainer/Increase Quest Count BTN" to="Audio" method="_on_increase_quest_count_btn_pressed"]
 [connection signal="pressed" from="Level Up Options/VBoxContainer/Skip" to="." method="_on_skip_pressed"]
 [connection signal="pressed" from="Weekly Scenario Vbox/HBoxContainer/ws Continue btn" to="." method="_on_ws_continue_btn_pressed"]
 [connection signal="pressed" from="Weekly Scenario Vbox/HBoxContainer/ws Continue btn" to="Audio" method="_on_ws_continue_btn_pressed"]
