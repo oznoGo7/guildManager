@@ -58,6 +58,10 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
+[sub_resource type="Animation" id="Animation_tn2wb"]
+resource_name = "Book"
+step = 0.1
+
 [sub_resource type="Animation" id="Animation_1ee4s"]
 length = 0.001
 tracks/0/type = "value"
@@ -72,10 +76,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [1]
 }
-
-[sub_resource type="Animation" id="Animation_tn2wb"]
-resource_name = "Book"
-step = 0.1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mwv3v"]
 _data = {
@@ -463,7 +463,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Adventurers BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 100)
+custom_minimum_size = Vector2(300, 100)
 layout_mode = 2
 theme = SubResource("Theme_obsq8")
 
@@ -487,14 +487,14 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Adventurer Anim" type="AnimatedSprite2D" parent="Level Up Options/VBoxContainer/HBoxContainer/Adventurers BTN"]
-position = Vector2(102, 164)
+position = Vector2(152, 164)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_aucsw")
 animation = &"Adventurers"
 frame = 1
 
 [node name="Increase Rep BTN" type="Button" parent="Level Up Options/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(200, 400)
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 theme = SubResource("Theme_ee5yl")
 
@@ -518,7 +518,7 @@ horizontal_alignment = 1
 autowrap_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN"]
-position = Vector2(101, 175)
+position = Vector2(151, 175)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("11_ui3nx")
 
