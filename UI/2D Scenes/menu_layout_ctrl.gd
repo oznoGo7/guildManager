@@ -27,10 +27,21 @@ func _on_title_timer_timeout() -> void:
 
 
 func _on_window_walking_1_timeout() -> void:
-	$"Background/Window 1/Window walking 1".wait_time = randi() % 60 + 20
-	window_walk_1.play("Window Walk 1")
+	$"Background/Window 1/Window walking 1".wait_time = randi() % 10 + 5
+	var random_anim = randi() % 4 + 1
+	match random_anim:
+		1:
+			window_walk_1.play("First Window Walk 1")
+		2:
+			window_walk_1.play("First Window Walk 2")
 
 
 func _on_window_walking_2_timeout() -> void:
-	$"Background/Window 2/Window walking 2".wait_time = randi() % 60 + 30
-	window_walk_2.play("Window Walk 2")
+	$"Background/Window 2/Window walking 2".wait_time = randi() % 10 + 5
+	
+	var random_anim = randi() % 2 + 1
+	match random_anim:
+		1:
+			window_walk_2.play("Second Window Walk 1")
+		2:
+			window_walk_2.play("Second Window Walk 2")
