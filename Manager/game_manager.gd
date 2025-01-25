@@ -409,7 +409,8 @@ func new_day() -> void:
 		Globals.guild_members_left = Globals.guild_members_total
 		Globals.quests_left = Globals.quests_total
 		Globals.town_reputation -= Globals.new_day_reputation_decrease
-		update_reputation()
+		amount_of_rep = .08
+		await update_reputation()
 		move_quest_details_list()
 		if Globals.town_reputation > .2:
 				quest_details_list.visible = false

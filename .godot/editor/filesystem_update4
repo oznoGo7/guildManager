@@ -10,3 +10,5 @@ res://Audio/Music/audio.tscn
 res://UI/Labels/Build Labels.tscn
 res://UI/Buttons/choice_buttons.tscn
 res://UI/2D Scenes/menu_layout_ctrl.gd
+res://UI/Buttons/build_buttons.gd
+res://Manager/game_manager.gd

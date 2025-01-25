@@ -23,6 +23,7 @@ func _process(delta: float) -> void:
 
 func _on_pressed() -> void:
 	if Globals.guild_gold >= cost:
+		Globals.gained_rep = true
 		match name:
 			"Improved Menu":
 				Globals.town_reputation += improved_menu

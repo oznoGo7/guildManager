@@ -38,7 +38,6 @@ func _on_window_walking_1_timeout() -> void:
 
 func _on_window_walking_2_timeout() -> void:
 	$"Background/Window 2/Window walking 2".wait_time = randi() % 10 + 5
-	
 	var random_anim = randi() % 2 + 1
 	match random_anim:
 		1:
