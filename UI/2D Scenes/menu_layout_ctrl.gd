@@ -14,6 +14,7 @@ func _ready() -> void:
 	else:
 		print("END OF DAY")
 		get_node("Game Scene").end_of_day()
+	
 
 
 func _on_title_timer_timeout() -> void:
@@ -44,3 +45,13 @@ func _on_window_walking_2_timeout() -> void:
 			window_walk_2.play("Second Window Walk 1")
 		2:
 			window_walk_2.play("Second Window Walk 2")
+
+
+func _on_cloud_1_timer_timeout() -> void:
+	$"Background/Clouds/Cloud 1/Cloud 1 Timer".wait_time = randi_range(70, 100)
+	$"Background/Clouds/Cloud 1/Cloud Anim 1".play("Cloud Scroll 1")
+
+
+func _on_cloud_2_timer_timeout() -> void:
+	$"Background/Clouds/Cloud 2/Cloud 2 Timer".wait_time = randi_range(70, 100)
+	$"Background/Clouds/Cloud 2/Cloud Anim 2".play("Cloud 2 Scroll")

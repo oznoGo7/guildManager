@@ -373,8 +373,8 @@ func level_up() -> void:
 		game_over.visible = false
 		level_up_options.visible = true
 		weekly_scenario_vbox.visible = false
-		adventurers_lbl.text = "Recruit more Adventurers (1-4) Cost: " + str(1000 * Globals.adventurer_upgrade)
-		increase_rep_lbl.text = "Increase Reputation with the Town (20%) Cost: " + str(1000 * Globals.reputation_upgrade)
+		adventurers_lbl.text = "Recruit more Adventurers (1-4)"
+		increase_rep_lbl.text = "Increase Reputation with the Town (20%)"
 		anim.play("Adventurer")
 
 
@@ -383,13 +383,12 @@ func _on_skip_pressed() -> void:
 
 
 func _on_main_menu_pressed() -> void:
+	Globals.reset_values()
 	get_tree().get_first_node_in_group("Play Button").text = "Play"
 	get_tree().get_first_node_in_group("Main Menu").get_child(1).visible = false
 	get_tree().get_first_node_in_group("Game Scene").visible = false #Game Scene Root
 	get_tree().get_first_node_in_group("Main Menu").visible = true
-	guild_xp_bar.value = 0
 	town_reputation_bar.value = .8
-	Globals.reset_values()
 
 func _on_go_quit_btn_pressed() -> void:
 	get_tree().quit()
@@ -412,7 +411,7 @@ func new_day() -> void:
 		amount_of_rep = .08
 		await update_reputation()
 		move_quest_details_list()
-		if Globals.town_reputation > .2:
+		if Globals.town_reputation > .1:
 				quest_details_list.visible = false
 				eod.visible = false
 				game_over.visible = false
@@ -420,6 +419,7 @@ func new_day() -> void:
 				weekly_scenario_vbox.visible = false
 		else:
 			game_over.visible = true
+			$Audio.present_scenario_timer.stop()
 
 func give_weekly_scenario():
 	current_scenario = null
@@ -457,26 +457,15 @@ func _on_adventurers_btn_pressed() -> void:
 		Globals.guild_members_total += random_amount_of_adventurers
 		Globals.guild_members_left += random_amount_of_adventurers
 		guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
-		Globals.guild_gold -= 1000 * Globals.adventurer_upgrade
 		Globals.adventurer_upgrade += 1
 		level_up_ended()
 		end_of_day()
 
-
 func _on_increase_rep_btn_pressed() -> void:
 	if Globals.guild_gold > 1000 * Globals.reputation_upgrade:
-		Globals.guild_gold -= 1000 * Globals.reputation_upgrade
 		Globals.reputation_upgrade += 1
 		Globals.town_reputation += .40
 		await update_reputation()
-		level_up_ended()
-
-
-func _on_increase_quest_count_btn_pressed() -> void:
-	if Globals.guild_gold > 1000 * Globals.quest_count_upgrade:
-		Globals.guild_gold -= 1000 * Globals.quest_count_upgrade
-		Globals.quest_count_upgrade += 1
-		Globals.quests_total += 1
 		level_up_ended()
 
 
@@ -494,7 +483,7 @@ func level_up_ended() -> void:
 
 
 func _on_ws_continue_btn_pressed() -> void:
-	if Globals.town_reputation > .2:
+	if Globals.town_reputation > .1:
 		match current_weekly_scenario["resource"]:
 			"reputation":
 				if current_weekly_scenario["amount"] > 0:

@@ -12,3 +12,6 @@ res://UI/Buttons/choice_buttons.tscn
 res://UI/2D Scenes/menu_layout_ctrl.gd
 res://UI/Buttons/build_buttons.gd
 res://Manager/game_manager.gd
+res://UI/Buttons/menu_buttons.gd
+res://UI/Buttons/Menu_Buttons.tscn
+res://Manager/globals.gd

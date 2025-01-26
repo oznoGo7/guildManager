@@ -1,27 +1,105 @@
-[gd_scene load_steps=16 format=3 uid="uid://blwyokhup48vq"]
+[gd_scene load_steps=24 format=3 uid="uid://blwyokhup48vq"]
 
 [ext_resource type="PackedScene" uid="uid://iyc288nhvx4t" path="res://Game Scenes/game_scene.tscn" id="1_1mimh"]
 [ext_resource type="Script" path="res://UI/2D Scenes/menu_layout_ctrl.gd" id="1_goreh"]
 [ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="1_igv0p"]
-[ext_resource type="Texture2D" uid="uid://d31ys5rw6kgtj" path="res://Artwork/Background/Background House.png" id="2_k6tng"]
+[ext_resource type="Texture2D" uid="uid://c48ew23wash0a" path="res://Artwork/Background/Derek House v2.png" id="2_apj6e"]
+[ext_resource type="Texture2D" uid="uid://rwv3hfsl827i" path="res://Artwork/Background/Cloud 1.png" id="3_eus8g"]
 [ext_resource type="SpriteFrames" uid="uid://bhqmsqisx4ul3" path="res://Artwork/Sprites/Window.tres" id="3_o2kqx"]
 [ext_resource type="PackedScene" uid="uid://cc37y4dw05u16" path="res://UI/Labels/Title/Title Label.tscn" id="3_seatt"]
+[ext_resource type="Texture2D" uid="uid://72q1tt3ki7dh" path="res://Artwork/Background/Cloud 2.png" id="4_voi5k"]
 [ext_resource type="PackedScene" uid="uid://boicpk5r3jko7" path="res://Game Scenes/animation_controller.tscn" id="6_6qa1m"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kgwqm"]
-atlas = ExtResource("2_k6tng")
+[sub_resource type="AtlasTexture" id="AtlasTexture_v2jf6"]
+atlas = ExtResource("2_apj6e")
 region = Rect2(0, 0, 1152, 648)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r1u7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kgwqm")
+"texture": SubResource("AtlasTexture_v2jf6")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_p30m6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud 1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-36, 113)]
+}
+
+[sub_resource type="Animation" id="Animation_l5ixi"]
+resource_name = "Cloud Scroll 1"
+length = 90.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud 1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 90),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-36, 113), Vector2(1404, 113)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jsqc4"]
+_data = {
+"Cloud Scroll 1": SubResource("Animation_l5ixi"),
+"RESET": SubResource("Animation_p30m6")
+}
+
+[sub_resource type="Animation" id="Animation_my1md"]
+resource_name = "Cloud 2 Scroll"
+length = 50.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 50),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-186, 113), Vector2(1324, 113)]
+}
+
+[sub_resource type="Animation" id="Animation_o4hi0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-186, 113)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybpiw"]
+_data = {
+"Cloud 2 Scroll": SubResource("Animation_my1md"),
+"RESET": SubResource("Animation_o4hi0")
+}
 
 [sub_resource type="Animation" id="Animation_sa7by"]
 length = 0.001
@@ -202,6 +280,34 @@ script = ExtResource("1_goreh")
 position = Vector2(576, 324)
 sprite_frames = SubResource("SpriteFrames_0r1u7")
 
+[node name="Clouds" type="Node2D" parent="Background"]
+
+[node name="Cloud 1" type="Sprite2D" parent="Background/Clouds"]
+position = Vector2(-36, 113)
+texture = ExtResource("3_eus8g")
+
+[node name="Cloud Anim 1" type="AnimationPlayer" parent="Background/Clouds/Cloud 1"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_jsqc4")
+}
+
+[node name="Cloud 1 Timer" type="Timer" parent="Background/Clouds/Cloud 1"]
+autostart = true
+
+[node name="Cloud 2" type="Sprite2D" parent="Background/Clouds"]
+position = Vector2(-186, 113)
+texture = ExtResource("4_voi5k")
+
+[node name="Cloud Anim 2" type="AnimationPlayer" parent="Background/Clouds/Cloud 2"]
+libraries = {
+"": SubResource("AnimationLibrary_ybpiw")
+}
+
+[node name="Cloud 2 Timer" type="Timer" parent="Background/Clouds/Cloud 2"]
+wait_time = 25.0
+autostart = true
+
 [node name="Window 1" type="AnimatedSprite2D" parent="Background"]
 position = Vector2(576, 488)
 sprite_frames = ExtResource("3_o2kqx")
@@ -333,6 +439,8 @@ text = "Quit Game
 layout_mode = 2
 anchors_preset = 0
 
+[connection signal="timeout" from="Background/Clouds/Cloud 1/Cloud 1 Timer" to="." method="_on_cloud_1_timer_timeout"]
+[connection signal="timeout" from="Background/Clouds/Cloud 2/Cloud 2 Timer" to="." method="_on_cloud_2_timer_timeout"]
 [connection signal="timeout" from="Background/Window 1/Window walking 1" to="." method="_on_window_walking_1_timeout"]
 [connection signal="timeout" from="Background/Window 2/Window walking 2" to="." method="_on_window_walking_2_timeout"]
 [connection signal="timeout" from="Title Labels/Title Timer" to="." method="_on_title_timer_timeout"]

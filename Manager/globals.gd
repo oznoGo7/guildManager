@@ -66,6 +66,7 @@ func reset_values() -> void:
 	improved_food_cost = 800
 	improved_service_cost = 400
 	extra_quest_board_cost = 2500
+	scout_for_adventurers_cost = 2000
 	improved_menu_count = 1
 	improved_food_count = 1
 	improved_service_count = 1

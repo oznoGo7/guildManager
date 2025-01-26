@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://iyc288nhvx4t"]
+[gd_scene load_steps=55 format=3 uid="uid://iyc288nhvx4t"]
 
 [ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
 [ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
@@ -12,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://d0lh1nu5rnjw7" path="res://Artwork/UI/HotkeyBox_34x34.png" id="7_twdi5"]
 [ext_resource type="PackedScene" uid="uid://ce1xku1igciid" path="res://UI/Labels/Build Labels.tscn" id="7_vl3xu"]
 [ext_resource type="Texture2D" uid="uid://6hh016q1sx57" path="res://Artwork/UI/ValueBar_128x16.png" id="8_sgcg1"]
+[ext_resource type="Texture2D" uid="uid://cmsg74y68ymum" path="res://Artwork/UI/Button Hovered.png" id="9_4jf2k"]
 [ext_resource type="Script" path="res://Game Scenes/guild_stats.gd" id="9_ij47d"]
 [ext_resource type="Texture2D" uid="uid://copiser3da2mr" path="res://Artwork/UI/ValueBlue_120x8.png" id="9_op4ep"]
 [ext_resource type="Texture2D" uid="uid://book7a248tnpj" path="res://Artwork/Sprites/Adventurer/IDLE.png" id="9_xm61m"]
 [ext_resource type="Texture2D" uid="uid://bmskdhi32s63o" path="res://Artwork/UI/ValueRed_120x8.png" id="10_ex2ks"]
+[ext_resource type="Texture2D" uid="uid://brr0r23h4sdrn" path="res://Artwork/UI/Button.png" id="10_k4jjn"]
 [ext_resource type="Texture2D" uid="uid://bw02n1a3u85bg" path="res://Artwork/Sprites/Church Book/book_06g.png" id="11_ui3nx"]
 [ext_resource type="Script" path="res://Game Scenes/guild_xp_bar.gd" id="14_2dm2u"]
 [ext_resource type="Script" path="res://Game Scenes/build_stats.gd" id="14_gkfxq"]
@@ -91,6 +93,13 @@ modulate_color = Color(1, 1, 1, 0.67451)
 [sub_resource type="Theme" id="Theme_hg06k"]
 Panel/styles/panel = SubResource("StyleBoxTexture_kynsr")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bacq4"]
+texture = ExtResource("9_4jf2k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hxwxa"]
+texture = ExtResource("10_k4jjn")
+modulate_color = Color(1, 1, 1, 0.67451)
+
 [sub_resource type="Theme" id="Theme_obsq8"]
 Button/colors/font_color = Color(0, 0, 0, 1)
 Button/colors/font_disabled_color = Color(0, 0, 0, 1)
@@ -113,8 +122,8 @@ Button/font_sizes/font_size = 16
 Button/fonts/font = null
 Button/styles/disabled = null
 Button/styles/focus = null
-Button/styles/hover = null
-Button/styles/normal = null
+Button/styles/hover = SubResource("StyleBoxTexture_bacq4")
+Button/styles/normal = SubResource("StyleBoxTexture_hxwxa")
 Button/styles/pressed = null
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x887g"]
@@ -175,6 +184,13 @@ animations = [{
 }]
 
 [sub_resource type="Theme" id="Theme_ee5yl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bjbom"]
+texture = ExtResource("9_4jf2k")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fv11b"]
+texture = ExtResource("10_k4jjn")
+modulate_color = Color(1, 1, 1, 0.67451)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmif4"]
 texture = ExtResource("7_twdi5")
@@ -497,6 +513,8 @@ frame = 1
 custom_minimum_size = Vector2(300, 400)
 layout_mode = 2
 theme = SubResource("Theme_ee5yl")
+theme_override_styles/hover = SubResource("StyleBoxTexture_bjbom")
+theme_override_styles/normal = SubResource("StyleBoxTexture_fv11b")
 
 [node name="Increase Rep LBL" type="Label" parent="Level Up Options/VBoxContainer/HBoxContainer/Increase Rep BTN"]
 layout_mode = 1
