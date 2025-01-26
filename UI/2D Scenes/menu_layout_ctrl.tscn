@@ -1,29 +1,48 @@
-[gd_scene load_steps=24 format=3 uid="uid://blwyokhup48vq"]
+[gd_scene load_steps=47 format=3 uid="uid://blwyokhup48vq"]
 
 [ext_resource type="PackedScene" uid="uid://iyc288nhvx4t" path="res://Game Scenes/game_scene.tscn" id="1_1mimh"]
 [ext_resource type="Script" path="res://UI/2D Scenes/menu_layout_ctrl.gd" id="1_goreh"]
 [ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="1_igv0p"]
-[ext_resource type="Texture2D" uid="uid://c48ew23wash0a" path="res://Artwork/Background/Derek House v2.png" id="2_apj6e"]
+[ext_resource type="Texture2D" uid="uid://c1c85y07drn64" path="res://Artwork/Background/Derek House v3.png" id="2_yp5f2"]
 [ext_resource type="Texture2D" uid="uid://rwv3hfsl827i" path="res://Artwork/Background/Cloud 1.png" id="3_eus8g"]
 [ext_resource type="SpriteFrames" uid="uid://bhqmsqisx4ul3" path="res://Artwork/Sprites/Window.tres" id="3_o2kqx"]
 [ext_resource type="PackedScene" uid="uid://cc37y4dw05u16" path="res://UI/Labels/Title/Title Label.tscn" id="3_seatt"]
 [ext_resource type="Texture2D" uid="uid://72q1tt3ki7dh" path="res://Artwork/Background/Cloud 2.png" id="4_voi5k"]
+[ext_resource type="Texture2D" uid="uid://dqxy0q84hbsld" path="res://Artwork/Background/Cloud 4.png" id="5_ihdy3"]
 [ext_resource type="PackedScene" uid="uid://boicpk5r3jko7" path="res://Game Scenes/animation_controller.tscn" id="6_6qa1m"]
+[ext_resource type="Texture2D" uid="uid://chg0lyq8uyukg" path="res://Artwork/Sprites/Background/Chimney Smoke-Sheet.png" id="6_o5xlr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v2jf6"]
-atlas = ExtResource("2_apj6e")
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ewbf"]
+atlas = ExtResource("2_yp5f2")
 region = Rect2(0, 0, 1152, 648)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r1u7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_v2jf6")
+"texture": SubResource("AtlasTexture_2ewbf")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_l5ixi"]
+resource_name = "Cloud Scroll 1"
+length = 90.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cloud 1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 90),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-36, 67), Vector2(1404, 67)]
+}
 
 [sub_resource type="Animation" id="Animation_p30m6"]
 length = 0.001
@@ -40,23 +59,6 @@ tracks/0/keys = {
 "values": [Vector2(-36, 113)]
 }
 
-[sub_resource type="Animation" id="Animation_l5ixi"]
-resource_name = "Cloud Scroll 1"
-length = 90.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Cloud 1:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 90),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(-36, 113), Vector2(1404, 113)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jsqc4"]
 _data = {
 "Cloud Scroll 1": SubResource("Animation_l5ixi"),
@@ -65,7 +67,7 @@ _data = {
 
 [sub_resource type="Animation" id="Animation_my1md"]
 resource_name = "Cloud 2 Scroll"
-length = 50.0
+length = 75.0
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -74,10 +76,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 50),
+"times": PackedFloat32Array(0, 75),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-186, 113), Vector2(1324, 113)]
+"values": [Vector2(-186, 94), Vector2(1324, 94)]
 }
 
 [sub_resource type="Animation" id="Animation_o4hi0"]
@@ -99,6 +101,102 @@ tracks/0/keys = {
 _data = {
 "Cloud 2 Scroll": SubResource("Animation_my1md"),
 "RESET": SubResource("Animation_o4hi0")
+}
+
+[sub_resource type="Animation" id="Animation_q78b3"]
+resource_name = "Cloud Scroll 3"
+length = 75.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 75),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-186, 94), Vector2(1251, 94)]
+}
+
+[sub_resource type="Animation" id="Animation_apo3u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-186, 94)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yp22s"]
+_data = {
+"Cloud Scroll 3": SubResource("Animation_q78b3"),
+"RESET": SubResource("Animation_apo3u")
+}
+
+[sub_resource type="Animation" id="Animation_ke05n"]
+resource_name = "First Window Walk 1"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Window 1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Window 1:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Window Walk"]
+}
+
+[sub_resource type="Animation" id="Animation_c84rk"]
+resource_name = "First Window Walk 2"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Window 1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Window 1:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Window Walk 2"]
 }
 
 [sub_resource type="Animation" id="Animation_sa7by"]
@@ -140,35 +238,6 @@ tracks/2/keys = {
 "values": [&"Window Walk 2"]
 }
 
-[sub_resource type="Animation" id="Animation_ke05n"]
-resource_name = "First Window Walk 1"
-length = 5.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Window 1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Window 1:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Window Walk"]
-}
-
 [sub_resource type="Animation" id="Animation_7gru8"]
 resource_name = "Second Window Walk 1"
 length = 5.0
@@ -196,35 +265,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
-}
-
-[sub_resource type="Animation" id="Animation_c84rk"]
-resource_name = "First Window Walk 2"
-length = 5.0
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Window 1:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Window 1:animation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Window Walk 2"]
 }
 
 [sub_resource type="Animation" id="Animation_k7y6d"]
@@ -263,6 +303,163 @@ _data = {
 "RESET": SubResource("Animation_sa7by"),
 "Second Window Walk 1": SubResource("Animation_7gru8"),
 "Second Window Walk 2": SubResource("Animation_k7y6d")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt6hh"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg8if"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxk1t"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mraot"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(144, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yks0e"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(192, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xonri"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(240, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yr6o8"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(288, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8tbws"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(336, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yga4j"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(384, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jlj5"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(432, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adu2b"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(480, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgrbl"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(528, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2po4"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(576, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbqqn"]
+atlas = ExtResource("6_o5xlr")
+region = Rect2(624, 0, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wc40"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt6hh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg8if")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxk1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mraot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yks0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xonri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yr6o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8tbws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yga4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jlj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adu2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgrbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2po4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbqqn")
+}],
+"loop": true,
+"name": &"Smoke",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_67v68"]
+resource_name = "Chimney Smoke"
+length = 1.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Smoke"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="Animation" id="Animation_2fey7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qmo52"]
+_data = {
+"Chimney Smoke": SubResource("Animation_67v68"),
+"RESET": SubResource("Animation_2fey7")
 }
 
 [node name="Menu Layout_CTRL" type="Control"]
@@ -308,6 +505,19 @@ libraries = {
 wait_time = 25.0
 autostart = true
 
+[node name="Cloud 3" type="Sprite2D" parent="Background/Clouds"]
+position = Vector2(-186, 94)
+texture = ExtResource("5_ihdy3")
+
+[node name="Cloud Anim 3" type="AnimationPlayer" parent="Background/Clouds/Cloud 3"]
+libraries = {
+"": SubResource("AnimationLibrary_yp22s")
+}
+
+[node name="Cloud 3 Timer" type="Timer" parent="Background/Clouds/Cloud 3"]
+wait_time = 60.0
+autostart = true
+
 [node name="Window 1" type="AnimatedSprite2D" parent="Background"]
 position = Vector2(576, 488)
 sprite_frames = ExtResource("3_o2kqx")
@@ -337,6 +547,17 @@ autostart = true
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_aec0d")
+}
+
+[node name="Chimney Smoke" type="AnimatedSprite2D" parent="Background"]
+position = Vector2(810, 132)
+sprite_frames = SubResource("SpriteFrames_5wc40")
+animation = &"Smoke"
+frame = 1
+
+[node name="Chimney" type="AnimationPlayer" parent="Background/Chimney Smoke"]
+libraries = {
+"": SubResource("AnimationLibrary_qmo52")
 }
 
 [node name="Title Labels" type="Control" parent="." groups=["Title Labels"]]
@@ -441,6 +662,7 @@ anchors_preset = 0
 
 [connection signal="timeout" from="Background/Clouds/Cloud 1/Cloud 1 Timer" to="." method="_on_cloud_1_timer_timeout"]
 [connection signal="timeout" from="Background/Clouds/Cloud 2/Cloud 2 Timer" to="." method="_on_cloud_2_timer_timeout"]
+[connection signal="timeout" from="Background/Clouds/Cloud 3/Cloud 3 Timer" to="." method="_on_cloud_3_timer_timeout"]
 [connection signal="timeout" from="Background/Window 1/Window walking 1" to="." method="_on_window_walking_1_timeout"]
 [connection signal="timeout" from="Background/Window 2/Window walking 2" to="." method="_on_window_walking_2_timeout"]
 [connection signal="timeout" from="Title Labels/Title Timer" to="." method="_on_title_timer_timeout"]

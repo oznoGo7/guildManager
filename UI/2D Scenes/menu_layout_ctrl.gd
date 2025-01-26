@@ -3,6 +3,7 @@ extends Control
 
 @onready var window_walk_1: AnimationPlayer = $"Background/Window 1/Window Walk 1"
 @onready var window_walk_2: AnimationPlayer = $"Background/Window 2/Window Walk 2"
+@onready var chimney: AnimationPlayer = $"Background/Chimney Smoke/Chimney"
 
 
 func _ready() -> void:
@@ -14,7 +15,7 @@ func _ready() -> void:
 	else:
 		print("END OF DAY")
 		get_node("Game Scene").end_of_day()
-	
+	chimney.play("Chimney Smoke")
 
 
 func _on_title_timer_timeout() -> void:
@@ -55,3 +56,8 @@ func _on_cloud_1_timer_timeout() -> void:
 func _on_cloud_2_timer_timeout() -> void:
 	$"Background/Clouds/Cloud 2/Cloud 2 Timer".wait_time = randi_range(70, 100)
 	$"Background/Clouds/Cloud 2/Cloud Anim 2".play("Cloud 2 Scroll")
+
+
+func _on_cloud_3_timer_timeout() -> void:
+	$"Background/Clouds/Cloud 3/Cloud 3 Timer".wait_time = randi_range(70, 100)
+	$"Background/Clouds/Cloud 3/Cloud Anim 3".play("Cloud Scroll 3")
