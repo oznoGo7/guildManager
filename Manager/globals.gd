@@ -29,6 +29,7 @@ var improved_service_count = 1
 var extra_quest_board_count = 1
 var scout_for_adventurers_count = 1 
 var gained_rep: bool = true
+var time_between_quests: int
 
 
 #GameSignals

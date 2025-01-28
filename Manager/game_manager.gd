@@ -24,6 +24,10 @@ extends Node
 @onready var no_more_quests_: Label = $"EOD/No More Quests!"
 @onready var continue_btn: Button = $"EOD/HBoxContainer/Continue BTN"
 
+#No Adventurers Left
+@onready var no_adventurers_left: Control = $"No Adventurers Left"
+
+
 
 #Game Over Screen
 @onready var game_over: VBoxContainer = $"Game Over"
@@ -61,7 +65,7 @@ extends Node
 @onready var ws_quit_btn: Button = $"Weekly Scenario Vbox/HBoxContainer/WS_Quit BTN"
 
 #SettingsMenu
-@onready var settings_menu: Control = $"Settings Menu"
+@onready var settings_menu: Control = $"../Settings Menu"
 
 
 var scenario_dict = {
@@ -187,20 +191,18 @@ var weekly_scenario = {
 	4: {"title": "Generous Donation", "description": "A wealthy merchant was so impressed by your actions that he donated gold.", "resource": "gold", "amount": 3000},
 	5: {"title": "Local Fame", "description": "Word of your group's heroics spreads, enhancing your reputation.", "resource": "reputation", "amount": .15},
 	6: {"title": "Lucky Find", "description": "While exploring, your team stumbled upon a cache of gold.", "resource": "gold", "amount": 2000},
-	7: {"title": "Volunteer Adventurers", "description": "Inspired by your success, a group of volunteers joined your ranks.", "resource": "adventurers", "amount": 2},
-	8: {"title": "Heavy Losses", "description": "A dangerous mission resulted in the loss of some adventurers.", "resource": "adventurers", "amount": -2},
-	9: {"title": "Robbery", "description": "Your treasury was robbed while you were distracted.", "resource": "gold", "amount": -3000},
-	10: {"title": "Scandal", "description": "A rumor spreads about misconduct, harming your reputation.", "resource": "reputation", "amount": -.1},
-	11: {"title": "Ambush", "description": "An ambush caught your adventurers off guard, reducing their numbers.", "resource": "adventurers", "amount": -3},
-	12: {"title": "Expensive Repairs", "description": "Damage to your base required costly repairs.", "resource": "gold", "amount": -2500},
-	13: {"title": "Dishonorable Deed", "description": "A member of your group was caught acting dishonorably, hurting your reputation.", "resource": "reputation", "amount": -.15},
-	14: {"title": "Recruitment Fail", "description": "Attempts to recruit new adventurers failed, making an older adventurer retire.", "resource": "adventurers", "amount": -1}
+	7: {"title": "Heavy Losses", "description": "A dangerous mission resulted in the loss of some adventurers.", "resource": "adventurers", "amount": -2},
+	8: {"title": "Robbery", "description": "Your treasury was robbed while you were distracted.", "resource": "gold", "amount": -4000},
+	9: {"title": "Scandal", "description": "A rumor spreads about misconduct, harming your reputation.", "resource": "reputation", "amount": -.2},
+	10: {"title": "Ambush", "description": "An ambush caught your adventurers off guard, reducing their numbers.", "resource": "adventurers", "amount": -3},
+	11: {"title": "Expensive Repairs", "description": "Damage to your base required costly repairs.", "resource": "gold", "amount": -3000},
+	12: {"title": "Dishonorable Deed", "description": "A member of your group was caught acting dishonorably, hurting your reputation.", "resource": "reputation", "amount": -.15},
 }
 
 var current_scenario = null
 var current_weekly_scenario = null
 var leveled_up = false
-var is_paused = false
+
 var quest_accepted = .05
 var quest_gambled_away = .05
 var quest_ignored = .03
@@ -213,17 +215,10 @@ func _ready() -> void:
 	Globals.connect("improved_food_xp", update_reputation)
 	Globals.connect("improved_service_xp", update_reputation)
 	Globals.connect("extra_quest_board_xp", update_reputation)
-	print(Globals.gained_rep)
+
 
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Pause"):
-		if is_paused == false:
-			is_paused = true
-			settings_menu.visible = true
-		else:
-			is_paused = false
-			settings_menu.visible = false
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
 	guild_money_lbl.text = "Guild Gold: " + str(Globals.guild_gold)
 	guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
@@ -264,10 +259,11 @@ func _on_choice_1_pressed() -> void:
 		choice_control_box.visible = false
 		await update_xp()
 		await update_reputation()
-		if leveled_up == false && Globals.quests_left > 0:
+		if leveled_up == false && Globals.quests_left > 0 && Globals.guild_members_left != 0:
 			move_quest_details_list()
 		else:
 			level_up()
+		no_more_adventurers()
 		end_of_day()
 	else:
 		print("Not enough guild members available!")
@@ -352,6 +348,19 @@ func update_reputation() -> void:
 	else:
 		town_reputation_bar.value = Globals.town_reputation
 
+func no_more_adventurers():
+	if Globals.guild_members_left == 0 && Globals.quests_left > 0:
+		quest_details_list.visible = false
+		game_over.visible = false
+		weekly_scenario.visible = false
+		if guild_xp_bar.value == 0 && leveled_up == true:
+			level_up_options.visible = true
+		else:
+			no_adventurers_left.visible = true
+			$"Audio/Present Scenario Timer".stop()
+	else:
+		end_of_day()
+
 func end_of_day() -> void:
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
 	Globals.gained_rep = false
@@ -363,6 +372,7 @@ func end_of_day() -> void:
 			level_up_options.visible = true
 		else:
 			eod.visible = true
+			$"Audio/Present Scenario Timer".stop()
 
 
 func level_up() -> void:
@@ -373,8 +383,8 @@ func level_up() -> void:
 		game_over.visible = false
 		level_up_options.visible = true
 		weekly_scenario_vbox.visible = false
-		adventurers_lbl.text = "Recruit more Adventurers (1-4)"
-		increase_rep_lbl.text = "Increase Reputation with the Town (20%)"
+		adventurers_lbl.text = "Recruit more Adventurers (1-3)"
+		increase_rep_lbl.text = "Increase Reputation with the Town (40%)"
 		anim.play("Adventurer")
 
 
@@ -396,6 +406,8 @@ func _on_go_quit_btn_pressed() -> void:
 
 func _on_continue_btn_pressed() -> void:
 	eod.visible = false
+	no_adventurers_left.visible = false
+	$"Audio/Present Scenario Timer".start()
 	new_day()
 
 func new_day() -> void:
@@ -452,21 +464,22 @@ func give_weekly_scenario():
 
 
 func _on_adventurers_btn_pressed() -> void:
-	if Globals.guild_gold > 1000 * Globals.adventurer_upgrade:
-		var random_amount_of_adventurers = randi() % 4 + 1
-		Globals.guild_members_total += random_amount_of_adventurers
-		Globals.guild_members_left += random_amount_of_adventurers
-		guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
-		Globals.adventurer_upgrade += 1
-		level_up_ended()
-		end_of_day()
+	var random_amount_of_adventurers = randi() % 3 + 1
+	Globals.guild_members_total += random_amount_of_adventurers
+	Globals.guild_members_left += random_amount_of_adventurers
+	guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
+	Globals.adventurer_upgrade += 1
+	level_up_ended()
+	end_of_day()
+	Globals.save()
+
 
 func _on_increase_rep_btn_pressed() -> void:
-	if Globals.guild_gold > 1000 * Globals.reputation_upgrade:
-		Globals.reputation_upgrade += 1
-		Globals.town_reputation += .40
-		await update_reputation()
-		level_up_ended()
+	Globals.reputation_upgrade += 1
+	Globals.town_reputation += .40
+	await update_reputation()
+	level_up_ended()
+	Globals.save()
 
 
 func level_up_ended() -> void:
@@ -507,12 +520,3 @@ func _on_ws_continue_btn_pressed() -> void:
 
 func _on_ws_quit_btn_pressed() -> void:
 	get_tree().quit()
-
-
-func _on_back_pressed() -> void:
-	if is_paused == false:
-		is_paused = true
-		settings_menu.visible = true
-	else:
-		is_paused = false
-		settings_menu.visible = false

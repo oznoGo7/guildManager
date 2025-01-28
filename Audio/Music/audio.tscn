@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dsn7bguwdima4" path="res://Audio/SFX/Fill Down Noise.mp3" id="5_b4jv4"]
 [ext_resource type="AudioStream" uid="uid://bl3nvury8pyqb" path="res://Audio/SFX/XP Gain.mp3" id="6_qht6q"]
 
-[node name="Audio" type="Node"]
+[node name="Audio" type="Node" groups=["Audio"]]
 script = ExtResource("1_rubda")
 
 [node name="Present Scenario Timer" type="Timer" parent="."]

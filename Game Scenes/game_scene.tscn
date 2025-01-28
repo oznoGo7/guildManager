@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://iyc288nhvx4t"]
+[gd_scene load_steps=50 format=3 uid="uid://iyc288nhvx4t"]
 
 [ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
 [ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
@@ -21,10 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://bw02n1a3u85bg" path="res://Artwork/Sprites/Church Book/book_06g.png" id="11_ui3nx"]
 [ext_resource type="Script" path="res://Game Scenes/guild_xp_bar.gd" id="14_2dm2u"]
 [ext_resource type="Script" path="res://Game Scenes/build_stats.gd" id="14_gkfxq"]
-[ext_resource type="PackedScene" uid="uid://js3538ytpx8l" path="res://UI/Labels/SettingsTitle.tscn" id="14_pgn0j"]
-[ext_resource type="PackedScene" uid="uid://c5tkbbispu5s5" path="res://UI/Labels/Settings Label.tscn" id="15_q8alp"]
-[ext_resource type="PackedScene" uid="uid://gsuqr47nlrj7" path="res://UI/Scrolls/audio_scroll.tscn" id="16_0loxc"]
-[ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="17_8dfca"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c22rn"]
 texture = ExtResource("3_0au3g")
@@ -224,9 +220,6 @@ expand_margin_bottom = 10.0
 texture = ExtResource("10_ex2ks")
 modulate_color = Color(1, 1, 1, 0.823529)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f24h3"]
-texture = ExtResource("3_0au3g")
-
 [node name="Game Scene" type="Control" groups=["Game Scene"]]
 layout_mode = 3
 anchors_preset = 15
@@ -241,6 +234,7 @@ script = ExtResource("1_qq12l")
 [node name="Audio" parent="." instance=ExtResource("3_2tspa")]
 
 [node name="Quest Details List" type="Control" parent="." groups=["Quest Details List"]]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -420,6 +414,7 @@ text = "Quit"
 script = null
 
 [node name="Level Up Options" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -497,8 +492,8 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
-text = "Recruit more Adventurers (1-4)
-Cost 1000"
+text = "Recruit more Adventurers (1-3)
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -531,7 +526,7 @@ grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 text = "Donate to the Church Reputation +40%
-Cost 1000"
+"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -597,6 +592,7 @@ text = "Quit"
 script = null
 
 [node name="Guild Stats" type="Control" parent="." groups=["Guild Stats"]]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2.0
@@ -692,6 +688,7 @@ show_percentage = false
 script = ExtResource("14_2dm2u")
 
 [node name="Build Stats" type="Control" parent="." groups=["Build Stats"]]
+visible = false
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -823,78 +820,48 @@ Cost: 500
 Town Reputation + 15%"
 horizontal_alignment = 1
 
-[node name="Settings Menu" type="Control" parent="."]
+[node name="No Adventurers Left" type="Control" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -324.0
-offset_top = -200.0
-offset_right = 324.0
-offset_bottom = 200.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Panel" type="Panel" parent="Settings Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_f24h3")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings Menu"]
+[node name="NAL" type="VBoxContainer" parent="No Adventurers Left"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -93.0
-offset_top = 26.0
-offset_right = 93.0
-offset_bottom = 93.0
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -60.0
+offset_right = 244.0
+offset_bottom = 60.0
 grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
 alignment = 1
 
-[node name="Settings Title" parent="Settings Menu/VBoxContainer" instance=ExtResource("14_pgn0j")]
+[node name="No More Adventurers" type="Label" parent="No Adventurers Left/NAL"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "No More Adventurers
+ Left For Today!"
+horizontal_alignment = 1
 
-[node name="Master" parent="Settings Menu/VBoxContainer" instance=ExtResource("15_q8alp")]
+[node name="HBoxContainer" type="HBoxContainer" parent="No Adventurers Left/NAL"]
 layout_mode = 2
-text = "Master"
+alignment = 1
 
-[node name="Master Scroll" parent="Settings Menu/VBoxContainer" instance=ExtResource("16_0loxc")]
+[node name="Continue BTN" parent="No Adventurers Left/NAL/HBoxContainer" instance=ExtResource("1_np7fp")]
 layout_mode = 2
-bus_name = "Master"
-
-[node name="Music" parent="Settings Menu/VBoxContainer" instance=ExtResource("15_q8alp")]
-layout_mode = 2
-
-[node name="Music Scroll" parent="Settings Menu/VBoxContainer" instance=ExtResource("16_0loxc")]
-layout_mode = 2
-bus_name = "Music"
-
-[node name="SFX" parent="Settings Menu/VBoxContainer" instance=ExtResource("15_q8alp")]
-layout_mode = 2
-text = "SFX
-"
-
-[node name="SFX Scroll" parent="Settings Menu/VBoxContainer" instance=ExtResource("16_0loxc")]
-layout_mode = 2
-bus_name = "sfx"
-
-[node name="Back" parent="Settings Menu/VBoxContainer" instance=ExtResource("17_8dfca")]
-layout_mode = 2
-text = "Back
-"
-
-[node name="Main Menu" parent="Settings Menu/VBoxContainer" instance=ExtResource("17_8dfca")]
-layout_mode = 2
-text = "Main Menu
-"
+text = "Continue?"
+script = null
 
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 1 BTN" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 1 BTN" to="Audio" method="_on_choice_1_btn_pressed"]
@@ -927,6 +894,5 @@ text = "Main Menu
 [connection signal="pressed" from="Build Stats/VBoxContainer/Extra Quest Board" to="Audio" method="_on_extra_quest_board_pressed"]
 [connection signal="mouse_entered" from="Build Stats/VBoxContainer/Scout For Adventurers" to="Build Stats/VBoxContainer/Scout For Adventurers" method="_on_mouse_entered"]
 [connection signal="pressed" from="Build Stats/VBoxContainer/Scout For Adventurers" to="Audio" method="_on_extra_quest_board_pressed"]
-[connection signal="pressed" from="Settings Menu/VBoxContainer/Back" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="Settings Menu/VBoxContainer/Back" to="Audio" method="_on_back_pressed"]
-[connection signal="pressed" from="Settings Menu/VBoxContainer/Main Menu" to="Audio" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="No Adventurers Left/NAL/HBoxContainer/Continue BTN" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="No Adventurers Left/NAL/HBoxContainer/Continue BTN" to="Audio" method="_on_continue_btn_pressed"]

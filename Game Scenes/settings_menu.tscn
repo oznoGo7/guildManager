@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1fftcekmkocc"]
+
+[ext_resource type="Texture2D" uid="uid://bbkymupg5u5dm" path="res://Artwork/UI/RectangleBox_96x96.png" id="1_rnx55"]
+[ext_resource type="PackedScene" uid="uid://js3538ytpx8l" path="res://UI/Labels/SettingsTitle.tscn" id="2_l5dys"]
+[ext_resource type="PackedScene" uid="uid://c5tkbbispu5s5" path="res://UI/Labels/Settings Label.tscn" id="3_ft0cj"]
+[ext_resource type="PackedScene" uid="uid://gsuqr47nlrj7" path="res://UI/Scrolls/audio_scroll.tscn" id="4_i2td5"]
+[ext_resource type="Script" path="res://Game Scenes/time_between_quests_slider.gd" id="5_gclvk"]
+[ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="6_sfusc"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f24h3"]
+texture = ExtResource("1_rnx55")
+
+[node name="Settings Menu" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -324.0
+offset_top = -200.0
+offset_right = 324.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_f24h3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -93.0
+offset_top = 26.0
+offset_right = 93.0
+offset_bottom = 93.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Settings Title" parent="VBoxContainer" instance=ExtResource("2_l5dys")]
+layout_mode = 2
+
+[node name="Master" parent="VBoxContainer" instance=ExtResource("3_ft0cj")]
+layout_mode = 2
+text = "Master"
+
+[node name="Master Scroll" parent="VBoxContainer" instance=ExtResource("4_i2td5")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="Music" parent="VBoxContainer" instance=ExtResource("3_ft0cj")]
+layout_mode = 2
+
+[node name="Music Scroll" parent="VBoxContainer" instance=ExtResource("4_i2td5")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="SFX" parent="VBoxContainer" instance=ExtResource("3_ft0cj")]
+layout_mode = 2
+text = "SFX
+"
+
+[node name="SFX Scroll" parent="VBoxContainer" instance=ExtResource("4_i2td5")]
+layout_mode = 2
+bus_name = "sfx"
+
+[node name="Time Between Quests" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Time Between Quests (Seconds): 5"
+horizontal_alignment = 1
+
+[node name="Time Between Quests Slider" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+min_value = 5.0
+max_value = 1800.0
+value = 5.0
+script = ExtResource("5_gclvk")
+
+[node name="Back" parent="VBoxContainer" instance=ExtResource("6_sfusc")]
+layout_mode = 2
+text = "Back
+"
+
+[node name="Quit" parent="VBoxContainer" instance=ExtResource("6_sfusc")]
+layout_mode = 2
+text = "Quit
+"
+
+[connection signal="value_changed" from="VBoxContainer/Time Between Quests Slider" to="VBoxContainer/Time Between Quests Slider" method="_on_value_changed"]

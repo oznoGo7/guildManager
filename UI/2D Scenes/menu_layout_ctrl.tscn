@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://blwyokhup48vq"]
+[gd_scene load_steps=48 format=3 uid="uid://blwyokhup48vq"]
 
 [ext_resource type="PackedScene" uid="uid://iyc288nhvx4t" path="res://Game Scenes/game_scene.tscn" id="1_1mimh"]
 [ext_resource type="Script" path="res://UI/2D Scenes/menu_layout_ctrl.gd" id="1_goreh"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dqxy0q84hbsld" path="res://Artwork/Background/Cloud 4.png" id="5_ihdy3"]
 [ext_resource type="PackedScene" uid="uid://boicpk5r3jko7" path="res://Game Scenes/animation_controller.tscn" id="6_6qa1m"]
 [ext_resource type="Texture2D" uid="uid://chg0lyq8uyukg" path="res://Artwork/Sprites/Background/Chimney Smoke-Sheet.png" id="6_o5xlr"]
+[ext_resource type="PackedScene" uid="uid://c1fftcekmkocc" path="res://Game Scenes/settings_menu.tscn" id="12_t7q8c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2ewbf"]
 atlas = ExtResource("2_yp5f2")
@@ -502,7 +503,7 @@ libraries = {
 }
 
 [node name="Cloud 2 Timer" type="Timer" parent="Background/Clouds/Cloud 2"]
-wait_time = 25.0
+wait_time = 35.0
 autostart = true
 
 [node name="Cloud 3" type="Sprite2D" parent="Background/Clouds"]
@@ -659,6 +660,9 @@ text = "Quit Game
 [node name="Animation Controller" parent="." instance=ExtResource("6_6qa1m")]
 layout_mode = 2
 anchors_preset = 0
+
+[node name="Settings Menu" parent="." groups=["Settings Menu"] instance=ExtResource("12_t7q8c")]
+layout_mode = 1
 
 [connection signal="timeout" from="Background/Clouds/Cloud 1/Cloud 1 Timer" to="." method="_on_cloud_1_timer_timeout"]
 [connection signal="timeout" from="Background/Clouds/Cloud 2/Cloud 2 Timer" to="." method="_on_cloud_2_timer_timeout"]

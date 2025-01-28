@@ -4,7 +4,10 @@ extends Control
 @onready var window_walk_1: AnimationPlayer = $"Background/Window 1/Window Walk 1"
 @onready var window_walk_2: AnimationPlayer = $"Background/Window 2/Window Walk 2"
 @onready var chimney: AnimationPlayer = $"Background/Chimney Smoke/Chimney"
+@onready var settings_menu: Control = $"Settings Menu"
 
+
+var is_paused = false
 
 func _ready() -> void:
 	Globals.load_data()
@@ -17,6 +20,17 @@ func _ready() -> void:
 		get_node("Game Scene").end_of_day()
 	chimney.play("Chimney Smoke")
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		if is_paused == false:
+			is_paused = true
+			settings_menu.visible = true
+			print("Show Settings")
+		else:
+			is_paused = false
+			settings_menu.visible = false
+			print("Hide Settings")
+
 
 func _on_title_timer_timeout() -> void:
 	$"Title Labels/G".move_title_label()
@@ -25,7 +39,6 @@ func _on_title_timer_timeout() -> void:
 	$"Title Labels/L".move_title_label()
 	$"Title Labels/D".move_title_label()
 	$"Title Labels/Manager".move_title_label()
-
 
 
 func _on_window_walking_1_timeout() -> void:

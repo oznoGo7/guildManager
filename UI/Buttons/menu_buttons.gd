@@ -3,6 +3,8 @@ extends Button
 @onready var game_scene = get_tree().get_first_node_in_group("Game Scene")
 @onready var main_menu = get_tree().get_first_node_in_group("Main Menu")
 
+var is_paused = false
+
 
 func _ready() -> void:
 	pass
@@ -25,7 +27,7 @@ func _on_pressed() -> void:
 				game_scene.get_child(6).visible = false # Weekly Scenario
 				game_scene.get_child(7).visible = true # Guild Stats
 				game_scene.get_child(8).visible = true # Build Stats
-				game_scene.get_child(9).visible = false # Settings
+				game_scene.get_child(9).visible = false # No Adventurers Left
 			else:
 				game_scene.visible = true
 				main_menu.visible = false
@@ -57,29 +59,17 @@ func _on_pressed() -> void:
 			$"../../Title Labels".visible = false
 			
 		"Settings":
-			game_scene.visible = true
-			game_scene.get_child(2).visible = false
-			game_scene.get_child(2).get_child(1).visible = false
-			game_scene.get_child(3).visible = false
-			game_scene.get_child(4).visible = false
-			game_scene.get_child(5).visible = false
-			game_scene.get_child(6).visible = false
-			game_scene.get_child(9).visible = true
+			get_tree().get_first_node_in_group("Settings Menu").visible = true
 		"Back":
-			pass
-		"Main Menu":
-			game_scene.visible = false
-			main_menu.visible = true
-			game_scene.get_child(2).visible = false
-			game_scene.get_child(2).get_child(1).visible = false
-			game_scene.get_child(3).visible = false
-			game_scene.get_child(4).visible = false
-			game_scene.get_child(5).visible = false
-			game_scene.get_child(6).visible = false
-			game_scene.get_child(7).visible = false
-			game_scene.get_child(8).visible = false
-			game_scene.get_child(9).visible = false
-			get_tree().get_first_node_in_group("Title Labels").visible = true
+			if is_paused == false:
+				is_paused = true
+				get_parent().get_parent().visible = true
+			else:
+				is_paused = false
+				get_parent().get_parent().visible = false
+		"Quit":
+			Globals.save()
+			get_tree().quit()
 		"Quit":
 			print("Quit")
 			get_tree().quit()
