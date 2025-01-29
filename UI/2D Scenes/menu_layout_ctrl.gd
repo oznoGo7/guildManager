@@ -13,11 +13,15 @@ func _ready() -> void:
 	Globals.load_data()
 	get_node("Game Scene").update_reputation()
 	get_node("Game Scene").update_xp()
-	if Globals.quests_left > 0:
+	if Globals.quests_left > 0 and Globals.guild_members_left != 0:
 		get_node("Game Scene").present_scenario()
-	else:
+	elif Globals.quests_left == 0 and Globals.guild_members_left != 0:
 		print("END OF DAY")
 		get_node("Game Scene").end_of_day()
+	else:
+		print("No More Adventurers")
+		print("No More Adventurers " + str(Globals.guild_members_left))
+		get_node("Game Scene").no_more_adventurers()
 	chimney.play("Chimney Smoke")
 
 func _process(delta: float) -> void:

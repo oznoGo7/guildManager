@@ -245,7 +245,6 @@ func present_scenario():
 	choice_control_box.visible = true
 
 
-
 func _on_choice_1_pressed() -> void:
 	if Globals.guild_members_left >= Globals.guild_members_needed && Globals.quests_left > 0:
 		Globals.guild_members_left -= Globals.guild_members_needed
@@ -329,6 +328,7 @@ func update_xp() -> void:
 			level_up()
 	else:
 		guild_xp_bar.value = Globals.guild_xp
+		guild_xp_bar.max_value = Globals.guild_xp_bar_max_value
 
 func update_reputation() -> void:
 	if current_scenario != null:
