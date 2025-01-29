@@ -41,10 +41,13 @@ func load_data() -> void:
 	match bus_index:
 		0:
 			value = master_save_value
+			AudioServer.set_bus_volume_db(0, linear_to_db(value))
 		1:
 			value = music_save_value
+			AudioServer.set_bus_volume_db(1, linear_to_db(value))
 		2:
 			value = sfx_save_value
+			AudioServer.set_bus_volume_db(2, linear_to_db(value))
 
 	print("Loaded value for bus index ", bus_index, ": ", value)
 

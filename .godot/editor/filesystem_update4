@@ -1,0 +1,13 @@
+res://UI/2D Scenes/menu.tscn
+res://Artwork/Sprites/Window.tres
+res://UI/Scrolls/audio_scroll.gd
+res://Game Scenes/game_scene.tscn
+res://Manager/Globals.tscn
+res://UI/Buttons/Build_Buttons.tscn
+res://UI/2D Scenes/menu_layout_ctrl.tscn
+res://Audio/Music/audio.tscn
+res://Game Scenes/settings_menu.tscn
+res://Manager/game_manager.gd
+res://UI/2D Scenes/menu_layout_ctrl.gd
+res://UI/Buttons/menu_buttons.gd
+res://UI/Scrolls/audio_scroll.tscn

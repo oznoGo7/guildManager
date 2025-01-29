@@ -6,16 +6,12 @@ extends Button
 var is_paused = false
 
 
-func _ready() -> void:
-	pass
-
-
 func _on_pressed() -> void:
 	$"Button Press".play()
 	match name:
 		"Play":
 			await $"../../Animation Controller".fade_out()
-			if Globals.quests_left > 0:
+			if Globals.quests_left > 0 and Globals.guild_members_left > 0:
 				game_scene.get_child(1).get_child(0).start() # Present Secnario Timer
 				game_scene.visible = false #Game Scene
 				main_menu.visible = false #Main Menu
@@ -28,7 +24,7 @@ func _on_pressed() -> void:
 				game_scene.get_child(7).visible = true # Guild Stats
 				game_scene.get_child(8).visible = true # Build Stats
 				game_scene.get_child(9).visible = false # No Adventurers Left
-			else:
+			elif Globals.quests_left == 0 and Globals.guild_members_left > 0:
 				game_scene.visible = true
 				main_menu.visible = false
 				game_scene.get_child(2).visible = true
@@ -40,6 +36,18 @@ func _on_pressed() -> void:
 				game_scene.get_child(7).visible = true
 				game_scene.get_child(8).visible = true
 				game_scene.get_child(9).visible = false
+			else:
+				game_scene.visible = true
+				main_menu.visible = false
+				game_scene.get_child(2).visible = true
+				game_scene.get_child(2).get_child(1).visible = false
+				game_scene.get_child(3).visible = false
+				game_scene.get_child(4).visible = false
+				game_scene.get_child(5).visible = false
+				game_scene.get_child(6).visible = false
+				game_scene.get_child(7).visible = true
+				game_scene.get_child(8).visible = true
+				game_scene.get_child(9).visible = true
 			$"../../Title Labels".visible = false
 		"New Game":
 			Globals.reset_values()
