@@ -422,13 +422,14 @@ func new_day() -> void:
 		Globals.town_reputation -= Globals.new_day_reputation_decrease
 		amount_of_rep = .08
 		await update_reputation()
-		move_quest_details_list()
+		await move_quest_details_list()
 		if Globals.town_reputation > .1:
 				quest_details_list.visible = false
 				eod.visible = false
 				game_over.visible = false
 				level_up_options.visible = false
 				weekly_scenario_vbox.visible = false
+				$"../Animation Controller".fade_out()
 		else:
 			game_over.visible = true
 			$Audio.present_scenario_timer.stop()
