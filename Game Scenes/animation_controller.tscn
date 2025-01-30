@@ -1,63 +1,58 @@
-[gd_scene load_steps=6 format=3 uid="uid://boicpk5r3jko7"]
+[gd_scene load_steps=9 format=3 uid="uid://boicpk5r3jko7"]
 
 [ext_resource type="Script" path="res://Game Scenes/animation_controller.gd" id="1_stwrn"]
+[ext_resource type="Texture2D" uid="uid://15sijjux8ypx" path="res://Artwork/Publisher/Pie Association Log.png" id="2_x85jj"]
+[ext_resource type="FontFile" uid="uid://djsjpoq7vta1v" path="res://UI/Font/PixelEmulator-xq08.ttf" id="3_sie2k"]
 
 [sub_resource type="Animation" id="Animation_uuka6"]
 resource_name = "Fade In"
 step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_mq22o"]
 resource_name = "Fade Out"
 step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_83o3p"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
+tracks/0/path = NodePath("Control:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 0)]
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ut8h6"]
+resource_name = "Publisher"
+length = 5.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lgl08"]
 _data = {
 "Fade In": SubResource("Animation_uuka6"),
 "Fade Out": SubResource("Animation_mq22o"),
+"Publisher": SubResource("Animation_ut8h6"),
 "RESET": SubResource("Animation_83o3p")
 }
 
 [node name="Animation Controller" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,16 +61,58 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_stwrn")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lgl08")
+}
+
+[node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0)
 
-[node name="Anim" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_lgl08")
-}
+[node name="ColorRect" type="ColorRect" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Control"]
+position = Vector2(576, 263)
+scale = Vector2(8, 8)
+texture = ExtResource("2_x85jj")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -174.0
+offset_top = 136.5
+offset_right = 174.0
+offset_bottom = 203.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sie2k")
+theme_override_font_sizes/font_size = 48
+text = "Pie Association"
+
+[node name="Skip" type="Button" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="Control/Skip" to="." method="_on_skip_pressed"]

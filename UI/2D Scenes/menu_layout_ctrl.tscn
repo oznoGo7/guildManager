@@ -1,9 +1,9 @@
-[gd_scene load_steps=48 format=3 uid="uid://blwyokhup48vq"]
+[gd_scene load_steps=49 format=3 uid="uid://blwyokhup48vq"]
 
 [ext_resource type="PackedScene" uid="uid://iyc288nhvx4t" path="res://Game Scenes/game_scene.tscn" id="1_1mimh"]
 [ext_resource type="Script" path="res://UI/2D Scenes/menu_layout_ctrl.gd" id="1_goreh"]
 [ext_resource type="PackedScene" uid="uid://rso3gymj47gc" path="res://UI/Buttons/Menu_Buttons.tscn" id="1_igv0p"]
-[ext_resource type="Texture2D" uid="uid://c1c85y07drn64" path="res://Artwork/Background/Derek House v3.png" id="2_yp5f2"]
+[ext_resource type="Texture2D" uid="uid://bgq4i18wnkc35" path="res://Artwork/Background/Derek House v3 (1)-Sheet.png" id="2_0rok4"]
 [ext_resource type="Texture2D" uid="uid://rwv3hfsl827i" path="res://Artwork/Background/Cloud 1.png" id="3_eus8g"]
 [ext_resource type="SpriteFrames" uid="uid://bhqmsqisx4ul3" path="res://Artwork/Sprites/Window.tres" id="3_o2kqx"]
 [ext_resource type="PackedScene" uid="uid://cc37y4dw05u16" path="res://UI/Labels/Title/Title Label.tscn" id="3_seatt"]
@@ -11,17 +11,18 @@
 [ext_resource type="Texture2D" uid="uid://dqxy0q84hbsld" path="res://Artwork/Background/Cloud 4.png" id="5_ihdy3"]
 [ext_resource type="PackedScene" uid="uid://boicpk5r3jko7" path="res://Game Scenes/animation_controller.tscn" id="6_6qa1m"]
 [ext_resource type="Texture2D" uid="uid://chg0lyq8uyukg" path="res://Artwork/Sprites/Background/Chimney Smoke-Sheet.png" id="6_o5xlr"]
+[ext_resource type="Script" path="res://UI/2D Scenes/main_menu.gd" id="10_cxq68"]
 [ext_resource type="PackedScene" uid="uid://c1fftcekmkocc" path="res://Game Scenes/settings_menu.tscn" id="12_t7q8c"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ewbf"]
-atlas = ExtResource("2_yp5f2")
+[sub_resource type="AtlasTexture" id="AtlasTexture_wv6fo"]
+atlas = ExtResource("2_0rok4")
 region = Rect2(0, 0, 1152, 648)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r1u7"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2ewbf")
+"texture": SubResource("AtlasTexture_wv6fo")
 }],
 "loop": true,
 "name": &"default",
@@ -619,10 +620,6 @@ offset_bottom = 328.0
 text = "MANAGER
 "
 
-[node name="Title Timer" type="Timer" parent="Title Labels"]
-wait_time = 0.1
-autostart = true
-
 [node name="Game Scene" parent="." instance=ExtResource("1_1mimh")]
 visible = false
 layout_mode = 1
@@ -633,11 +630,12 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -148.0
-offset_bottom = -98.0
+offset_top = 9.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 0
 alignment = 1
+script = ExtResource("10_cxq68")
 
 [node name="Play" parent="Main Menu" groups=["Play Button"] instance=ExtResource("1_igv0p")]
 layout_mode = 2
@@ -658,6 +656,7 @@ text = "Quit Game
 "
 
 [node name="Animation Controller" parent="." instance=ExtResource("6_6qa1m")]
+visible = false
 layout_mode = 2
 anchors_preset = 0
 
@@ -669,4 +668,3 @@ layout_mode = 1
 [connection signal="timeout" from="Background/Clouds/Cloud 3/Cloud 3 Timer" to="." method="_on_cloud_3_timer_timeout"]
 [connection signal="timeout" from="Background/Window 1/Window walking 1" to="." method="_on_window_walking_1_timeout"]
 [connection signal="timeout" from="Background/Window 2/Window walking 2" to="." method="_on_window_walking_2_timeout"]
-[connection signal="timeout" from="Title Labels/Title Timer" to="." method="_on_title_timer_timeout"]

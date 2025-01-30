@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://bquvtja6buwsw"
-path="res://.godot/imported/Neoblock DEMO.otf-28cb42f4ad3dcc8d4fa13d0483fdaead.fontdata"
+path="res://.godot/imported/Neoblock DEMO.otf-6e633f234c3be80d082903b9bcdad675.fontdata"
 
 [deps]
 
-source_file="res://UI/Neoblock DEMO.otf"
-dest_files=["res://.godot/imported/Neoblock DEMO.otf-28cb42f4ad3dcc8d4fa13d0483fdaead.fontdata"]
+source_file="res://UI/Font/Neoblock DEMO.otf"
+dest_files=["res://.godot/imported/Neoblock DEMO.otf-6e633f234c3be80d082903b9bcdad675.fontdata"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d31ys5rw6kgtj"
-path="res://.godot/imported/Background House.png-285888b0134db0cee4cff4e0ef29ad40.ctex"
+uid="uid://bgq4i18wnkc35"
+path="res://.godot/imported/Derek House v3 (1)-Sheet.png-71806fc852d7cbbf206ed053b25e52fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Artwork/Background/Background House.png"
-dest_files=["res://.godot/imported/Background House.png-285888b0134db0cee4cff4e0ef29ad40.ctex"]
+source_file="res://Artwork/Background/Derek House v3 (1)-Sheet.png"
+dest_files=["res://.godot/imported/Derek House v3 (1)-Sheet.png-71806fc852d7cbbf206ed053b25e52fe.ctex"]
 
 [params]
 

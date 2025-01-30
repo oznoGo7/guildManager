@@ -5,6 +5,7 @@ extends Control
 @onready var window_walk_2: AnimationPlayer = $"Background/Window 2/Window Walk 2"
 @onready var chimney: AnimationPlayer = $"Background/Chimney Smoke/Chimney"
 @onready var settings_menu: Control = $"Settings Menu"
+@onready var animation_controller: Control = $"Animation Controller"
 
 
 var is_paused = false
@@ -23,6 +24,15 @@ func _ready() -> void:
 		print("No More Adventurers " + str(Globals.guild_members_left))
 		get_node("Game Scene").no_more_adventurers()
 	chimney.play("Chimney Smoke")
+	animation_controller.play_publisher()
+	await animation_controller.play_publisher()
+	$"Title Labels/G".move_title_label()
+	$"Title Labels/U".move_title_label()
+	$"Title Labels/I".move_title_label()
+	$"Title Labels/L".move_title_label()
+	$"Title Labels/D".move_title_label()
+	$"Title Labels/Manager".move_title_label()
+	$"Main Menu".move_main_menu()
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
@@ -35,14 +45,6 @@ func _process(delta: float) -> void:
 			settings_menu.visible = false
 			print("Hide Settings")
 
-
-func _on_title_timer_timeout() -> void:
-	$"Title Labels/G".move_title_label()
-	$"Title Labels/U".move_title_label()
-	$"Title Labels/I".move_title_label()
-	$"Title Labels/L".move_title_label()
-	$"Title Labels/D".move_title_label()
-	$"Title Labels/Manager".move_title_label()
 
 
 func _on_window_walking_1_timeout() -> void:
