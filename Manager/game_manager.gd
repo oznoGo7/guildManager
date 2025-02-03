@@ -217,7 +217,6 @@ func _ready() -> void:
 	Globals.connect("extra_quest_board_xp", update_reputation)
 
 
-
 func _process(_delta: float) -> void:
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
 	guild_money_lbl.text = "Guild Gold: " + str(Globals.guild_gold)
@@ -474,7 +473,6 @@ func _on_adventurers_btn_pressed() -> void:
 	end_of_day()
 	Globals.save()
 
-
 func _on_increase_rep_btn_pressed() -> void:
 	Globals.reputation_upgrade += 1
 	Globals.town_reputation += .40
@@ -510,6 +508,7 @@ func _on_ws_continue_btn_pressed() -> void:
 		$Audio.present_scenario_timer.start()
 		move_quest_details_list()
 		weekly_scenario_vbox.visible = false
+		$"../Animation Controller".fade_out()
 	else:
 		$Audio.present_scenario_timer.stop()
 		quest_details_list.visible = false

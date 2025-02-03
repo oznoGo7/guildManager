@@ -34,6 +34,7 @@ func _ready() -> void:
 	$"Title Labels/Manager".move_title_label()
 	$"Main Menu".move_main_menu()
 
+
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
 		if is_paused == false:

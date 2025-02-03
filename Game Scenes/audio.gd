@@ -19,7 +19,11 @@ func _ready():
 		load("res://Audio/Music/fading-neon-lights-lofi-beats-281197.mp3"),
 		load("res://Audio/Music/melancholy-moon-vibes-lofi-beats-281210.mp3"),
 		load("res://Audio/Music/waves-of-solitude-lofi-beats-281203.mp3"),
-		load("res://Audio/Music/whispering-vinyl-loops-lofi-beats-281193.mp3")
+		load("res://Audio/Music/whispering-vinyl-loops-lofi-beats-281193.mp3"),
+		load("res://Audio/Music/chill-lofi-160893.mp3"),
+		load("res://Audio/Music/for-a-dream-lofi-vibes-216038.mp3"),
+		load("res://Audio/Music/lofi-boy-night-waves-lofi-relax-instrumental-278248.mp3"),
+		load("res://Audio/Music/lonely-skyline-reflections-lofi-beats-281207.mp3")
 	]
 	if playlist.size() > 0:
 		play_random_track()
