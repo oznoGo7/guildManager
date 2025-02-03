@@ -24,7 +24,6 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c22rn"]
 texture = ExtResource("3_0au3g")
-modulate_color = Color(1, 1, 1, 0.6)
 
 [sub_resource type="Animation" id="Animation_2d6th"]
 resource_name = "Adventurer"
@@ -84,7 +83,6 @@ _data = {
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kynsr"]
 texture = ExtResource("3_0au3g")
-modulate_color = Color(1, 1, 1, 0.67451)
 
 [sub_resource type="Theme" id="Theme_hg06k"]
 Panel/styles/panel = SubResource("StyleBoxTexture_kynsr")
@@ -190,7 +188,6 @@ modulate_color = Color(1, 1, 1, 0.67451)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mmif4"]
 texture = ExtResource("7_twdi5")
-modulate_color = Color(1, 1, 1, 0.6)
 
 [sub_resource type="Theme" id="Theme_k676d"]
 Panel/styles/panel = SubResource("StyleBoxTexture_mmif4")
@@ -414,7 +411,6 @@ text = "Quit"
 script = null
 
 [node name="Level Up Options" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -592,7 +588,6 @@ text = "Quit"
 script = null
 
 [node name="Guild Stats" type="Control" parent="." groups=["Guild Stats"]]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2.0
