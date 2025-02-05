@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1738603736
+::res://::1738710958
 default_bus_layout.tres::AudioBusLayout::6486305471084241954::1737407408::0::1::::<><>::
-export_presets.cfg::TextFile::-1::1737953639::0::1::::<><>::
+export_presets.cfg::TextFile::-1::1738603736::0::1::::<><>::
 README.md::TextFile::-1::1737716936::0::1::::<><>::
 ::res://Artwork/::1738549705
 ::res://Artwork/Background/::1738603514
@@ -13,8 +13,8 @@ Derek House v3 (1)-Sheet.png::CompressedTexture2D::2842360286330715902::17381560
 Derek House v3 (2)-Sheet.png::CompressedTexture2D::6904885182468197712::1738603514::1738603514::1::::<><>::
 ::res://Artwork/Publisher/::1738151504
 Pie Association Log.png::CompressedTexture2D::1887948946985831341::1738149999::1738151504::1::::<><>::
-::res://Artwork/Sprites/::1738603542
-Window.tres::SpriteFrames::2911534235009544186::1738603542::0::1::::<><>::uid://cdyv6h4p2ya85::::res://Artwork/Sprites/Background/Window Sill Walk-by-Sheet.png<>uid://dkqfpplbfbamr::::res://Artwork/Sprites/Background/Window Sill Walk-by2-Sheet.png
+::res://Artwork/Sprites/::1738632208
+Window.tres::SpriteFrames::2911534235009544186::1738632208::0::1::::<><>::uid://cdyv6h4p2ya85::::res://Artwork/Sprites/Background/Window Sill Walk-by-Sheet.png<>uid://dkqfpplbfbamr::::res://Artwork/Sprites/Background/Window Sill Walk-by2-Sheet.png
 ::res://Artwork/Sprites/Adventurer/::1737755262
 IDLE.png::CompressedTexture2D::3398630141587220547::1737660969::1737755262::1::::<><>::
 ::res://Artwork/Sprites/Background/::1738082192
@@ -68,9 +68,9 @@ ValueBar_128x16.png::CompressedTexture2D::2190775875112897256::1737311411::17373
 ValueBlue_120x8.png::CompressedTexture2D::5786968962493280133::1737311411::1737311411::1::::<><>::
 ValueRed_120x8.png::CompressedTexture2D::3266458515562848514::1737311411::1737311411::1::::<><>::
 ::res://Audio/::1737717351
-::res://Audio/Music/::1738607863
+::res://Audio/Music/::1738633230
 analog-dreams-lofi-vibes-216040.mp3::AudioStreamMP3::5072571107352961714::1737333101::1737400731::1::::<><>::
-audio.tscn::PackedScene::7134217507561580135::1738607476::0::1::::<><>::res://Game Scenes/audio.gd<>uid://c165p5q24j4uw::::res://Audio/SFX/Button Press.mp3<>uid://dc7aa201ijlbt::::res://Audio/SFX/Bell Ding 2.mp3<>uid://ukundhlfk8un::::res://Audio/SFX/Fill Up Noise.mp3<>uid://dsn7bguwdima4::::res://Audio/SFX/Fill Down Noise.mp3<>uid://bl3nvury8pyqb::::res://Audio/SFX/XP Gain.mp3
+audio.tscn::PackedScene::7134217507561580135::1738633230::0::1::::<><>::res://Game Scenes/audio.gd<>uid://c165p5q24j4uw::::res://Audio/SFX/Button Press.mp3<>uid://dc7aa201ijlbt::::res://Audio/SFX/Bell Ding 2.mp3<>uid://ukundhlfk8un::::res://Audio/SFX/Fill Up Noise.mp3<>uid://dsn7bguwdima4::::res://Audio/SFX/Fill Down Noise.mp3<>uid://bl3nvury8pyqb::::res://Audio/SFX/XP Gain.mp3
 autumn-mist-vibes-lofi-beats-281198.mp3::AudioStreamMP3::3427089534695525254::1737333101::1737400731::1::::<><>::
 chill-lofi-160893.mp3::AudioStreamMP3::7570466495313864095::1738607863::1738607863::1::::<><>::
 cozy-lofi-beat-split-memmories-248205.mp3::AudioStreamMP3::5938688452537681616::1737333101::1737400731::1::::<><>::
@@ -88,34 +88,34 @@ Button Press.mp3::AudioStreamMP3::6663596910725737642::1737400918::1737400927::1
 Fill Down Noise.mp3::AudioStreamMP3::8451443223969200765::1737664989::1737664989::1::::<><>::
 Fill Up Noise.mp3::AudioStreamMP3::1425658374367922937::1737665481::1737665490::1::::<><>::
 XP Gain.mp3::AudioStreamMP3::3217128441266942921::1737724432::1737724432::1::::<><>::
-::res://Game Scenes/::1738607789
+::res://Game Scenes/::1738633230
 animation_controller.gd::GDScript::-1::1738606815::0::1::::<>Control<>::
-animation_controller.tscn::PackedScene::3385728309939958348::1738607476::0::1::::<><>::res://Game Scenes/animation_controller.gd<>uid://15sijjux8ypx::::res://Artwork/Publisher/Pie Association Log.png<>uid://djsjpoq7vta1v::::res://UI/Font/PixelEmulator-xq08.ttf
-audio.gd::GDScript::-1::1737724574::0::1::::<>Node<>::
+animation_controller.tscn::PackedScene::3385728309939958348::1738633230::0::1::::<><>::res://Game Scenes/animation_controller.gd<>uid://15sijjux8ypx::::res://Artwork/Publisher/Pie Association Log.png<>uid://djsjpoq7vta1v::::res://UI/Font/PixelEmulator-xq08.ttf
+audio.gd::GDScript::-1::1738607945::0::1::::<>Node<>::
 build_stats.gd::GDScript::-1::1737561877::0::1::::<>Control<>::
-game_scene.tscn::PackedScene::611227250472627137::1738607789::0::1::::<><>::uid://djelmmjxnaeig::::res://Game Scenes/scenario.tscn<>uid://rno2kf2wuab3::::res://UI/Buttons/choice_buttons.tscn<>res://Manager/game_manager.gd<>uid://db2hyhvqcqud1::::res://Game Scenes/options.tscn<>uid://bw8ly3ljofgp1::::res://Manager/Globals.tscn<>uid://bbkymupg5u5dm::::res://Artwork/UI/RectangleBox_96x96.png<>uid://c8v4rxffhvjvb::::res://Audio/Music/audio.tscn<>res://Game Scenes/quest_details_list.gd<>uid://cov4tnc8lbmvu::::res://UI/Buttons/Build_Buttons.tscn<>uid://d0lh1nu5rnjw7::::res://Artwork/UI/HotkeyBox_34x34.png<>uid://ce1xku1igciid::::res://UI/Labels/Build Labels.tscn<>uid://6hh016q1sx57::::res://Artwork/UI/ValueBar_128x16.png<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>res://Game Scenes/guild_stats.gd<>uid://copiser3da2mr::::res://Artwork/UI/ValueBlue_120x8.png<>uid://book7a248tnpj::::res://Artwork/Sprites/Adventurer/IDLE.png<>uid://bmskdhi32s63o::::res://Artwork/UI/ValueRed_120x8.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png<>uid://bw02n1a3u85bg::::res://Artwork/Sprites/Church Book/book_06g.png<>res://Game Scenes/guild_xp_bar.gd<>res://Game Scenes/build_stats.gd
+game_scene.tscn::PackedScene::611227250472627137::1738633230::0::1::::<><>::uid://djelmmjxnaeig::::res://Game Scenes/scenario.tscn<>uid://rno2kf2wuab3::::res://UI/Buttons/choice_buttons.tscn<>res://Manager/game_manager.gd<>uid://db2hyhvqcqud1::::res://Game Scenes/options.tscn<>uid://bw8ly3ljofgp1::::res://Manager/Globals.tscn<>uid://bbkymupg5u5dm::::res://Artwork/UI/RectangleBox_96x96.png<>uid://c8v4rxffhvjvb::::res://Audio/Music/audio.tscn<>res://Game Scenes/quest_details_list.gd<>uid://cov4tnc8lbmvu::::res://UI/Buttons/Build_Buttons.tscn<>uid://d0lh1nu5rnjw7::::res://Artwork/UI/HotkeyBox_34x34.png<>uid://ce1xku1igciid::::res://UI/Labels/Build Labels.tscn<>uid://6hh016q1sx57::::res://Artwork/UI/ValueBar_128x16.png<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>res://Game Scenes/guild_stats.gd<>uid://copiser3da2mr::::res://Artwork/UI/ValueBlue_120x8.png<>uid://book7a248tnpj::::res://Artwork/Sprites/Adventurer/IDLE.png<>uid://bmskdhi32s63o::::res://Artwork/UI/ValueRed_120x8.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png<>uid://bw02n1a3u85bg::::res://Artwork/Sprites/Church Book/book_06g.png<>res://Game Scenes/guild_xp_bar.gd<>res://Game Scenes/build_stats.gd
 guild_stats.gd::GDScript::-1::1737561863::0::1::::<>Control<>::
 guild_xp_bar.gd::GDScript::-1::1737727810::0::1::::<>ProgressBar<>::
 options.tscn::PackedScene::7285657372914667568::1737334988::0::1::::<><>::
 quest_details_list.gd::GDScript::-1::1737561291::0::1::::<>Control<>::
 scenario.tscn::PackedScene::7799909116530957078::1737334988::0::1::::<><>::
-settings_menu.tscn::PackedScene::6608410817490085838::1738607476::0::1::::<><>::uid://bbkymupg5u5dm::::res://Artwork/UI/RectangleBox_96x96.png<>uid://js3538ytpx8l::::res://UI/Labels/SettingsTitle.tscn<>uid://c5tkbbispu5s5::::res://UI/Labels/Settings Label.tscn<>uid://gsuqr47nlrj7::::res://UI/Scrolls/audio_scroll.tscn<>res://Game Scenes/time_between_quests_slider.gd<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn
+settings_menu.tscn::PackedScene::6608410817490085838::1738633230::0::1::::<><>::uid://bbkymupg5u5dm::::res://Artwork/UI/RectangleBox_96x96.png<>uid://js3538ytpx8l::::res://UI/Labels/SettingsTitle.tscn<>uid://c5tkbbispu5s5::::res://UI/Labels/Settings Label.tscn<>uid://gsuqr47nlrj7::::res://UI/Scrolls/audio_scroll.tscn<>res://Game Scenes/time_between_quests_slider.gd<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn
 time_between_quests_slider.gd::GDScript::-1::1738011386::0::1::::<>HSlider<>::
-::res://Manager/::1738607475
-game_manager.gd::GDScript::-1::1738607344::0::1::::<>Node<>::
+::res://Manager/::1738633230
+game_manager.gd::GDScript::-1::1738608467::0::1::::<>Node<>::
 game_manager.tscn::PackedScene::9033114687802445098::1738003696::0::1::::<><>::
 globals.gd::GDScript::-1::1738007354::0::1::::<>Node<>::
-Globals.tscn::PackedScene::3999411943662418840::1738607475::0::1::::<><>::res://Manager/globals.gd
+Globals.tscn::PackedScene::3999411943662418840::1738633230::0::1::::<><>::res://Manager/globals.gd
 ::res://UI/::1738150183
-::res://UI/2D Scenes/::1738607475
+::res://UI/2D Scenes/::1738633230
 main_menu.gd::GDScript::-1::1738152135::0::1::::<>HBoxContainer<>::
 menu.gd::GDScript::-1::1737406072::0::1::::<>Control<>::
-menu.tscn::PackedScene::1868239470291661500::1738607475::0::1::::<><>::res://UI/2D Scenes/menu.gd<>uid://blwyokhup48vq::::res://UI/2D Scenes/menu_layout_ctrl.tscn
-menu_layout_ctrl.gd::GDScript::-1::1738152183::0::1::::<>Control<>::
-menu_layout_ctrl.tscn::PackedScene::3205397020218900598::1738607475::0::1::::<><>::uid://iyc288nhvx4t::::res://Game Scenes/game_scene.tscn<>res://UI/2D Scenes/menu_layout_ctrl.gd<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn<>uid://c5m1pkmi22v1a::::res://Artwork/Background/Derek House v3 (2)-Sheet.png<>uid://rwv3hfsl827i::::res://Artwork/Background/Cloud 1.png<>uid://bhqmsqisx4ul3::::res://Artwork/Sprites/Window.tres<>uid://cc37y4dw05u16::::res://UI/Labels/Title/Title Label.tscn<>uid://72q1tt3ki7dh::::res://Artwork/Background/Cloud 2.png<>uid://dqxy0q84hbsld::::res://Artwork/Background/Cloud 4.png<>uid://boicpk5r3jko7::::res://Game Scenes/animation_controller.tscn<>uid://chg0lyq8uyukg::::res://Artwork/Sprites/Background/Chimney Smoke-Sheet.png<>uid://ck1r3in42d6mx::::res://Artwork/Background/Big Tree.png<>res://UI/2D Scenes/main_menu.gd<>uid://c1fftcekmkocc::::res://Game Scenes/settings_menu.tscn
-::res://UI/Buttons/::1738607475
+menu.tscn::PackedScene::1868239470291661500::1738633230::0::1::::<><>::res://UI/2D Scenes/menu.gd<>uid://blwyokhup48vq::::res://UI/2D Scenes/menu_layout_ctrl.tscn
+menu_layout_ctrl.gd::GDScript::-1::1738632208::0::1::::<>Control<>::
+menu_layout_ctrl.tscn::PackedScene::3205397020218900598::1738633230::0::1::::<><>::uid://iyc288nhvx4t::::res://Game Scenes/game_scene.tscn<>res://UI/2D Scenes/menu_layout_ctrl.gd<>uid://rso3gymj47gc::::res://UI/Buttons/Menu_Buttons.tscn<>uid://c5m1pkmi22v1a::::res://Artwork/Background/Derek House v3 (2)-Sheet.png<>uid://rwv3hfsl827i::::res://Artwork/Background/Cloud 1.png<>uid://bhqmsqisx4ul3::::res://Artwork/Sprites/Window.tres<>uid://cc37y4dw05u16::::res://UI/Labels/Title/Title Label.tscn<>uid://72q1tt3ki7dh::::res://Artwork/Background/Cloud 2.png<>uid://dqxy0q84hbsld::::res://Artwork/Background/Cloud 4.png<>uid://boicpk5r3jko7::::res://Game Scenes/animation_controller.tscn<>uid://chg0lyq8uyukg::::res://Artwork/Sprites/Background/Chimney Smoke-Sheet.png<>uid://ck1r3in42d6mx::::res://Artwork/Background/Big Tree.png<>res://UI/2D Scenes/main_menu.gd<>uid://c1fftcekmkocc::::res://Game Scenes/settings_menu.tscn
+::res://UI/Buttons/::1738633230
 build_buttons.gd::GDScript::-1::1737823141::0::1::::<>Button<>::
-Build_Buttons.tscn::PackedScene::5800632521435614566::1738607475::0::1::::<><>::res://UI/Buttons/build_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
+Build_Buttons.tscn::PackedScene::5800632521435614566::1738633230::0::1::::<><>::res://UI/Buttons/build_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
 choice_buttons.gd::GDScript::-1::1737440095::0::1::::<>Button<>::
 choice_buttons.tscn::PackedScene::1220946041197955806::1738003696::0::1::::<><>::res://UI/Buttons/choice_buttons.gd<>uid://cmsg74y68ymum::::res://Artwork/UI/Button Hovered.png<>uid://brr0r23h4sdrn::::res://Artwork/UI/Button.png
 menu_buttons.gd::GDScript::-1::1738110357::0::1::::<>Button<>::
@@ -131,8 +131,8 @@ SettingsTitle.tscn::PackedScene::670613564678782897::1737334988::0::1::::<><>::
 ::res://UI/Labels/Title/::1738152030
 Title Label.tscn::PackedScene::4973008963443943267::1738150183::0::1::::<><>::uid://bquvtja6buwsw::::res://UI/Font/Neoblock DEMO.otf<>res://UI/Labels/Title/title_label.gd
 title_label.gd::GDScript::-1::1738152030::0::1::::<>Label<>::
-::res://UI/Scrolls/::1738607476
-audio_scroll.gd::GDScript::-1::1738603542::0::1::::<>HSlider<>::
-audio_scroll.tscn::PackedScene::459535713127116670::1738607476::0::1::::<><>::res://UI/Scrolls/audio_scroll.gd
+::res://UI/Scrolls/::1738633230
+audio_scroll.gd::GDScript::-1::1738632208::0::1::::<>HSlider<>::
+audio_scroll.tscn::PackedScene::459535713127116670::1738633230::0::1::::<><>::res://UI/Scrolls/audio_scroll.gd
 side_scroll.gd::GDScript::-1::1737403210::0::1::::<>HScrollBar<>::
 side_scroll.tscn::PackedScene::477575579195041357::1737403308::0::1::::<><>::res://UI/Scrolls/side_scroll.gd
