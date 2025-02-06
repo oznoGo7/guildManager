@@ -7,9 +7,6 @@ extends Control
 @onready var settings_menu: Control = $"Settings Menu"
 @onready var animation_controller: Control = $"Animation Controller"
 
-
-var is_paused = false
-
 func _ready() -> void:
 	Globals.load_data()
 	get_node("Game Scene").update_reputation()
@@ -37,12 +34,12 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Pause"):
-		if is_paused == false:
-			is_paused = true
+		if Globals.is_paused == false:
+			Globals.is_paused = true
 			settings_menu.visible = true
 			print("Show Settings")
 		else:
-			is_paused = false
+			Globals.is_paused = false
 			settings_menu.visible = false
 			print("Hide Settings")
 

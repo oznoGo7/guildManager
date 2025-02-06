@@ -10,8 +10,3 @@ func _ready() -> void:
 			print("Player Selected Choice 2")
 		"Choice 3":
 			print("Player Selected Choice 3")
-
-
-
-func _on_pressed() -> void:
-	pass 

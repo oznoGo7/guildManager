@@ -53,6 +53,10 @@ extends Node
 @onready var guild_xp_bar: ProgressBar = $"Guild Stats/VBoxContainer/Guild_XP_BAR"
 @onready var reputation_lbl: Label = $"Guild Stats/VBoxContainer/Reputation LBL"
 @onready var town_reputation_bar: ProgressBar = $"Guild Stats/VBoxContainer/Town Reputation BAR"
+@onready var choice_1_particles: GPUParticles2D = $"Guild Stats/Choice 1 Particles"
+@onready var choice_1_particles_2: GPUParticles2D = $"Guild Stats/Choice 1 Particles2"
+@onready var choice_2_particles: GPUParticles2D = $"Guild Stats/Choice 2 Particles"
+@onready var choice_3_particles: GPUParticles2D = $"Guild Stats/Choice 3 Particles"
 
 #Build Stats
 @onready var build_stats: Control = $"Build Stats"
@@ -203,9 +207,9 @@ var current_scenario = null
 var current_weekly_scenario = null
 var leveled_up = false
 
-var quest_accepted = .05
-var quest_gambled_away = .05
-var quest_ignored = .03
+var quest_accepted = .07
+var quest_gambled_away = .09
+var quest_ignored = .07
 var amount_of_rep: float
 
 
@@ -218,7 +222,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
+	quests_left_lbl.text = "Quests left in the day: " + str(Globals.quests_left)
 	guild_money_lbl.text = "Guild Gold: " + str(Globals.guild_gold)
 	guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
 	day_tracker.text = "Day " + str(Globals.day)
@@ -246,6 +250,7 @@ func present_scenario():
 
 func _on_choice_1_pressed() -> void:
 	if Globals.guild_members_left >= Globals.guild_members_needed && Globals.quests_left > 0:
+		choice_1_particles.emitting = true
 		Globals.guild_members_left -= Globals.guild_members_needed
 		Globals.guild_gold += current_scenario["reward"]
 		Globals.guild_xp += current_scenario["xp"]
@@ -256,6 +261,7 @@ func _on_choice_1_pressed() -> void:
 		Globals.gained_rep = true
 		choice_control_box.visible = false
 		await update_xp()
+		choice_1_particles_2.emitting = true
 		await update_reputation()
 		if leveled_up == false && Globals.quests_left > 0 && Globals.guild_members_left != 0:
 			move_quest_details_list()
@@ -277,6 +283,7 @@ func _on_choice_2_pressed() -> void:
 		reward_lbl.text = "Reward: " + str(round(current_scenario["reward"])) + " gold and " + str(current_scenario["xp"]) + " XP."
 	else:
 		print("Failed Negotiations. Client has fled")
+		choice_2_particles.emitting = true
 		Globals.quests_left -= 1
 		Globals.town_reputation -= quest_gambled_away
 		amount_of_rep = quest_gambled_away
@@ -290,12 +297,16 @@ func _on_choice_2_pressed() -> void:
 	
 
 func _on_choice_3_pressed() -> void:
+	choice_3_particles.emitting = true
 	Globals.quests_left -= 1
 	Globals.town_reputation -= quest_ignored
 	amount_of_rep = quest_ignored
+	print("Globals.town_reputation: " + str(Globals.town_reputation))
+	print("Amount of Rep: " + str(amount_of_rep))
 	Globals.gained_rep = false
 	choice_control_box.visible = false
 	await update_reputation()
+	print("Town Rep bar value: " + str(town_reputation_bar.value))
 	print("Request ignored.")
 	if Globals.quests_left > 0:
 		move_quest_details_list()
@@ -311,11 +322,9 @@ func move_quest_details_list() -> void:
 
 
 func update_xp() -> void:
-	print(Globals.guild_xp)
-	print(current_scenario)
 	if current_scenario != null:
 		guild_xp_bar.change_value(current_scenario["xp"])
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(2).timeout
 		guild_xp_bar.max_value = Globals.guild_xp_bar_max_value
 		guild_xp_bar.value = Globals.guild_xp
 		if guild_xp_bar.value >= guild_xp_bar.max_value:
@@ -332,9 +341,8 @@ func update_xp() -> void:
 func update_reputation() -> void:
 	if current_scenario != null:
 		town_reputation_bar.change_value(amount_of_rep)
-		await get_tree().create_timer(1.5).timeout
+		await get_tree().create_timer(2).timeout
 		town_reputation_bar.value = Globals.town_reputation
-		print("town_reputation_bar.value: " + str(town_reputation_bar.value))
 		if Globals.town_reputation <= .1:
 			$"Audio/Present Scenario Timer".stop()
 			quest_details_list.visible = false
@@ -412,6 +420,7 @@ func _on_continue_btn_pressed() -> void:
 func new_day() -> void:
 	if Globals.day % 7 == 0:
 		Globals.day += 1
+		$Audio.present_scenario_timer.stop()
 		give_weekly_scenario()
 	else:
 		Globals.day += 1
@@ -419,7 +428,7 @@ func new_day() -> void:
 		Globals.guild_members_left = Globals.guild_members_total
 		Globals.quests_left = Globals.quests_total
 		Globals.town_reputation -= Globals.new_day_reputation_decrease
-		amount_of_rep = .08
+		amount_of_rep = 0
 		await update_reputation()
 		await move_quest_details_list()
 		if Globals.town_reputation > .1:
@@ -458,7 +467,7 @@ func give_weekly_scenario():
 			Globals.town_reputation += current_weekly_scenario["amount"]
 	Globals.guild_members_left = Globals.guild_members_total
 	guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left) #DO NOT REMOVE
-	Globals.quests_total += 1
+	Globals.quests_total += 2
 	Globals.quests_left = Globals.quests_total #DO NOT REMOVE
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
 
