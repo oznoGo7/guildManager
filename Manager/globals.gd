@@ -1,6 +1,8 @@
 extends Node
 
 var save_path = "user://variable.save"
+var is_paused = false
+
 
 #GameVars
 var guild_xp = 0
@@ -11,9 +13,9 @@ var guild_members_total = 5
 var guild_members_needed: int
 var quests_total = 3
 var quests_left = 3
-var town_reputation = .75
+var town_reputation = .80
 var day = 1
-var new_day_reputation_decrease = .08
+var new_day_reputation_decrease = 0.0
 var guild_xp_bar_max_value = 1300
 var adventurer_upgrade = 1
 var reputation_upgrade = 1
@@ -49,16 +51,16 @@ func reset_values() -> void:
 	print("Values Reset")
 	guild_xp = 0
 	get_tree().get_first_node_in_group("Guild XP Bar").value = 0
-	get_tree().get_first_node_in_group("Town Reputation Bar").value = .75
+	get_tree().get_first_node_in_group("Town Reputation Bar").value = .80
 	guild_level = 1
 	guild_gold = 100
 	guild_members_left = 5
 	guild_members_total = 5
 	quests_total = 3
 	quests_left = 3
-	town_reputation = .75
+	town_reputation = .80
 	day = 1
-	new_day_reputation_decrease = .08
+	new_day_reputation_decrease = 0.0
 	guild_xp_bar_max_value = 1300
 	adventurer_upgrade = 1
 	reputation_upgrade = 1

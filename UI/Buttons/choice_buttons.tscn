@@ -6,11 +6,9 @@
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0w7pc"]
 texture = ExtResource("1_nhpi5")
-modulate_color = Color(1, 1, 1, 0.6)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nttan"]
 texture = ExtResource("2_wkr5x")
-modulate_color = Color(1, 1, 1, 0.6)
 
 [sub_resource type="Theme" id="Theme_n2bhl"]
 Button/colors/font_color = Color(0, 0, 0, 1)

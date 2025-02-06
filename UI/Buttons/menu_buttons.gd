@@ -3,8 +3,14 @@ extends Button
 @onready var game_scene = get_tree().get_first_node_in_group("Game Scene")
 @onready var main_menu = get_tree().get_first_node_in_group("Main Menu")
 
-var is_paused = false
 
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Pause"):
+		if Globals.is_paused == false:
+			Globals.is_paused = true
+		else:
+			Globals.is_paused = false
 
 func _on_pressed() -> void:
 	$"Button Press".play()
@@ -67,13 +73,14 @@ func _on_pressed() -> void:
 			$"../../Title Labels".visible = false
 			
 		"Settings":
+			Globals.is_paused = true
 			get_tree().get_first_node_in_group("Settings Menu").visible = true
 		"Back":
-			if is_paused == false:
-				is_paused = true
+			if Globals.is_paused == false:
+				Globals.is_paused = true
 				get_parent().get_parent().visible = true
 			else:
-				is_paused = false
+				Globals.is_paused = false
 				get_parent().get_parent().visible = false
 		"Quit":
 			Globals.save()

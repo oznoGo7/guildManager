@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://iyc288nhvx4t"]
+[gd_scene load_steps=54 format=3 uid="uid://iyc288nhvx4t"]
 
 [ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
 [ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
@@ -200,11 +200,9 @@ expand_margin_left = 6.0
 expand_margin_top = 10.0
 expand_margin_right = 6.0
 expand_margin_bottom = 10.0
-modulate_color = Color(1, 1, 1, 0.6)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oe076"]
 texture = ExtResource("9_op4ep")
-modulate_color = Color(1, 1, 1, 0.823529)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tw5pp"]
 texture = ExtResource("8_sgcg1")
@@ -216,6 +214,40 @@ expand_margin_bottom = 10.0
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b3xmf"]
 texture = ExtResource("10_ex2ks")
 modulate_color = Color(1, 1, 1, 0.823529)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xptgg"]
+particle_flag_disable_z = true
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 35.0
+gravity = Vector3(-175, -100, 0)
+scale_min = 3.0
+scale_max = 7.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wu7co"]
+particle_flag_disable_z = true
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 35.0
+gravity = Vector3(-225, -50, 0)
+scale_min = 3.0
+scale_max = 7.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gr145"]
+particle_flag_disable_z = true
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 35.0
+gravity = Vector3(500, 70, 0)
+linear_accel_min = 30.11
+linear_accel_max = 32.42
+scale_min = 3.0
+scale_max = 7.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8jpwl"]
+particle_flag_disable_z = true
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 35.0
+gravity = Vector3(300, 25, 0)
+scale_min = 3.0
+scale_max = 7.0
 
 [node name="Game Scene" type="Control" groups=["Game Scene"]]
 layout_mode = 3
@@ -231,7 +263,6 @@ script = ExtResource("1_qq12l")
 [node name="Audio" parent="." instance=ExtResource("3_2tspa")]
 
 [node name="Quest Details List" type="Control" parent="." groups=["Quest Details List"]]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -618,6 +649,7 @@ offset_top = 64.0
 offset_right = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 8
 alignment = 1
 
 [node name="Guild Stats" type="Label" parent="Guild Stats/VBoxContainer"]
@@ -669,7 +701,7 @@ script = ExtResource("14_2dm2u")
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
-text = "Town Reputation"
+text = "Guild Reputation"
 horizontal_alignment = 1
 
 [node name="Town Reputation BAR" type="ProgressBar" parent="Guild Stats/VBoxContainer" groups=["Town Reputation Bar"]]
@@ -678,9 +710,57 @@ layout_mode = 2
 theme_override_styles/background = SubResource("StyleBoxTexture_tw5pp")
 theme_override_styles/fill = SubResource("StyleBoxTexture_b3xmf")
 max_value = 1.0
-value = 0.75
+value = 0.8
 show_percentage = false
 script = ExtResource("14_2dm2u")
+
+[node name="Choice 1 Particles" type="GPUParticles2D" parent="Guild Stats"]
+modulate = Color(0.54902, 0.670588, 0.631373, 1)
+position = Vector2(371, 533)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_xptgg")
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.3
+randomness = 0.7
+fixed_fps = 60
+
+[node name="Choice 1 Particles2" type="GPUParticles2D" parent="Guild Stats"]
+modulate = Color(0.780392, 0.482353, 0.345098, 1)
+position = Vector2(371, 533)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_wu7co")
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.3
+randomness = 0.7
+fixed_fps = 60
+
+[node name="Choice 2 Particles" type="GPUParticles2D" parent="Guild Stats"]
+modulate = Color(0.780392, 0.482353, 0.345098, 1)
+position = Vector2(123, 466)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_gr145")
+lifetime = 1.5
+one_shot = true
+speed_scale = 1.3
+randomness = 0.7
+fixed_fps = 60
+
+[node name="Choice 3 Particles" type="GPUParticles2D" parent="Guild Stats"]
+modulate = Color(0.780392, 0.482353, 0.345098, 1)
+position = Vector2(123, 466)
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_8jpwl")
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.3
+randomness = 0.7
+fixed_fps = 60
 
 [node name="Build Stats" type="Control" parent="." groups=["Build Stats"]]
 visible = false
@@ -727,8 +807,6 @@ horizontal_alignment = 1
 
 [node name="Improved Menu" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
 text = "Improve Food Menu"
 
 [node name="Menu Description" parent="Build Stats/VBoxContainer/Improved Menu" instance=ExtResource("7_vl3xu")]
@@ -745,8 +823,6 @@ horizontal_alignment = 1
 
 [node name="Improved Food" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
 layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/outline_size = 10
 text = "Improve Food Quality"
 
 [node name="Food Description" parent="Build Stats/VBoxContainer/Improved Food" instance=ExtResource("7_vl3xu")]
@@ -764,7 +840,6 @@ horizontal_alignment = 1
 [node name="Improved Service" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.99558, 0.99558, 0.99558, 1)
-theme_override_constants/outline_size = 10
 text = "Improve Service"
 
 [node name="Service Description" parent="Build Stats/VBoxContainer/Improved Service" instance=ExtResource("7_vl3xu")]
@@ -780,6 +855,7 @@ Town Reputation + 15%"
 horizontal_alignment = 1
 
 [node name="Extra Quest Board" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
+visible = false
 layout_mode = 2
 text = "Extra Quest Board"
 
