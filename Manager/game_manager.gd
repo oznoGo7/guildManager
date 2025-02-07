@@ -225,7 +225,7 @@ func _process(_delta: float) -> void:
 	quests_left_lbl.text = "Quests left in the day: " + str(Globals.quests_left)
 	guild_money_lbl.text = "Guild Gold: " + str(Globals.guild_gold)
 	guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
-	day_tracker.text = "Day " + str(Globals.day)
+	#day_tracker.text = "Day " + str(Globals.day) this is in the animation_controller under Fade_In
 
 
 func present_scenario():
@@ -281,6 +281,14 @@ func _on_choice_2_pressed() -> void:
 		print("Negotiated terms. Reward increased by x2!")
 		current_scenario["reward"] *= 1.25
 		reward_lbl.text = "Reward: " + str(round(current_scenario["reward"])) + " gold and " + str(current_scenario["xp"]) + " XP."
+		$Audio.negotiation_success()
+		$AnimationPlayer.play("Coin")
+		var mouse_pos = get_viewport().get_mouse_position()
+		$"Success Coin".global_position = mouse_pos
+		var tween = get_tree().create_tween()
+		tween.tween_property($"Success Coin", "position", Vector2(mouse_pos.x, mouse_pos.y - 50), .2)
+		await tween
+		tween.tween_property($"Success Coin", "position", Vector2(mouse_pos.x, mouse_pos.y), .22)
 	else:
 		print("Failed Negotiations. Client has fled")
 		choice_2_particles.emitting = true
@@ -410,7 +418,7 @@ func _on_main_menu_pressed() -> void:
 func _on_go_quit_btn_pressed() -> void:
 	get_tree().quit()
 
-
+ 
 func _on_continue_btn_pressed() -> void:
 	eod.visible = false
 	no_adventurers_left.visible = false
@@ -424,7 +432,6 @@ func new_day() -> void:
 		give_weekly_scenario()
 	else:
 		Globals.day += 1
-		day_tracker.text = "Day: " + str(Globals.day)
 		Globals.guild_members_left = Globals.guild_members_total
 		Globals.quests_left = Globals.quests_total
 		Globals.town_reputation -= Globals.new_day_reputation_decrease

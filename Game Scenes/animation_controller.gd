@@ -10,6 +10,7 @@ func fade_in():
 	$Control/Label.visible = true
 	$"Control/Day Counter".visible = false
 	visible = false
+	get_tree().get_first_node_in_group("Day Tracker").text = "Day " + str(Globals.day)
 
 func display_day():
 	$"Control/Day Counter".visible = true
