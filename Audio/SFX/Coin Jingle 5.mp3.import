@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dh5rbtdr7lm0o"
+path="res://.godot/imported/Coin Jingle 5.mp3-5bc5c2937b0cbd87da06fff1b25cf024.mp3str"
+
+[deps]
+
+source_file="res://Audio/SFX/Coin Jingle 5.mp3"
+dest_files=["res://.godot/imported/Coin Jingle 5.mp3-5bc5c2937b0cbd87da06fff1b25cf024.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -38,6 +38,8 @@ bus = &"sfx"
 stream = ExtResource("6_qht6q")
 bus = &"sfx"
 
+[node name="Negotiation Success" type="AudioStreamPlayer" parent="."]
+
 [connection signal="timeout" from="Present Scenario Timer" to="." method="_on_present_scenario_timer_timeout"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="finished" from="Bell Ding" to="." method="_on_bell_ding_finished"]

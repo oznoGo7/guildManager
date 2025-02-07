@@ -152,3 +152,16 @@ func fill_up_noise():
 func fill_down_noise():
 	$"Fill Up Noise".pitch_scale = randf_range(.9, 1.1)
 	$"Fill Down Noise".play()
+
+func negotiation_success():
+	var random_sound = randi_range(1,3)
+	match random_sound:
+		1:
+			$"Negotiation Success".stream = load("res://Audio/SFX/Coin Jingle 3.mp3")
+			$"Negotiation Success".play()
+		2:
+			$"Negotiation Success".stream = load("res://Audio/SFX/Coin Jingle 4.mp3")
+			$"Negotiation Success".play()
+		3:
+			$"Negotiation Success".stream = load("res://Audio/SFX/Coin Jingle 5.mp3")
+			$"Negotiation Success".play()
