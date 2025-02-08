@@ -49,6 +49,7 @@ extends Node
 @onready var day_tracker: Label = $"Guild Stats/VBoxContainer/Day Tracker"
 @onready var guild_adventurers_left_lbl: Label = $"Guild Stats/VBoxContainer/Guild Adventurers Left LBL"
 @onready var guild_money_lbl: Label = $"Guild Stats/VBoxContainer/Guild Money LBL"
+@onready var guild_level_lbl: Label = $"Guild Stats/VBoxContainer/Guild Level LBL"
 @onready var guild_xp_lbl: Label = $"Guild Stats/VBoxContainer/Guild XP_LBL"
 @onready var guild_xp_bar: ProgressBar = $"Guild Stats/VBoxContainer/Guild_XP_BAR"
 @onready var reputation_lbl: Label = $"Guild Stats/VBoxContainer/Reputation LBL"
@@ -70,6 +71,16 @@ extends Node
 
 #SettingsMenu
 @onready var settings_menu: Control = $"../Settings Menu"
+
+
+#Raid Party
+@onready var raid_party: Control = $"Raid Party"
+@onready var title_boss_raid_lbl: Label = $"Raid Party/Title Boss Raid LBL"
+@onready var description_boss_raid_lbl: Label = $"Raid Party/Description Boss Raid LBL"
+@onready var _1_adventurers_lbl: Label = $"Raid Party/1 Adventurers LBL"
+@onready var max_adventurers_lbl: Label = $"Raid Party/Max Adventurers LBL"
+@onready var slider_vbox: VBoxContainer = $"Raid Party/Slider VBOX"
+@onready var adventurer_slider: HSlider = $"Raid Party/Slider VBOX/Adventurer Slider"
 
 
 var scenario_dict = {
@@ -200,7 +211,11 @@ var weekly_scenario = {
 	9: {"title": "Scandal", "description": "A rumor spreads about misconduct, harming your reputation.", "resource": "reputation", "amount": -.2},
 	10: {"title": "Ambush", "description": "An ambush caught your adventurers off guard, reducing their numbers.", "resource": "adventurers", "amount": -3},
 	11: {"title": "Expensive Repairs", "description": "Damage to your base required costly repairs.", "resource": "gold", "amount": -3000},
-	12: {"title": "Dishonorable Deed", "description": "A member of your group was caught acting dishonorably, hurting your reputation.", "resource": "reputation", "amount": -.15},
+	12: {"title": "Dishonorable Deed", "description": "A member of your group was caught acting dishonorably, hurting your reputation.", "resource": "reputation", "amount": -.15}
+}
+
+var raid_scenario = {
+	1: {"title" : "Dragons Lair", "description": "The Red Dragon has awoken and needs to be slain before he awakens his herd", "adventurers_needed": 8, "reward": 5000, "xp": 3000}
 }
 
 var current_scenario = null
@@ -393,6 +408,7 @@ func end_of_day() -> void:
 func level_up() -> void:
 	if leveled_up == true:
 		Globals.guild_level += 1
+		guild_level_lbl.text = "Guild Level: " + str(Globals.guild_level)
 		quest_details_list.visible = false
 		eod.visible = false
 		game_over.visible = false
@@ -460,7 +476,7 @@ func give_weekly_scenario():
 	game_over.visible = false
 	level_up_options.visible = false
 	weekly_scenario_vbox.visible = true
-	weekly_scenario_title.text = current_weekly_scenario["title"]
+	weekly_scenario_title.text = "Weekly Condition: \n" + current_weekly_scenario["title"]
 	weekly_scenario_lbl.text = current_weekly_scenario["description"]
 	match current_weekly_scenario["resource"]:
 		"adventurers":

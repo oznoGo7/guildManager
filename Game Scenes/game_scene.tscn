@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://iyc288nhvx4t"]
+[gd_scene load_steps=66 format=3 uid="uid://iyc288nhvx4t"]
 
 [ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
 [ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Game Scenes/build_stats.gd" id="14_gkfxq"]
 [ext_resource type="Texture2D" uid="uid://bieseh3iprp8w" path="res://Artwork/UI/Break Bar.png" id="19_qjdel"]
 [ext_resource type="Texture2D" uid="uid://dpg2gfnot57o8" path="res://Artwork/UI/MonedaD.png" id="22_lx510"]
+[ext_resource type="Script" path="res://Game Scenes/raid_party.gd" id="23_1wnc8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c22rn"]
 texture = ExtResource("3_0au3g")
@@ -561,6 +562,7 @@ text = "Quit"
 script = null
 
 [node name="Level Up Options" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -710,6 +712,7 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 32
+text = "Weekly Influence:"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -738,6 +741,7 @@ text = "Quit"
 script = null
 
 [node name="Guild Stats" type="Control" parent="." groups=["Guild Stats"]]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 2.0
@@ -797,6 +801,13 @@ layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 text = "Guild Gold:"
+horizontal_alignment = 1
+
+[node name="Guild Level LBL" type="Label" parent="Guild Stats/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+text = "Guild Level: 1"
 horizontal_alignment = 1
 
 [node name="Guild XP_LBL" type="Label" parent="Guild Stats/VBoxContainer"]
@@ -943,7 +954,7 @@ offset_right = 179.0
 offset_bottom = 215.0
 text = "Improve Food Menu
 Cost: 500
-Town Reputation + 15%"
+Guild Reputation + 15%"
 horizontal_alignment = 1
 
 [node name="Improved Food" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
@@ -959,7 +970,7 @@ offset_right = 180.0
 offset_bottom = 186.0
 text = "Improve Food Menu
 Cost: 500
-Town Reputation + 15%"
+Guild Reputation + 15%"
 horizontal_alignment = 1
 
 [node name="Improved Service" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
@@ -976,7 +987,7 @@ offset_right = 180.0
 offset_bottom = 158.0
 text = "Improve Food Menu
 Cost: 500
-Town Reputation + 15%"
+Guild Reputation + 15%"
 horizontal_alignment = 1
 
 [node name="Extra Quest Board" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
@@ -993,7 +1004,7 @@ offset_right = 180.0
 offset_bottom = 129.0
 text = "Improve Food Menu
 Cost: 500
-Town Reputation + 15%"
+Guild Reputation + 15%"
 horizontal_alignment = 1
 
 [node name="Scout For Adventurers" parent="Build Stats/VBoxContainer" instance=ExtResource("5_7lhf8")]
@@ -1055,6 +1066,110 @@ layout_mode = 2
 text = "Continue?"
 script = null
 
+[node name="Raid Party" type="Control" parent="." groups=["Raid Party"]]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("23_1wnc8")
+
+[node name="Title Boss Raid LBL" type="Label" parent="Raid Party"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -78.5
+offset_top = 119.0
+offset_right = 78.5
+offset_bottom = 164.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Boss Raid!"
+horizontal_alignment = 1
+
+[node name="Description Boss Raid LBL" type="Label" parent="Raid Party"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -244.0
+offset_top = -148.5
+offset_right = 244.0
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Select how many adventurers you would like to send out to Raid"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="1 Adventurers LBL" type="Label" parent="Raid Party"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -285.0
+offset_top = 6.0
+offset_right = -256.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "0
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Max Adventurers LBL" type="Label" parent="Raid Party"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 6.0
+offset_right = 285.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "5"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Slider VBOX" type="VBoxContainer" parent="Raid Party"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = 22.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Adventurer Slider" type="HSlider" parent="Raid Party/Slider VBOX"]
+layout_mode = 2
+max_value = 5.0
+
 [node name="Success Coin" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fn15p")
@@ -1065,8 +1180,6 @@ frame = 1
 libraries = {
 "": SubResource("AnimationLibrary_3m553")
 }
-
-[node name="Animation UI" type="Node" parent="."]
 
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 1 BTN" to="." method="_on_choice_1_pressed"]
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 1 BTN" to="Audio" method="_on_choice_1_btn_pressed"]
