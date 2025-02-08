@@ -1,6 +1,7 @@
+Button
+VBoxContainer
 Label
 HSlider
-VBoxContainer
 HBoxContainer
 Control
 Sprite2D
@@ -10,5 +11,4 @@ AnimationPlayer
 AnimatedSprite2D
 AudioStreamPlayer
 GPUParticles2D
-Button
 HScrollBar

@@ -1,17 +1,15 @@
 res://Game Scenes/game_scene.tscn
 res://Artwork/Sprites/Window.tres
 res://UI/Scrolls/audio_scroll.gd
-res://Manager/game_manager.gd
-res://Audio/Music/audio.tscn
-res://Game Scenes/audio.gd
+res://UI/Labels/Raid Party VBOX labels.tscn
+res://Game Scenes/raid_party.gd
 res://UI/2D Scenes/menu.tscn
 res://Manager/Globals.tscn
 res://UI/2D Scenes/menu_layout_ctrl.tscn
+res://Audio/Music/audio.tscn
 res://Game Scenes/settings_menu.tscn
 res://Game Scenes/animation_controller.tscn
-res://UI/Buttons/Menu_Buttons.tscn
-res://UI/Buttons/choice_buttons.tscn
-res://Game Scenes/animation_controller.gd
+res://UI/Buttons/Build_Buttons.tscn
 res://UI/Buttons/build_buttons.gd
-res://Game Scenes/raid_party.gd
-res://Manager/globals.gd
+res://UI/Buttons/choice_buttons.tscn
+res://UI/Buttons/choice_buttons.gd

@@ -58,18 +58,21 @@ func _on_pressed() -> void:
 				Globals.guild_gold -= Globals.scout_for_adventurers_cost
 				Globals.scout_for_adventurers_cost *= Globals.scout_for_adventurers_count + cost_times_amount
 				Globals.scout_for_adventurers.emit()
-			"Raid Party": 
+			"Raid Party BTN": 
 				var raid_party_node = get_tree().get_first_node_in_group("Raid Party")
 				raid_party_node.visible = true
-				raid_party_node.
+				raid_party_node.raid_boss_present_scenario()
+				visible = false
 	else:
 		print("Insufficient Funds")
 	Globals.save()
 
 
 func _on_mouse_entered() -> void:
-	get_child(0).visible = true
+	if name != "Raid Party BTN":
+		get_child(0).visible = true
 
 
 func _on_mouse_exited() -> void:
-	get_child(0).visible = false
+	if name != "Raid Party BTN":
+		get_child(0).visible = false
