@@ -27,7 +27,10 @@ func fade_out():
 	print("FADE Out")
 	anim.play("Fade Out")
 	await anim.animation_finished
-	display_day()
+	if Globals.day != 1:
+		display_day()
+	else:
+		intial_day_one()
 
 
 func play_publisher():
@@ -37,6 +40,17 @@ func play_publisher():
 	await anim.animation_finished
 	visible = false
 
+func intial_day_one():
+	visible = true
+	print("Initial Day 1")
+	$"Control/Initial Day".visible = true
+	$"Control/Day Counter".visible = true
+	$"Control/Day Counter".text = "Day: " + str((Globals.day))
+	anim.play("Day Change")
+	await anim.animation_finished
+	$"Control/Initial Day".visible = false
+	$"Control/Day Counter".visible = false
+	fade_in()
 
 func _on_skip_pressed() -> void:
 	visible = false

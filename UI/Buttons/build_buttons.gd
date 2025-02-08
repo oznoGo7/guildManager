@@ -58,6 +58,9 @@ func _on_pressed() -> void:
 				Globals.guild_gold -= Globals.scout_for_adventurers_cost
 				Globals.scout_for_adventurers_cost *= Globals.scout_for_adventurers_count + cost_times_amount
 				Globals.scout_for_adventurers.emit()
+			"Raid Party": 
+				var raid_party_node = get_tree().get_first_node_in_group("Raid Party")
+				raid_party_node.visible = true
 	else:
 		print("Insufficient Funds")
 	Globals.save()
