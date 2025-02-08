@@ -61,6 +61,7 @@ func _on_pressed() -> void:
 			"Raid Party": 
 				var raid_party_node = get_tree().get_first_node_in_group("Raid Party")
 				raid_party_node.visible = true
+				raid_party_node.
 	else:
 		print("Insufficient Funds")
 	Globals.save()

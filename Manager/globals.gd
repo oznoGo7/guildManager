@@ -148,7 +148,7 @@ func load_data():
 		quests_left = 3
 		town_reputation = .75
 		day = 1
-		new_day_reputation_decrease = .08
+		new_day_reputation_decrease = 0.0
 		guild_xp_bar_max_value = 1300
 		adventurer_upgrade = 1
 		reputation_upgrade = 1

@@ -214,9 +214,7 @@ var weekly_scenario = {
 	12: {"title": "Dishonorable Deed", "description": "A member of your group was caught acting dishonorably, hurting your reputation.", "resource": "reputation", "amount": -.15}
 }
 
-var raid_scenario = {
-	1: {"title" : "Dragons Lair", "description": "The Red Dragon has awoken and needs to be slain before he awakens his herd", "adventurers_needed": 8, "reward": 5000, "xp": 3000}
-}
+
 
 var current_scenario = null
 var current_weekly_scenario = null
