@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://iyc288nhvx4t"]
+[gd_scene load_steps=67 format=3 uid="uid://iyc288nhvx4t"]
 
 [ext_resource type="PackedScene" uid="uid://djelmmjxnaeig" path="res://Game Scenes/scenario.tscn" id="1_gv6g1"]
 [ext_resource type="PackedScene" uid="uid://rno2kf2wuab3" path="res://UI/Buttons/choice_buttons.tscn" id="1_np7fp"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://bieseh3iprp8w" path="res://Artwork/UI/Break Bar.png" id="19_qjdel"]
 [ext_resource type="Texture2D" uid="uid://dpg2gfnot57o8" path="res://Artwork/UI/MonedaD.png" id="22_lx510"]
 [ext_resource type="Script" path="res://Game Scenes/raid_party.gd" id="23_1wnc8"]
+[ext_resource type="PackedScene" uid="uid://b5sibb1r0ojdw" path="res://UI/Labels/Raid Party VBOX labels.tscn" id="24_8kvld"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c22rn"]
 texture = ExtResource("3_0au3g")
@@ -484,6 +485,19 @@ script = null
 layout_mode = 2
 text = "Choice 3"
 script = null
+
+[node name="Raid Party BTN" parent="Quest Details List" instance=ExtResource("5_7lhf8")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = -30.0
+grow_horizontal = 2
+text = "Raid"
 
 [node name="EOD" type="VBoxContainer" parent="."]
 visible = false
@@ -1067,6 +1081,7 @@ text = "Continue?"
 script = null
 
 [node name="Raid Party" type="Control" parent="." groups=["Raid Party"]]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1127,7 +1142,7 @@ grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 32
-text = "0
+text = "1
 "
 horizontal_alignment = 1
 autowrap_mode = 2
@@ -1160,21 +1175,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = 22.0
-offset_bottom = 62.0
+offset_left = -250.0
+offset_top = 8.0
+offset_right = 250.0
+offset_bottom = 276.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 10
 
 [node name="Adventurer Slider" type="HSlider" parent="Raid Party/Slider VBOX"]
 layout_mode = 2
+min_value = 1.0
 max_value = 5.0
+value = 1.0
 
-[node name="Casualty Rate" type="Label" parent="Raid Party/Slider VBOX"]
+[node name="Adventurers Sent LBL" parent="Raid Party/Slider VBOX" instance=ExtResource("24_8kvld")]
+layout_mode = 2
+text = "Send  ___  Adventurers"
+
+[node name="Success Rate LBL" parent="Raid Party/Slider VBOX" instance=ExtResource("24_8kvld")]
+layout_mode = 2
+text = "Success Chance of Raid: "
+
+[node name="Casualty Rate LBL" parent="Raid Party/Slider VBOX" instance=ExtResource("24_8kvld")]
+layout_mode = 2
+text = "Casualty Rate of Adventurers: "
+
+[node name="Onward" parent="Raid Party/Slider VBOX" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Onward!"
+
+[node name="Back" parent="Raid Party/Slider VBOX" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Back"
+
+[node name="End Of Raid VBOX" type="VBoxContainer" parent="Raid Party"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Success or Failure LBL" parent="Raid Party/End Of Raid VBOX" instance=ExtResource("24_8kvld")]
 layout_mode = 2
 
-[node name="Success Rate" type="Label" parent="Raid Party/Slider VBOX"]
+[node name="Continue" parent="Raid Party/End Of Raid VBOX" instance=ExtResource("1_np7fp")]
 layout_mode = 2
+text = "Continue"
 
 [node name="Success Coin" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -1220,3 +1266,6 @@ libraries = {
 [connection signal="pressed" from="Build Stats/VBoxContainer/Scout For Adventurers" to="Audio" method="_on_extra_quest_board_pressed"]
 [connection signal="pressed" from="No Adventurers Left/NAL/HBoxContainer/Continue BTN" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="No Adventurers Left/NAL/HBoxContainer/Continue BTN" to="Audio" method="_on_continue_btn_pressed"]
+[connection signal="value_changed" from="Raid Party/Slider VBOX/Adventurer Slider" to="Raid Party" method="_on_adventurer_slider_value_changed"]
+[connection signal="pressed" from="Raid Party/Slider VBOX/Onward" to="Raid Party" method="_on_onward_pressed"]
+[connection signal="pressed" from="Raid Party/End Of Raid VBOX/Continue" to="Raid Party" method="_on_continue_pressed"]
