@@ -14,3 +14,4 @@ res://UI/Buttons/choice_buttons.tscn
 res://Game Scenes/animation_controller.gd
 res://UI/Buttons/build_buttons.gd
 res://Game Scenes/raid_party.gd
+res://Manager/globals.gd
