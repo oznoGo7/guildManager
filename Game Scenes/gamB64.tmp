@@ -486,6 +486,19 @@ layout_mode = 2
 text = "Choice 3"
 script = null
 
+[node name="Raid Party BTN" parent="Quest Details List" instance=ExtResource("5_7lhf8")]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = -80.0
+offset_right = 100.0
+offset_bottom = -30.0
+grow_horizontal = 2
+text = "Raid"
+
 [node name="EOD" type="VBoxContainer" parent="."]
 visible = false
 layout_mode = 1
@@ -1192,34 +1205,21 @@ text = "Casualty Rate of Adventurers: "
 layout_mode = 2
 text = "Onward!"
 
+[node name="Back" parent="Raid Party/Slider VBOX" instance=ExtResource("1_np7fp")]
+layout_mode = 2
+text = "Back"
+
 [node name="End Of Raid" type="Control" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="End Of Raid VBOX" type="VBoxContainer" parent="End Of Raid"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -44.0
-offset_right = 100.0
-offset_bottom = 44.0
-grow_horizontal = 2
-grow_vertical = 2
+visible = false
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 88.0
 
 [node name="Success or Failure LBL" parent="End Of Raid/End Of Raid VBOX" instance=ExtResource("24_8kvld")]
 layout_mode = 2
@@ -1245,6 +1245,7 @@ libraries = {
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 2 BTN" to="Audio" method="_on_choice_2_btn_pressed"]
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 3 BTN" to="." method="_on_choice_3_pressed"]
 [connection signal="pressed" from="Quest Details List/Quest Details List/Choice Control Box/HBoxContainer/Choice 3 BTN" to="Audio" method="_on_choice_3_btn_pressed"]
+[connection signal="pressed" from="Quest Details List/Raid Party BTN" to="." method="_on_raid_party_btn_pressed"]
 [connection signal="pressed" from="EOD/HBoxContainer/Continue BTN" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="EOD/HBoxContainer/Continue BTN" to="Audio" method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="Game Over/HBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

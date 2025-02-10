@@ -29,8 +29,11 @@ func fade_out():
 	await anim.animation_finished
 	if Globals.day != 1:
 		display_day()
-	else:
+	elif Globals.day == 1:
 		intial_day_one()
+	elif Globals.day % 14 == 0:
+		intial_day_one()
+		$"Control/Initial Day".text = "RAID DAY"
 
 
 func play_publisher():
