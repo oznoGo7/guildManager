@@ -81,6 +81,9 @@ extends Node
 @onready var max_adventurers_lbl: Label = $"Raid Party/Max Adventurers LBL"
 @onready var slider_vbox: VBoxContainer = $"Raid Party/Slider VBOX"
 @onready var adventurer_slider: HSlider = $"Raid Party/Slider VBOX/Adventurer Slider"
+@onready var end_of_raid: Control = $"End Of Raid"
+@onready var end_of_raid_vbox: VBoxContainer = $"End Of Raid/End Of Raid VBOX"
+@onready var success_or_failure_lbl: Label = $"End Of Raid/End Of Raid VBOX/Success or Failure LBL"
 
 
 var scenario_dict = {
@@ -219,6 +222,8 @@ var weekly_scenario = {
 var current_scenario = null
 var current_weekly_scenario = null
 var leveled_up = false
+var in_raid = false
+
 
 var quest_accepted = .07
 var quest_gambled_away = .09
@@ -360,6 +365,8 @@ func update_xp() -> void:
 		guild_xp_bar.max_value = Globals.guild_xp_bar_max_value
 
 func update_reputation() -> void:
+	print(current_scenario)
+	print("Updating Rep")
 	if current_scenario != null:
 		town_reputation_bar.change_value(amount_of_rep)
 		await get_tree().create_timer(2).timeout
@@ -391,7 +398,6 @@ func no_more_adventurers():
 
 func end_of_day() -> void:
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
-	Globals.gained_rep = false
 	if Globals.quests_left <= 0:
 		quest_details_list.visible = false
 		game_over.visible = false
@@ -412,6 +418,8 @@ func level_up() -> void:
 		game_over.visible = false
 		level_up_options.visible = true
 		weekly_scenario_vbox.visible = false
+		raid_party.visible = false
+		end_of_raid.visible = false
 		adventurers_lbl.text = "Recruit more Adventurers (1-3)"
 		increase_rep_lbl.text = "Increase Reputation with the Town (40%)"
 		anim.play("Adventurer")
@@ -440,10 +448,14 @@ func _on_continue_btn_pressed() -> void:
 	new_day()
 
 func new_day() -> void:
-	if Globals.day % 7 == 0:
+	if Globals.day % 7 == 0 and Globals.day % 14 != 0:
 		Globals.day += 1
 		$Audio.present_scenario_timer.stop()
 		give_weekly_scenario()
+	elif Globals.day % 7 == 0 and Globals.day % 14 == 0:
+		Globals.day += 1
+		$Audio.present_scenario_timer.stop()
+		give_raid_scenario()
 	else:
 		Globals.day += 1
 		Globals.guild_members_left = Globals.guild_members_total
@@ -492,6 +504,13 @@ func give_weekly_scenario():
 	Globals.quests_left = Globals.quests_total #DO NOT REMOVE
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
 
+func give_raid_scenario():
+	raid_party.raid_boss_present_scenario()
+	current_scenario = raid_party.current_scenario
+	in_raid = true
+	quest_details_list.visible = false
+	raid_party.visible = true
+
 
 func _on_adventurers_btn_pressed() -> void:
 	var random_amount_of_adventurers = randi() % 3 + 1
@@ -500,7 +519,8 @@ func _on_adventurers_btn_pressed() -> void:
 	guild_adventurers_left_lbl.text = "Adventurers Left: " + str(Globals.guild_members_left)
 	Globals.adventurer_upgrade += 1
 	level_up_ended()
-	end_of_day()
+	if in_raid == false:
+		end_of_day()
 	Globals.save()
 
 func _on_increase_rep_btn_pressed() -> void:
@@ -513,12 +533,22 @@ func _on_increase_rep_btn_pressed() -> void:
 
 func level_up_ended() -> void:
 	leveled_up = false
-	if Globals.quests_left == 0:
+	if Globals.quests_left <= 0 && in_raid == false:
 		quest_details_list.visible = false
 		eod.visible = true
 		game_over.visible = false
 		level_up_options.visible = false
 		weekly_scenario_vbox.visible = false
+		raid_party.visible = false
+		end_of_raid.visible = false
+	elif Globals.quests_left <= 0 && in_raid == true:
+		quest_details_list.visible = false
+		eod.visible = false
+		game_over.visible = false
+		level_up_options.visible = false
+		weekly_scenario_vbox.visible = false
+		raid_party.visible = false
+		end_of_raid.visible = true
 	else:
 		level_up_options.visible = false
 		move_quest_details_list()
@@ -550,3 +580,9 @@ func _on_ws_continue_btn_pressed() -> void:
 
 func _on_ws_quit_btn_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_eor_continue_pressed() -> void:
+	in_raid = false
+	move_quest_details_list()
+	$"Audio/Present Scenario Timer".start()

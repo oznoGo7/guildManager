@@ -1,9 +1,9 @@
+Control
 Button
 VBoxContainer
 Label
 HSlider
 HBoxContainer
-Control
 Sprite2D
 Node
 Node2D
