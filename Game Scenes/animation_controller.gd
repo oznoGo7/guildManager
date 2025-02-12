@@ -24,16 +24,16 @@ func fade_out():
 	$Control/Sprite2D.visible = false
 	$Control/Label.visible = false
 	$"Control/Day Counter".visible = false
-	print("FADE Out")
 	anim.play("Fade Out")
 	await anim.animation_finished
-	if Globals.day != 1:
+	if Globals.day != 1 and Globals.day % 14 != 0:
 		display_day()
 	elif Globals.day == 1:
 		intial_day_one()
 	elif Globals.day % 14 == 0:
-		intial_day_one()
-		$"Control/Initial Day".text = "RAID DAY"
+		raid_day()
+	else:
+		print("PASSED")
 
 
 func play_publisher():
@@ -50,6 +50,19 @@ func intial_day_one():
 	$"Control/Day Counter".visible = true
 	$"Control/Day Counter".text = "Day: " + str((Globals.day))
 	anim.play("Day Change")
+	await anim.animation_finished
+	$"Control/Initial Day".visible = false
+	$"Control/Day Counter".visible = false
+	fade_in()
+
+func raid_day():
+	print("Raid Day Anim")
+	visible = true
+	$"Control/Initial Day".text = "Raid Day \n Use your Adventurers wisely..."
+	$"Control/Day Counter".text = "Day: " + str((Globals.day))
+	$"Control/Initial Day".visible = true
+	$"Control/Day Counter".visible = true
+	anim.play("Raid Day")
 	await anim.animation_finished
 	$"Control/Initial Day".visible = false
 	$"Control/Day Counter".visible = false
