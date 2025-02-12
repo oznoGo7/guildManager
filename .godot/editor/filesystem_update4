@@ -6,10 +6,6 @@ res://Manager/Globals.tscn
 res://UI/2D Scenes/menu_layout_ctrl.tscn
 res://Audio/Music/audio.tscn
 res://UI/Buttons/Build_Buttons.tscn
-res://UI/Labels/Raid Party VBOX labels.tscn
-res://UI/Buttons/choice_buttons.tscn
-res://Manager/game_manager.gd
-res://Game Scenes/raid_party.gd
-res://Manager/globals.gd
 res://Game Scenes/animation_controller.tscn
+res://Manager/globals.gd
 res://Game Scenes/animation_controller.gd
