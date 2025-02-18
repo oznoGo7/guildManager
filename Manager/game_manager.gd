@@ -202,6 +202,7 @@ var scenario_dict = {
 
 }
 
+
 var weekly_scenario = {
 	1: {"title": "Recruitment", "description": "In your latest endevours the Mayor recruited some of your adventurers as his personal guard", "resource": "adventurers", "amount": -3},
 	2: {"title": "Heroic Deeds", "description": "Your adventurers saved a village from bandits, earning great respect.", "resource": "reputation", "amount": .1},
@@ -452,10 +453,10 @@ func new_day() -> void:
 		Globals.day += 1
 		$Audio.present_scenario_timer.stop()
 		give_weekly_scenario()
-	elif Globals.day % 7 == 0 and Globals.day % 14 == 0:
-		Globals.day += 1
-		$Audio.present_scenario_timer.stop()
-		give_raid_scenario()
+	#elif Globals.day % 7 == 0 and Globals.day % 14 == 0:
+		#Globals.day += 1
+		#$Audio.present_scenario_timer.stop()
+		#give_raid_scenario()
 	else:
 		Globals.day += 1
 		Globals.guild_members_left = Globals.guild_members_total
@@ -511,7 +512,6 @@ func give_raid_scenario():
 	quest_details_list.visible = false
 	raid_party.visible = true
 
-
 func _on_adventurers_btn_pressed() -> void:
 	var random_amount_of_adventurers = randi() % 3 + 1
 	Globals.guild_members_total += random_amount_of_adventurers
@@ -541,7 +541,7 @@ func level_up_ended() -> void:
 		weekly_scenario_vbox.visible = false
 		raid_party.visible = false
 		end_of_raid.visible = false
-	elif Globals.quests_left <= 0 && in_raid == true:
+	elif in_raid == true:
 		quest_details_list.visible = false
 		eod.visible = false
 		game_over.visible = false

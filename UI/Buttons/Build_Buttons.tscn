@@ -39,7 +39,6 @@ Button/styles/pressed = null
 [node name="Improved Menu" type="Button"]
 custom_minimum_size = Vector2(100, 25)
 theme = SubResource("Theme_hee6h")
-theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 10

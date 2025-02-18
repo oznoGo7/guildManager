@@ -1,21 +1,22 @@
-res://Game Scenes/game_scene.tscn::bc5ceac9098f217773492560d09a5325::1738972603::res://.godot/exported/133200997/export-280997dc0070c77ec5ab8f1e99f30e03-game_scene.scn
+res://Game Scenes/game_scene.tscn::274aa3b2aee31589849e118b77db2743::1739832110::res://.godot/exported/133200997/export-280997dc0070c77ec5ab8f1e99f30e03-game_scene.scn
 res://Game Scenes/options.tscn::0689fb008835bd0242c8ced28e20fd37::1737334988::res://.godot/exported/133200997/export-f90b12a681cf9128a2659bbc1e8e553c-options.scn
 res://Game Scenes/scenario.tscn::5a31d95b4ec0ed6911cab06245340f8d::1737334988::res://.godot/exported/133200997/export-a06963f2b832e8e0f79cc0d0bc8e5dc0-scenario.scn
 res://Manager/game_manager.tscn::59959b4acbb9dd5a7a9474e13d2daa48::1738003696::res://.godot/exported/133200997/export-5d4eda2a508afacaba9ffec33859a383-game_manager.scn
-res://Manager/Globals.tscn::03ada32f513cc059183dcea319e7bc39::1738972603::res://.godot/exported/133200997/export-c8c839ed5b811079095f18d8483a6516-Globals.scn
-res://UI/2D Scenes/menu.tscn::65443fdb7ea14d2575610482490b84f9::1738972603::res://.godot/exported/133200997/export-8f46e644e8d0d66b7e0b863e2bb25731-menu.scn
-res://UI/2D Scenes/menu_layout_ctrl.tscn::a2234b2fdaa2c2c7714a52eedf363c51::1738972603::res://.godot/exported/133200997/export-16fa59aeee7bc622099cea752a6c94bf-menu_layout_ctrl.scn
-res://UI/Buttons/Build_Buttons.tscn::7d6946a2ca1efaadd1594da9304edee0::1738864527::res://.godot/exported/133200997/export-21f29c8b6e67d92956927a6654ab727e-Build_Buttons.scn
-res://UI/Buttons/choice_buttons.tscn::7945db32ae61ff524016a6f28b599498::1738950168::res://.godot/exported/133200997/export-6bcfc176347db171dcafbeffb633ecda-choice_buttons.scn
-res://UI/Buttons/Menu_Buttons.tscn::6b6f6edd4940380c1ff2d86bb87e9876::1738950168::res://.godot/exported/133200997/export-d934862dd7501cabdef98b0d6d4d7e2d-Menu_Buttons.scn
+res://Manager/Globals.tscn::03ada32f513cc059183dcea319e7bc39::1739832110::res://.godot/exported/133200997/export-c8c839ed5b811079095f18d8483a6516-Globals.scn
+res://UI/2D Scenes/menu.tscn::65443fdb7ea14d2575610482490b84f9::1739832110::res://.godot/exported/133200997/export-8f46e644e8d0d66b7e0b863e2bb25731-menu.scn
+res://UI/2D Scenes/menu_layout_ctrl.tscn::a2234b2fdaa2c2c7714a52eedf363c51::1739832110::res://.godot/exported/133200997/export-16fa59aeee7bc622099cea752a6c94bf-menu_layout_ctrl.scn
+res://UI/Buttons/Build_Buttons.tscn::4316f28525f3cb839ecb308d84ddf457::1739840616::res://.godot/exported/133200997/export-21f29c8b6e67d92956927a6654ab727e-Build_Buttons.scn
+res://UI/Buttons/choice_buttons.tscn::7945db32ae61ff524016a6f28b599498::1739209319::res://.godot/exported/133200997/export-6bcfc176347db171dcafbeffb633ecda-choice_buttons.scn
+res://UI/Buttons/Menu_Buttons.tscn::6b6f6edd4940380c1ff2d86bb87e9876::1739832111::res://.godot/exported/133200997/export-d934862dd7501cabdef98b0d6d4d7e2d-Menu_Buttons.scn
 res://UI/Labels/Build Labels.tscn::6f35c9cc882908ec4a2e80246e6a318f::1738864527::res://.godot/exported/133200997/export-5aa5ce22f29d41caaf83f184889a3203-Build Labels.scn
 res://UI/Labels/Settings Label.tscn::47d184619a9e941663240d8fae65f505::1737404772::res://.godot/exported/133200997/export-41b7bfb2647d24aa395ff3436c0903f1-Settings Label.scn
 res://UI/Labels/SettingsTitle.tscn::1172620d5c49df5998bf550c25fdfc68::1737334988::res://.godot/exported/133200997/export-7ad67ae9913e633b73513f4f078f90ad-SettingsTitle.scn
 res://UI/Scrolls/side_scroll.tscn::2e8e8b1cbf6e3a9fe133ffc0dd46267c::1737403308::res://.godot/exported/133200997/export-97368ebbfbb7f692a7188548422884fc-side_scroll.scn
 res://default_bus_layout.tres::b60ecf9613b12a8f587c1459e4a6a141::1737407408::res://.godot/exported/133200997/export-19246414aa9fb561ced4b8dce477acec-default_bus_layout.res
-res://Audio/Music/audio.tscn::19c9f1ac5f8c7ef8ec8b95a5f56618fd::1738972603::res://.godot/exported/133200997/export-c3ce4c1126a5693ef4423d338db576a4-audio.scn
+res://Audio/Music/audio.tscn::19c9f1ac5f8c7ef8ec8b95a5f56618fd::1739832110::res://.godot/exported/133200997/export-c3ce4c1126a5693ef4423d338db576a4-audio.scn
 res://UI/Scrolls/audio_scroll.tscn::d5abb192dab7378d4858a5d945b36dd0::1738864527::res://.godot/exported/133200997/export-2e3ff1e95ad4b25270ccc565dbada9e6-audio_scroll.scn
 res://UI/Labels/Title/Title Label.tscn::1314b848705b355fc94a7efafe104293::1738150183::res://.godot/exported/133200997/export-495a2e58548213159fa9143e3edb2b78-Title Label.scn
-res://Game Scenes/animation_controller.tscn::8409a7c9a005dc074ca332aa9edc3812::1738972622::res://.godot/exported/133200997/export-93d89c9dba448e070d089bfc34351b35-animation_controller.scn
-res://Artwork/Sprites/Window.tres::b40c9c7a91c7c7acd6a1cd65f6657794::1738882741::res://.godot/exported/133200997/export-a7ca75eb6b7707a356432393f2e13d7d-Window.res
-res://Game Scenes/settings_menu.tscn::b0e58f319cea0d76d02982394dd7cc96::1738972603::res://.godot/exported/133200997/export-bb623100f11cb539d3e4daf761df8874-settings_menu.scn
+res://Game Scenes/animation_controller.tscn::4a289325e6f7b086f1376cc02dfd7e07::1739832111::res://.godot/exported/133200997/export-93d89c9dba448e070d089bfc34351b35-animation_controller.scn
+res://Artwork/Sprites/Window.tres::b40c9c7a91c7c7acd6a1cd65f6657794::1739832018::res://.godot/exported/133200997/export-a7ca75eb6b7707a356432393f2e13d7d-Window.res
+res://Game Scenes/settings_menu.tscn::b0e58f319cea0d76d02982394dd7cc96::1739028935::res://.godot/exported/133200997/export-bb623100f11cb539d3e4daf761df8874-settings_menu.scn
+res://UI/Labels/Raid Party VBOX labels.tscn::36af52ac8654b173c88c7df2a109e6c8::1739214915::res://.godot/exported/133200997/export-a5b8a51adfe38c843e5ddf73645bd3ef-Raid Party VBOX labels.scn

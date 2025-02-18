@@ -7,5 +7,4 @@ res://UI/2D Scenes/menu_layout_ctrl.tscn
 res://Audio/Music/audio.tscn
 res://UI/Buttons/Build_Buttons.tscn
 res://Game Scenes/animation_controller.tscn
-res://Manager/globals.gd
-res://Game Scenes/animation_controller.gd
+res://UI/Buttons/Menu_Buttons.tscn

@@ -59,7 +59,7 @@ func reset_values() -> void:
 	quests_total = 3
 	quests_left = 3
 	town_reputation = .80
-	day = 14
+	day = 1
 	new_day_reputation_decrease = 0.0
 	guild_xp_bar_max_value = 1300
 	adventurer_upgrade = 1

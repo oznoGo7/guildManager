@@ -894,7 +894,7 @@ randomness = 0.7
 fixed_fps = 60
 
 [node name="Sprite2D" type="Sprite2D" parent="Guild Stats"]
-position = Vector2(52, 465)
+position = Vector2(52, 480)
 rotation = 1.5708
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("19_qjdel")
@@ -1178,17 +1178,14 @@ value = 1.0
 
 [node name="Adventurers Sent LBL" parent="Raid Party/Slider VBOX" instance=ExtResource("24_8kvld")]
 layout_mode = 2
-text = "Send  ___  Adventurers"
+text = "Send ___ Adventurer(s)"
 
 [node name="Success Rate LBL" parent="Raid Party/Slider VBOX" instance=ExtResource("24_8kvld")]
 layout_mode = 2
 text = "Success Chance of Raid: "
 
-[node name="Casualty Rate LBL" parent="Raid Party/Slider VBOX" instance=ExtResource("24_8kvld")]
-layout_mode = 2
-text = "Casualty Rate of Adventurers: "
-
 [node name="Onward" parent="Raid Party/Slider VBOX" instance=ExtResource("1_np7fp")]
+visible = false
 layout_mode = 2
 text = "Onward!"
 
@@ -1229,6 +1226,7 @@ layout_mode = 2
 text = "Continue"
 
 [node name="Success Coin" type="AnimatedSprite2D" parent="."]
+position = Vector2(33, 26)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fn15p")
 animation = &"coin"
