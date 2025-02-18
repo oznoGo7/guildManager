@@ -8,7 +8,6 @@ extends Control
 @onready var adventurer_slider: HSlider = $"Slider VBOX/Adventurer Slider"
 @onready var adventurers_sent_lbl: Label = $"Slider VBOX/Adventurers Sent LBL"
 @onready var success_rate_lbl: Label = $"Slider VBOX/Success Rate LBL"
-@onready var casualty_rate_lbl: Label = $"Slider VBOX/Casualty Rate LBL"
 @onready var end_of_raid: Control = $"../End Of Raid"
 @onready var end_of_raid_vbox: VBoxContainer = $"../End Of Raid/End Of Raid VBOX"
 @onready var success_or_failure_lbl: Label = $"../End Of Raid/End Of Raid VBOX/Success or Failure LBL"
@@ -21,7 +20,7 @@ var raid_scenario_dict = {
 		"casualty_rate": 0.8,  # Base casualty rate on failure
 		"success_casualty_rate": 0.25,  # Small chance of deaths on success
 		"reward": 5000, 
-		"xp": 300
+		"xp": 3000
 	},
 	2: {
 		"title": "The Cursed Tomb",
@@ -177,10 +176,10 @@ func raid_boss_present_scenario():
 func set_value_of_slider():
 	max_adventurers_lbl.text = str(Globals.guild_members_left)
 	adventurer_slider.max_value = Globals.guild_members_left
+	adventurer_slider.value = 1
 
 func _on_adventurer_slider_value_changed(value: float) -> void:
-	adventurers_sent_lbl.text = "Send: " + str(adventurer_slider.value) + " Adventurers"
-	
+	adventurers_sent_lbl.text = "Send: " + str(adventurer_slider.value) + " Adventurer(s)"
 	if adventurer_slider.value >= adventurers_needed_for_success:
 		chance_of_success = 80 + (10 * log(adventurer_slider.value - adventurers_needed_for_success + 1))
 	else:
@@ -188,6 +187,7 @@ func _on_adventurer_slider_value_changed(value: float) -> void:
 	
 	chance_of_success = min(100, chance_of_success)  
 	success_rate_lbl.text = "Success Chance of Raid: " + str(round(chance_of_success)) + "%"
+	$"Slider VBOX/Onward".visible = true
 
 func _on_onward_pressed() -> void:
 	Globals.guild_members_left -= adventurer_slider.value
@@ -201,7 +201,7 @@ func calculate_raid_success():
 
 	if chance_of_success >= random_chance_of_success:
 		# SUCCESS
-		success_or_failure_lbl.text = "Success! Your adventurers return with " + str(current_scenario["reward"]) + " gold and " + str(current_scenario["xp"]) + " xp."
+		success_or_failure_lbl.text = "Success! Your adventurers return with \n" + str(current_scenario["reward"]) + " gold and " + str(current_scenario["xp"]) + " xp."
 		
 		# Apply small success casualty rate
 		random_amount_died = int(adventurers_sent * current_scenario["success_casualty_rate"])
@@ -248,6 +248,4 @@ func _on_eor_continue_pressed() -> void:
 	visible = false
 	end_of_raid.visible = false
 	$"..".in_raid = false
-	$".."._on_continue_btn_pressed()
-	Globals.day -= 1
 	#Globals.save()

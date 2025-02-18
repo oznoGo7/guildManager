@@ -127,13 +127,36 @@ func bell_dinging() -> void:
 
 
 func _on_bell_ding_finished() -> void:
-	get_tree().get_first_node_in_group("Game Scene").present_scenario()
-	get_tree().get_first_node_in_group("Game Scene").visible = true
-	get_tree().get_first_node_in_group("Quest Details List Vbox").visible = true
-	get_tree().get_first_node_in_group("Quest Details List").drop_menu()
-	get_tree().get_first_node_in_group("Guild Stats").drop_menu()
-	get_tree().get_first_node_in_group("Build Stats").drop_menu()
-
+	var game_scene = get_tree().get_first_node_in_group("Game Scene")
+	game_scene.visible = true
+	if Globals.day % 14 != 0 and Globals.quests_left != Globals.quests_total:
+		game_scene.present_scenario()
+		get_tree().get_first_node_in_group("Quest Details List Vbox").visible = true
+		get_tree().get_first_node_in_group("Quest Details List").drop_menu()
+		get_tree().get_first_node_in_group("Guild Stats").drop_menu()
+		get_tree().get_first_node_in_group("Build Stats").drop_menu()
+	elif Globals.day % 14 == 0 and Globals.quests_left != Globals.quests_total:
+		game_scene.present_scenario()
+		get_tree().get_first_node_in_group("Quest Details List Vbox").visible = true
+		get_tree().get_first_node_in_group("Quest Details List").drop_menu()
+		get_tree().get_first_node_in_group("Guild Stats").drop_menu()
+		get_tree().get_first_node_in_group("Build Stats").drop_menu()
+	elif Globals.day % 14 != 0 and Globals.quests_left == Globals.quests_total:
+		game_scene.present_scenario()
+		get_tree().get_first_node_in_group("Quest Details List Vbox").visible = true
+		get_tree().get_first_node_in_group("Quest Details List").drop_menu()
+		get_tree().get_first_node_in_group("Guild Stats").drop_menu()
+		get_tree().get_first_node_in_group("Build Stats").drop_menu()
+	else:
+		present_scenario_timer.stop()
+		$"../Quest Details List".drop_menu()
+		$"../Guild Stats".drop_menu()
+		$"../Guild Stats".visible = true
+		$"../Build Stats".drop_menu()
+		$"../Build Stats".visible = true
+		game_scene.give_raid_scenario()
+		Globals.quests_left -= 1
+		print("Quests LEFT: " + str(Globals.quests_left))
 
 
 
