@@ -506,11 +506,12 @@ func give_weekly_scenario():
 	quests_left_lbl.text = "Quest options left in the day: " + str(Globals.quests_left)
 
 func give_raid_scenario():
+	var tween = get_tree().create_tween()
 	raid_party.raid_boss_present_scenario()
 	current_scenario = raid_party.current_scenario
+	tween.tween_property(raid_party, "position", Vector2(0, 30), .75)
 	in_raid = true
 	quest_details_list.visible = false
-	raid_party.visible = true
 
 func _on_adventurers_btn_pressed() -> void:
 	var random_amount_of_adventurers = randi() % 3 + 1

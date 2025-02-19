@@ -73,7 +73,7 @@ var raid_scenario_dict = {
 		"adventurers_needed": 13,
 		"casualty_rate": 0.9,
 		"success_casualty_rate": 0.4,
-		"reward": 10000,
+		"reward": 6000,
 		"xp": 6000
 	},
 	8: {

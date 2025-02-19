@@ -1,6 +1,7 @@
 res://UI/2D Scenes/menu.tscn
 res://Artwork/Sprites/Window.tres
 res://UI/Scrolls/audio_scroll.gd
+res://Manager/globals.gd
 res://Game Scenes/game_scene.tscn
 res://Manager/Globals.tscn
 res://UI/2D Scenes/menu_layout_ctrl.tscn
@@ -8,3 +9,6 @@ res://Audio/Music/audio.tscn
 res://UI/Buttons/Build_Buttons.tscn
 res://Game Scenes/animation_controller.tscn
 res://UI/Buttons/Menu_Buttons.tscn
+res://Manager/game_manager.gd
+res://Game Scenes/raid_party.gd
+res://Game Scenes/audio.gd
