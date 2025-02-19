@@ -1068,11 +1068,14 @@ text = "Continue?"
 script = null
 
 [node name="Raid Party" type="Control" parent="." groups=["Raid Party"]]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -564.0
+offset_right = -2.0
+offset_bottom = -564.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("23_1wnc8")
@@ -1226,7 +1229,7 @@ layout_mode = 2
 text = "Continue"
 
 [node name="Success Coin" type="AnimatedSprite2D" parent="."]
-position = Vector2(33, 26)
+position = Vector2(-38, -22)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_fn15p")
 animation = &"coin"

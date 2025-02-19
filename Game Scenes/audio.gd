@@ -162,7 +162,7 @@ func _on_bell_ding_finished() -> void:
 
 func _on_present_scenario_timer_timeout() -> void:
 	bell_dinging()
-	present_scenario_timer.wait_time = randi() % 5 + 3
+	present_scenario_timer.wait_time = randi() % 6 + 4
 
 func guild_xp_gain():
 	$"Guild XP Gain".pitch_scale = randf_range(.9, 1.1)
